@@ -15,8 +15,7 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@@/*": ["./src/.umi/*"],
-      "@@test/*": ["./src/.umi-test/*"]
+      "@@/*": ["./src/.umi/*"]
     }
   },
   "include": ["./**/*.d.ts", "./**/*.ts", "./**/*.tsx"]

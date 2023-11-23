@@ -2,11 +2,19 @@
 /* eslint-disable */
 // API 更新时间：
 // API 唯一标识：
-import * as pet from './pet';
-import * as store from './store';
-import * as user from './user';
+import * as apiWhiteListService from './apiWhiteListService';
+import * as appService from './appService';
+import * as authService from './authService';
+import * as permissionService from './permissionService';
+import * as resourceService from './resourceService';
+import * as roleService from './roleService';
+import * as userService from './userService';
 export default {
-  pet,
-  store,
-  user,
+  apiWhiteListService,
+  appService,
+  authService,
+  permissionService,
+  resourceService,
+  roleService,
+  userService,
 };
