@@ -76,7 +76,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: 'Ant Design Pro',
+  title: 'IOT Engine',
   layout: {
     locale: true,
     ...defaultSettings,
@@ -137,8 +137,10 @@ export default defineConfig({
   openAPI: [
     {
       requestLibPath: "import { request } from '@umijs/max'",
-      schemaPath: 'https://apihub.dev.inrobot.cloud/swaggerui/config/auth.swagger.json',
-      projectName: 'swagger',
+      // schemaPath: 'https://apihub.dev.inrobot.cloud/swaggerui/config/auth.swagger.json',
+      schemaPath: join(__dirname, 'auth.swagger.json'),
+      projectName: 'auth',
+      mock: true,
     },
   ],
   mfsu: {

@@ -93,7 +93,7 @@ declare namespace API {
     list?: authApiWhiteList[];
   };
 
-  type authApiWhiteListRefreshReq = true;
+  type authApiWhiteListRefreshReq = {};
 
   type authApiWhiteListRefreshResp = {
     code?: number;
@@ -338,7 +338,7 @@ declare namespace API {
     token?: string;
   };
 
-  type authLogoutReq = true;
+  type authLogoutReq = {};
 
   type authLogoutResp = {
     code?: number;
@@ -391,6 +391,17 @@ declare namespace API {
   type authPermissionDelResp = {
     code?: number;
     msg?: string;
+  };
+
+  type authPermissionGetMenuReq = {
+    app_code?: string;
+  };
+
+  type authPermissionGetMenuResp = {
+    code?: number;
+    msg?: string;
+    /** 菜单详情 */
+    menu?: string;
   };
 
   type authPermissionGetReq = {
@@ -496,7 +507,7 @@ declare namespace API {
     list?: authResource[];
   };
 
-  type authResourceRuleTypeReq = true;
+  type authResourceRuleTypeReq = {};
 
   type authResourceRuleTypeResp = {
     code?: number;
@@ -787,17 +798,5 @@ declare namespace API {
   type authVerifyPasswordResp = {
     code?: number;
     msg?: string;
-  };
-
-  type protobufAny = {
-    type_url?: string;
-    value?: string;
-  };
-
-  type runtimeError = {
-    error?: string;
-    code?: number;
-    message?: string;
-    details?: protobufAny[];
   };
 }

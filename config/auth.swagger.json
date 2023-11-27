@@ -1,0 +1,3273 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "auth.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "AuthService"
+    },
+    {
+      "name": "AppService"
+    },
+    {
+      "name": "RoleService"
+    },
+    {
+      "name": "UserService"
+    },
+    {
+      "name": "ResourceService"
+    },
+    {
+      "name": "ApiWhiteListService"
+    },
+    {
+      "name": "PermissionService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/rpc/auth/ApiWhiteListService.Add": {
+      "post": {
+        "summary": "添加白名单",
+        "operationId": "ApiWhiteListService_Add",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListAddResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "ApiWhiteListService"
+        ]
+      }
+    },
+    "/rpc/auth/ApiWhiteListService.Del": {
+      "post": {
+        "summary": "删除白名单",
+        "operationId": "ApiWhiteListService_Del",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListDelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListDelReq"
+            }
+          }
+        ],
+        "tags": [
+          "ApiWhiteListService"
+        ]
+      }
+    },
+    "/rpc/auth/ApiWhiteListService.Page": {
+      "post": {
+        "summary": "分页白名单",
+        "operationId": "ApiWhiteListService_Page",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListPageResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListPageReq"
+            }
+          }
+        ],
+        "tags": [
+          "ApiWhiteListService"
+        ]
+      }
+    },
+    "/rpc/auth/ApiWhiteListService.Refresh": {
+      "post": {
+        "summary": "刷新白名单",
+        "operationId": "ApiWhiteListService_Refresh",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListRefreshResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListRefreshReq"
+            }
+          }
+        ],
+        "tags": [
+          "ApiWhiteListService"
+        ]
+      }
+    },
+    "/rpc/auth/ApiWhiteListService.Update": {
+      "post": {
+        "summary": "编辑白名单",
+        "operationId": "ApiWhiteListService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListUpdateResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authApiWhiteListUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "ApiWhiteListService"
+        ]
+      }
+    },
+    "/rpc/auth/AppService.Add": {
+      "post": {
+        "summary": "添加应用",
+        "operationId": "AppService_Add",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAppAddResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAppAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "AppService"
+        ]
+      }
+    },
+    "/rpc/auth/AppService.Del": {
+      "post": {
+        "summary": "删除应用",
+        "operationId": "AppService_Del",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAppDelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAppDelReq"
+            }
+          }
+        ],
+        "tags": [
+          "AppService"
+        ]
+      }
+    },
+    "/rpc/auth/AppService.Get": {
+      "post": {
+        "summary": "获取应用",
+        "operationId": "AppService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAppGetResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAppGetReq"
+            }
+          }
+        ],
+        "tags": [
+          "AppService"
+        ]
+      }
+    },
+    "/rpc/auth/AppService.Page": {
+      "post": {
+        "summary": "应用分页",
+        "operationId": "AppService_Page",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAppPageResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAppPageReq"
+            }
+          }
+        ],
+        "tags": [
+          "AppService"
+        ]
+      }
+    },
+    "/rpc/auth/AppService.Update": {
+      "post": {
+        "summary": "更新应用",
+        "operationId": "AppService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAppUpdateResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAppUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "AppService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.APIPermissions": {
+      "post": {
+        "summary": "API权限",
+        "operationId": "AuthService_APIPermissions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAPIPermissionsResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAPIPermissionsReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.DelToken": {
+      "post": {
+        "summary": "删除token",
+        "operationId": "AuthService_DelToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authDelTokenResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authDelTokenReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.ForgetPassword": {
+      "post": {
+        "summary": "忘记密码",
+        "operationId": "AuthService_ForgetPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authForgetPasswordResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authForgetPasswordReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.GenToken": {
+      "post": {
+        "summary": "生成token",
+        "operationId": "AuthService_GenToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authGenTokenResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authGenTokenReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.Inspect": {
+      "post": {
+        "summary": "检测token",
+        "operationId": "AuthService_Inspect",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authInspectResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authInspectReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.Login": {
+      "post": {
+        "summary": "登录",
+        "operationId": "AuthService_Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLoginResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authLoginReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.LoginByEmail": {
+      "post": {
+        "summary": "邮箱登录",
+        "operationId": "AuthService_LoginByEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLoginByEmailResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authLoginByEmailReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.LoginByPhone": {
+      "post": {
+        "summary": "手机号登录",
+        "operationId": "AuthService_LoginByPhone",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLoginByPhoneResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authLoginByPhoneReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.Logout": {
+      "post": {
+        "summary": "登出",
+        "operationId": "AuthService_Logout",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authLogoutResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authLogoutReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.RefreshToken": {
+      "post": {
+        "summary": "刷新token",
+        "operationId": "AuthService_RefreshToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRefreshTokenResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRefreshTokenReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.VerificationCode": {
+      "post": {
+        "summary": "获取验证码",
+        "operationId": "AuthService_VerificationCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authVerificationCodeReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/AuthService.VerifyPassword": {
+      "post": {
+        "summary": "验证密码",
+        "operationId": "AuthService_VerifyPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authVerifyPasswordResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authVerifyPasswordReq"
+            }
+          }
+        ],
+        "tags": [
+          "AuthService"
+        ]
+      }
+    },
+    "/rpc/auth/PermissionService.Add": {
+      "post": {
+        "summary": "权限添加",
+        "operationId": "PermissionService_Add",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authPermissionAddResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authPermissionAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "PermissionService"
+        ]
+      }
+    },
+    "/rpc/auth/PermissionService.Del": {
+      "post": {
+        "summary": "权限删除",
+        "operationId": "PermissionService_Del",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authPermissionDelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authPermissionDelReq"
+            }
+          }
+        ],
+        "tags": [
+          "PermissionService"
+        ]
+      }
+    },
+    "/rpc/auth/PermissionService.Get": {
+      "post": {
+        "summary": "权限详情",
+        "operationId": "PermissionService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authPermissionGetResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authPermissionGetReq"
+            }
+          }
+        ],
+        "tags": [
+          "PermissionService"
+        ]
+      }
+    },
+    "/rpc/auth/PermissionService.GetMenu": {
+      "post": {
+        "summary": "角色对应应用的菜单",
+        "operationId": "PermissionService_GetMenu",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authPermissionGetMenuResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authPermissionGetMenuReq"
+            }
+          }
+        ],
+        "tags": [
+          "PermissionService"
+        ]
+      }
+    },
+    "/rpc/auth/PermissionService.Page": {
+      "post": {
+        "summary": "权限分页",
+        "operationId": "PermissionService_Page",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authPermissionPageResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authPermissionPageReq"
+            }
+          }
+        ],
+        "tags": [
+          "PermissionService"
+        ]
+      }
+    },
+    "/rpc/auth/PermissionService.Update": {
+      "post": {
+        "summary": "权限更新",
+        "operationId": "PermissionService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authPermissionUpdateResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authPermissionUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "PermissionService"
+        ]
+      }
+    },
+    "/rpc/auth/ResourceService.Add": {
+      "post": {
+        "summary": "添加资源",
+        "operationId": "ResourceService_Add",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authAddResourceResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authAddResourceReq"
+            }
+          }
+        ],
+        "tags": [
+          "ResourceService"
+        ]
+      }
+    },
+    "/rpc/auth/ResourceService.Del": {
+      "post": {
+        "summary": "删除资源",
+        "operationId": "ResourceService_Del",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ResourceService"
+        ]
+      }
+    },
+    "/rpc/auth/ResourceService.Get": {
+      "post": {
+        "summary": "资源详情",
+        "operationId": "ResourceService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResourceGetResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ResourceService"
+        ]
+      }
+    },
+    "/rpc/auth/ResourceService.Page": {
+      "post": {
+        "summary": "资源列表",
+        "operationId": "ResourceService_Page",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResourcePageResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authResourcePageReq"
+            }
+          }
+        ],
+        "tags": [
+          "ResourceService"
+        ]
+      }
+    },
+    "/rpc/auth/ResourceService.RuleType": {
+      "post": {
+        "summary": "规则类型",
+        "operationId": "ResourceService_RuleType",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResourceRuleTypeResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authResourceRuleTypeReq"
+            }
+          }
+        ],
+        "tags": [
+          "ResourceService"
+        ]
+      }
+    },
+    "/rpc/auth/ResourceService.Update": {
+      "post": {
+        "summary": "更新资源",
+        "operationId": "ResourceService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUpdateResourceReq"
+            }
+          }
+        ],
+        "tags": [
+          "ResourceService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.Add": {
+      "post": {
+        "summary": "添加角色",
+        "operationId": "RoleService_Add",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRoleAddResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRoleAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.Del": {
+      "post": {
+        "summary": "删除角色",
+        "operationId": "RoleService_Del",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRoleDelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRoleDelReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.Get": {
+      "post": {
+        "summary": "获取角色",
+        "operationId": "RoleService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRoleGetResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRoleGetReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.List": {
+      "post": {
+        "summary": "应用标识获取角色列表",
+        "operationId": "RoleService_List",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRoleListResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRoleListReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.ListByCode": {
+      "post": {
+        "summary": "角色标识获取角色列表",
+        "operationId": "RoleService_ListByCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRoleListByCodeResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRoleListByCodeReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.Page": {
+      "post": {
+        "summary": "角色分页",
+        "operationId": "RoleService_Page",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRolePageResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRolePageReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/RoleService.Update": {
+      "post": {
+        "summary": "更新角色",
+        "operationId": "RoleService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authRoleUpdateResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authRoleUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "RoleService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.Add": {
+      "post": {
+        "summary": "添加用户",
+        "operationId": "UserService_Add",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUserAddResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUserAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.Del": {
+      "post": {
+        "summary": "删除用户",
+        "operationId": "UserService_Del",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUserDelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUserDelReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.Get": {
+      "post": {
+        "summary": "用户详情",
+        "operationId": "UserService_Get",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUserGetResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUserGetReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.LinkUserRoles": {
+      "post": {
+        "summary": "关联用户到角色",
+        "operationId": "UserService_LinkUserRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authLinkUserRolesReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.Page": {
+      "post": {
+        "summary": "分页查询用户列表",
+        "operationId": "UserService_Page",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUserPageResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUserPageReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.PageBySql": {
+      "post": {
+        "summary": "SQL语句分页查询用户列表",
+        "operationId": "UserService_PageBySql",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUserPageBySqlResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUserPageBySqlReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.UnlinkUserRoles": {
+      "post": {
+        "summary": "取消关联用户到角色",
+        "operationId": "UserService_UnlinkUserRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUnlinkUserRolesReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.Update": {
+      "post": {
+        "summary": "修改用户",
+        "operationId": "UserService_Update",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUserUpdateResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUserUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/rpc/auth/UserService.UpdatePassword": {
+      "post": {
+        "summary": "更新用户密码",
+        "operationId": "UserService_UpdatePassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/authUpdatePasswordResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/authUpdatePasswordReq"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "authAPIPermissionsReq": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "title": "用户ID"
+        },
+        "api": {
+          "type": "string",
+          "title": "api地址"
+        }
+      },
+      "title": "API权限请求参数"
+    },
+    "authAPIPermissionsResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "enable": {
+          "type": "boolean",
+          "title": "权限使能"
+        },
+        "user_id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        },
+        "http_status": {
+          "type": "integer",
+          "format": "int32",
+          "title": "http状态"
+        },
+        "is_white": {
+          "type": "boolean",
+          "title": "是否是白名单"
+        }
+      },
+      "title": "API权限应答参数"
+    },
+    "authAddResourceReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "资源名称"
+        },
+        "type": {
+          "type": "string",
+          "title": "资源类型 \"api\"-接口 \"menu\"-菜单 \"rule\"-规则"
+        },
+        "content": {
+          "type": "string",
+          "title": "资源内容"
+        }
+      },
+      "title": "添加资源请求参数"
+    },
+    "authAddResourceResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "返回码"
+        },
+        "msg": {
+          "type": "string",
+          "title": "返回信息"
+        },
+        "id": {
+          "type": "string",
+          "title": "资源ID"
+        }
+      },
+      "title": "添加资源返回结果"
+    },
+    "authApiWhiteList": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "id"
+        },
+        "name": {
+          "type": "string",
+          "title": "接口名称"
+        },
+        "path": {
+          "type": "string",
+          "title": "接口路径"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "创建时间"
+        },
+        "create_username": {
+          "type": "string",
+          "title": "创建人"
+        }
+      },
+      "title": "报名单"
+    },
+    "authApiWhiteListAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "接口名称"
+        },
+        "path": {
+          "type": "string",
+          "title": "接口地址"
+        }
+      },
+      "title": "添加白名单请求参数"
+    },
+    "authApiWhiteListAddResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "添加白名单返回结果"
+    },
+    "authApiWhiteListDelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "删除白名单请求参数"
+    },
+    "authApiWhiteListDelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "删除白名单返回结果"
+    },
+    "authApiWhiteListPageReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        },
+        "name": {
+          "type": "string",
+          "title": "接口名称"
+        }
+      },
+      "title": "分页白名单请求参数"
+    },
+    "authApiWhiteListPageResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authApiWhiteList"
+          }
+        }
+      },
+      "title": "分页白名单返回结果"
+    },
+    "authApiWhiteListRefreshReq": {
+      "type": "object",
+      "properties": {},
+      "title": "刷新白名单请求参数"
+    },
+    "authApiWhiteListRefreshResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "刷新白名单返回结果"
+    },
+    "authApiWhiteListUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "title": "接口名称"
+        },
+        "path": {
+          "type": "string",
+          "title": "接口地址"
+        }
+      },
+      "title": "更新白名单请求参数"
+    },
+    "authApiWhiteListUpdateResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "更新白名单返回结果"
+    },
+    "authApp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "应用ID"
+        },
+        "code": {
+          "type": "string",
+          "title": "应用标识"
+        },
+        "name": {
+          "type": "string",
+          "title": "应用名称"
+        },
+        "describe": {
+          "type": "string",
+          "title": "应用描述"
+        },
+        "create_user": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "create_username": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "创建时间"
+        }
+      }
+    },
+    "authAppAddReq": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "title": "应用标识"
+        },
+        "name": {
+          "type": "string",
+          "title": "应用名称"
+        },
+        "describe": {
+          "type": "string",
+          "title": "应用描述"
+        }
+      },
+      "title": "添加应用请求参数"
+    },
+    "authAppAddResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "添加应用应答参数"
+    },
+    "authAppDelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "应用id"
+        }
+      },
+      "title": "删除应用请求参数"
+    },
+    "authAppDelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "删除应用应答参数"
+    },
+    "authAppGetReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "应用id"
+        }
+      },
+      "title": "获取应用请求参数"
+    },
+    "authAppGetResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "App": {
+          "$ref": "#/definitions/authApp"
+        }
+      },
+      "title": "获取应用应答参数"
+    },
+    "authAppPageReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        },
+        "name": {
+          "type": "string",
+          "title": "应用名称 模糊查询"
+        }
+      },
+      "title": "应用分页请求参数"
+    },
+    "authAppPageResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authApp"
+          }
+        }
+      },
+      "title": "应用分页返回参数"
+    },
+    "authAppUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "应用id"
+        },
+        "name": {
+          "type": "string",
+          "title": "应用名称"
+        },
+        "code": {
+          "type": "string",
+          "title": "应用标识"
+        },
+        "describe": {
+          "type": "string",
+          "title": "应用描述"
+        }
+      },
+      "title": "更新应用请求参数"
+    },
+    "authAppUpdateResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "更新应用应答参数"
+    },
+    "authDelTokenReq": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "title": "用户ID"
+        },
+        "role_code": {
+          "type": "string",
+          "title": "用户角色"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        },
+        "token": {
+          "type": "string",
+          "title": "token"
+        }
+      },
+      "title": "删除token的请求参数"
+    },
+    "authDelTokenResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "删除token的应答参数"
+    },
+    "authForgetPasswordReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "verification_code": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "title": "获取验证码请求参数"
+    },
+    "authForgetPasswordResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "获取验证码返回结果"
+    },
+    "authGenTokenReq": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "role_code": {
+          "type": "string",
+          "title": "角色code"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        },
+        "expiry": {
+          "type": "string",
+          "format": "int64",
+          "title": "token到期时间，单位：秒(非必填,默认七天)"
+        }
+      },
+      "title": "生成token的请求参数"
+    },
+    "authGenTokenResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "title": "返回token"
+        }
+      },
+      "title": "生成token的应答参数"
+    },
+    "authInspectReq": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "title": "token字符串"
+        }
+      },
+      "title": "检测token的请求参数"
+    },
+    "authInspectResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        },
+        "is_exist": {
+          "type": "boolean",
+          "title": "是否已存在"
+        },
+        "user": {
+          "$ref": "#/definitions/authUser",
+          "title": "用戶信息"
+        }
+      },
+      "title": "检测token的应答参数"
+    },
+    "authLinkUserRolesReq": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "title": "用户ID"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识列表"
+        }
+      },
+      "title": "关联用户到角色请求参数"
+    },
+    "authLoginByEmailReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "title": "用户邮箱"
+        },
+        "Password": {
+          "type": "string",
+          "title": "验证码"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        },
+        "role_code": {
+          "type": "string",
+          "title": "角色"
+        },
+        "expiry": {
+          "type": "string",
+          "format": "int64",
+          "title": "账号过期时间，单位：秒(非必填,默认七天)"
+        }
+      },
+      "title": "邮箱登录的请求参数"
+    },
+    "authLoginByEmailResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识"
+        },
+        "token": {
+          "type": "string",
+          "title": "token"
+        }
+      },
+      "title": "邮箱登录的应答参数"
+    },
+    "authLoginByPhoneReq": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string",
+          "title": "用户手机号"
+        },
+        "verify_code": {
+          "type": "string",
+          "title": "验证码"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        },
+        "role_code": {
+          "type": "string",
+          "title": "角色"
+        },
+        "expiry": {
+          "type": "string",
+          "format": "int64",
+          "title": "账号过期时间，单位：秒(非必填,默认七天)"
+        }
+      },
+      "title": "手机号登录的请求参数"
+    },
+    "authLoginByPhoneResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识"
+        },
+        "token": {
+          "type": "string",
+          "title": "token"
+        }
+      },
+      "title": "手机号登录的应答参数"
+    },
+    "authLoginReq": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string",
+          "title": "用户名"
+        },
+        "password": {
+          "type": "string",
+          "title": "用户密码"
+        },
+        "role_code": {
+          "type": "string",
+          "title": "角色"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        },
+        "expiry": {
+          "type": "string",
+          "format": "int64",
+          "title": "账号过期时间，单位：秒(非必填,默认七天)"
+        }
+      },
+      "title": "登录的请求参数"
+    },
+    "authLoginResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识"
+        },
+        "token": {
+          "type": "string",
+          "title": "token"
+        }
+      },
+      "title": "登录的应答参数"
+    },
+    "authLogoutReq": {
+      "type": "object",
+      "properties": {},
+      "title": "登出的请求参数"
+    },
+    "authLogoutResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "登出的应答参数"
+    },
+    "authPermission": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "role_id": {
+          "type": "string",
+          "title": "角色id"
+        },
+        "role_name": {
+          "type": "string",
+          "title": "角色名称"
+        },
+        "app_id": {
+          "type": "string",
+          "title": "应用id"
+        },
+        "app_name": {
+          "type": "string",
+          "title": "应用名称"
+        },
+        "resource_type": {
+          "type": "string",
+          "title": "资源类型  \"api\"-接口 \"menu\"-菜单 \"rule\"-规则"
+        },
+        "resources": {
+          "type": "string",
+          "title": "资源内容 json格式:[{\"resource_id\":\"1\",\"value\":\"xxx\"}]"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "创建时间"
+        },
+        "resources_json": {
+          "type": "string",
+          "title": "资源展开的json内容"
+        }
+      },
+      "title": "权限信息"
+    },
+    "authPermissionAddReq": {
+      "type": "object",
+      "properties": {
+        "role_id": {
+          "type": "string",
+          "title": "角色id"
+        },
+        "app_id": {
+          "type": "string",
+          "title": "应用id"
+        },
+        "resource_type": {
+          "type": "string",
+          "title": "资源类型  \"api\"-接口 \"menu\"-菜单 \"rule\"-规则"
+        },
+        "resources": {
+          "type": "string",
+          "title": "资源内容 json格式:[{\"resource_id\":\"1\",\"value\":\"xxx\"}]"
+        }
+      },
+      "title": "权限添加请求参数"
+    },
+    "authPermissionAddResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "title": "权限id"
+        }
+      },
+      "title": "权限添加返回结果"
+    },
+    "authPermissionDelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "权限id"
+        }
+      },
+      "title": "权限删除请求参数"
+    },
+    "authPermissionDelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "权限删除返回结果"
+    },
+    "authPermissionGetMenuReq": {
+      "type": "object",
+      "properties": {
+        "app_code": {
+          "type": "string"
+        }
+      },
+      "title": "角色对应应用的菜单请求参数"
+    },
+    "authPermissionGetMenuResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "menu": {
+          "type": "string",
+          "title": "菜单详情"
+        }
+      },
+      "title": "角色对应应用的菜单返回结果"
+    },
+    "authPermissionGetReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "权限id"
+        }
+      },
+      "title": "权限详情请求参数"
+    },
+    "authPermissionGetResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "item": {
+          "$ref": "#/definitions/authPermission",
+          "title": "权限详情"
+        }
+      },
+      "title": "权限详情返回结果"
+    },
+    "authPermissionPageReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        }
+      },
+      "title": "权限分页请求参数"
+    },
+    "authPermissionPageResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authPermission"
+          }
+        }
+      },
+      "title": "权限分页返回结果"
+    },
+    "authPermissionUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "权限id"
+        },
+        "role_id": {
+          "type": "string",
+          "title": "角色Id"
+        },
+        "app_id": {
+          "type": "string",
+          "title": "应用id"
+        },
+        "resources": {
+          "type": "string",
+          "title": "资源内容 json格式:[{\"resource_id\":\"1\",\"value\":\"xxx\"}]"
+        }
+      },
+      "title": "权限更新请求参数"
+    },
+    "authPermissionUpdateResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "权限更新返回结果"
+    },
+    "authRefreshTokenReq": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "title": "刷新token的请求参数"
+    },
+    "authRefreshTokenResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "title": "token字符串"
+        }
+      },
+      "title": "刷新token的应答参数"
+    },
+    "authRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "通用请求"
+    },
+    "authResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "资源ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "资源名称"
+        },
+        "type": {
+          "type": "string",
+          "title": "资源类型  \"api\"-接口 \"menu\"-菜单 \"rule\"-规则"
+        },
+        "content": {
+          "type": "string",
+          "title": "资源内容"
+        },
+        "property": {
+          "type": "string",
+          "title": "资源属性"
+        },
+        "parent_id": {
+          "type": "string",
+          "title": "父级资源"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "创建时间"
+        },
+        "update_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "更新时间"
+        }
+      },
+      "title": "资源信息"
+    },
+    "authResourceGetResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "返回码"
+        },
+        "msg": {
+          "type": "string",
+          "title": "返回信息"
+        },
+        "item": {
+          "$ref": "#/definitions/authResource",
+          "title": "资源"
+        }
+      },
+      "title": "获取资源请求参数"
+    },
+    "authResourcePageReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        },
+        "type": {
+          "type": "string",
+          "title": "资源类型  \"api\"-接口 \"menu\"-菜单 \"rule\"-规则"
+        },
+        "name": {
+          "type": "string",
+          "title": "资源名称 模糊查询"
+        },
+        "content": {
+          "type": "string",
+          "title": "资源内容 模糊查询"
+        }
+      },
+      "title": "资源列表请求参数"
+    },
+    "authResourcePageResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authResource"
+          }
+        }
+      },
+      "title": "资源列表返回结果"
+    },
+    "authResourceRuleTypeReq": {
+      "type": "object",
+      "properties": {},
+      "title": "规则类型请求参数"
+    },
+    "authResourceRuleTypeResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "规则类型返回结果"
+    },
+    "authResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "返回码"
+        },
+        "msg": {
+          "type": "string",
+          "title": "返回信息"
+        }
+      },
+      "title": "通用应答"
+    },
+    "authRole": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "角色ID"
+        },
+        "code": {
+          "type": "string",
+          "title": "角色标识"
+        },
+        "name": {
+          "type": "string",
+          "title": "角色名称"
+        },
+        "create_user": {
+          "type": "string",
+          "title": "创建人id"
+        },
+        "create_username": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "创建时间"
+        }
+      },
+      "title": "角色信息"
+    },
+    "authRoleAddReq": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "title": "角色标识"
+        },
+        "name": {
+          "type": "string",
+          "title": "角色名称"
+        }
+      },
+      "title": "添加角色请求参数"
+    },
+    "authRoleAddResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "添加角色应答参数"
+    },
+    "authRoleDelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "角色id"
+        }
+      },
+      "title": "删除角色请求参数"
+    },
+    "authRoleDelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "删除角色应答参数"
+    },
+    "authRoleGetReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "角色id"
+        }
+      },
+      "title": "获取角色请求参数"
+    },
+    "authRoleGetResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/definitions/authRole"
+        }
+      },
+      "title": "获取角色应答参数"
+    },
+    "authRoleListByCodeReq": {
+      "type": "object",
+      "properties": {
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识"
+        }
+      },
+      "title": "角色标识获取角色列表请求参数"
+    },
+    "authRoleListByCodeResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authRole"
+          }
+        }
+      },
+      "title": "角色标识获取角色列表应答参数"
+    },
+    "authRoleListReq": {
+      "type": "object",
+      "properties": {
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        }
+      },
+      "title": "应用标识获取角色列表请求参数"
+    },
+    "authRoleListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authRole"
+          }
+        }
+      },
+      "title": "应用标识获取角色列表应答参数"
+    },
+    "authRolePageReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        },
+        "name": {
+          "type": "string",
+          "title": "角色名称 模糊查询"
+        }
+      },
+      "title": "角色分页请求参数"
+    },
+    "authRolePageResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authRole"
+          }
+        }
+      },
+      "title": "角色分页返回参数"
+    },
+    "authRoleUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "角色id"
+        },
+        "name": {
+          "type": "string",
+          "title": "角色名称"
+        },
+        "code": {
+          "type": "string",
+          "title": "角色名称"
+        }
+      },
+      "title": "更新角色请求参数"
+    },
+    "authRoleUpdateResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "更新角色应答参数"
+    },
+    "authUnlinkUserRolesReq": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "title": "用户ID"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识列表"
+        }
+      },
+      "title": "取消关联用户到角色返回结果"
+    },
+    "authUpdatePasswordReq": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "title": "用户ID"
+        },
+        "cur_password": {
+          "type": "string",
+          "title": "当密码"
+        },
+        "new_password": {
+          "type": "string",
+          "title": "新密码"
+        }
+      },
+      "title": "更新用户密码请求参数"
+    },
+    "authUpdatePasswordResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "更新用户密码返回结果"
+    },
+    "authUpdateResourceReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "资源ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "资源名称"
+        },
+        "content": {
+          "type": "string",
+          "title": "资源内容"
+        }
+      },
+      "title": "更新资源请求参数"
+    },
+    "authUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "account": {
+          "type": "string",
+          "title": "账号"
+        },
+        "password": {
+          "type": "string",
+          "title": "密码"
+        },
+        "nick_name": {
+          "type": "string",
+          "title": "昵称"
+        },
+        "phone": {
+          "type": "string",
+          "title": "手机号"
+        },
+        "email": {
+          "type": "string",
+          "title": "密码"
+        },
+        "create_time": {
+          "type": "string",
+          "format": "int64",
+          "title": "创建时间"
+        },
+        "create_username": {
+          "type": "string",
+          "title": "创建用户"
+        },
+        "create_user": {
+          "type": "string",
+          "title": "创建用户Id"
+        },
+        "role_code": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色标识"
+        }
+      },
+      "title": "用户信息"
+    },
+    "authUserAddReq": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/authUser"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        }
+      },
+      "title": "添加用户请求参数"
+    },
+    "authUserAddResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "添加用户返回结果"
+    },
+    "authUserDelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用CODE，不为空时清理该用户在该应用下的角色"
+        }
+      },
+      "title": "删除用户请求参数"
+    },
+    "authUserDelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "删除用户返回结果"
+    },
+    "authUserGetReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "用户id"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        }
+      },
+      "title": "获取用户请求参数"
+    },
+    "authUserGetResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "item": {
+          "$ref": "#/definitions/authUser"
+        }
+      },
+      "title": "获取用户返回结果"
+    },
+    "authUserPageBySqlReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        },
+        "order_key": {
+          "type": "string",
+          "title": "排序"
+        },
+        "desc": {
+          "type": "boolean",
+          "title": "排序方式:升序false(默认)|降序true"
+        },
+        "filter": {
+          "type": "string",
+          "title": "筛选条件 account like %%张%% and user_id in not (\"1\")"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        }
+      },
+      "title": "分页用户请求参数"
+    },
+    "authUserPageBySqlResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authUser"
+          }
+        }
+      },
+      "title": "分页用户返回结果"
+    },
+    "authUserPageReq": {
+      "type": "object",
+      "properties": {
+        "page_index": {
+          "type": "integer",
+          "format": "int32",
+          "title": "第几页，从1开始"
+        },
+        "page_size": {
+          "type": "integer",
+          "format": "int32",
+          "title": "每页多少条"
+        },
+        "order_key": {
+          "type": "string",
+          "title": "排序"
+        },
+        "desc": {
+          "type": "boolean",
+          "title": "排序方式:升序false(默认)|降序true"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        },
+        "account": {
+          "type": "string",
+          "title": "账户名"
+        },
+        "nick_name": {
+          "type": "string",
+          "title": "昵称"
+        },
+        "phone": {
+          "type": "string",
+          "title": "手机号"
+        },
+        "email": {
+          "type": "string",
+          "title": "密码"
+        },
+        "create_user": {
+          "type": "string",
+          "title": "创建人"
+        },
+        "role_codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "角色"
+        }
+      },
+      "title": "分页用户请求参数"
+    },
+    "authUserPageResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/authUser"
+          }
+        }
+      },
+      "title": "分页用户返回结果"
+    },
+    "authUserUpdateReq": {
+      "type": "object",
+      "properties": {
+        "Item": {
+          "$ref": "#/definitions/authUser",
+          "title": "用户信息"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用标识"
+        }
+      },
+      "title": "更新用户请求参数"
+    },
+    "authUserUpdateResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "更新用户返回结果"
+    },
+    "authVerificationCodeReq": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string",
+          "title": "发送对象"
+        },
+        "method": {
+          "type": "integer",
+          "format": "int32",
+          "title": "验证方式 1-手机 2-邮箱"
+        },
+        "app_code": {
+          "type": "string",
+          "title": "应用code"
+        }
+      },
+      "title": "获取验证码的请求参数"
+    },
+    "authVerifyPasswordReq": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "title": "验证密码请求参数"
+    },
+    "authVerifyPasswordResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "验证密码返回结果"
+    }
+  }
+}

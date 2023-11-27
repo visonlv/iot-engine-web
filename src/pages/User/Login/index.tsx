@@ -1,9 +1,9 @@
 import { Footer } from '@/components';
-import { authServiceLogin } from '@/services/swagger/authService';
+import { authServiceLogin } from '@/services/auth/authService';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
-import { FormattedMessage, history, useIntl, useModel, Helmet } from '@umijs/max';
+import {history,  useModel, Helmet } from '@umijs/max';
 import { Alert, message } from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
@@ -11,6 +11,8 @@ import { flushSync } from 'react-dom';
 import { MD5 } from 'crypto-js';
 import { isPassword, passwordFormatTips } from '@/utils/verification';
 import { setLoginResult } from '@/utils/store';
+import { APPCODE } from '@/utils/const';
+
 
 export const getPassword = (value: any) => MD5(value).toString();
 
@@ -45,8 +47,6 @@ const Login: React.FC = () => {
       backgroundSize: '100% 100%',
     };
   });
-
-  const intl = useIntl();
 
   const fetchUserInfo = async () => {
     const userInfo = await initialState?.fetchUserInfo?.();
@@ -95,12 +95,11 @@ const Login: React.FC = () => {
 
       values.password = getPassword(values.password as string);
       // 登录
-      const msg = (await authServiceLogin({ ...values })) as any;
-      console.log(msg);
+      const msg = (await authServiceLogin({ ...values }));
       if (msg.code === 0) {
         message.success('登录成功！');
         //存储token信息
-        setLoginResult(msg?.token as string, msg?.user_id as string);
+        setLoginResult(msg.token as string, msg.user_id as string);
         await fetchUserInfo();
         const urlParams = new URL(window.location.href).searchParams;
         history.push(urlParams.get('redirect') || '/');
@@ -113,7 +112,7 @@ const Login: React.FC = () => {
     }
   };
 
-  const loginCode = userLoginState.code;
+  const loginCode = userLoginState.code === undefined?0:userLoginState.code;
   return (
     <div className={containerClassName}>
       <Helmet>
@@ -141,17 +140,14 @@ const Login: React.FC = () => {
               account: values.username,
               password: values.password,
               role_code: 'ADMIN',
-              app_code: 'IOT-ENGINE-WEB',
+              app_code: APPCODE,
             };
             await handleSubmit(req);
           }}
         >
           {loginCode !== 0 && (
             <LoginMessage
-              content={intl.formatMessage({
-                id: 'pages.login.accountLogin.errorMessage',
-                defaultMessage: '账户或密码错误',
-              })}
+              content={'账户或密码错误'}
             />
           )}
 
@@ -162,19 +158,11 @@ const Login: React.FC = () => {
                 size: 'large',
                 prefix: <UserOutlined />,
               }}
-              placeholder={intl.formatMessage({
-                id: 'pages.login.username.placeholder',
-                defaultMessage: '用户名: admin or user',
-              })}
+              placeholder={"用户名"}
               rules={[
                 {
                   required: true,
-                  message: (
-                    <FormattedMessage
-                      id="pages.login.username.required"
-                      defaultMessage="请输入用户名!"
-                    />
-                  ),
+                  message: "请输入用户名!",
                 },
               ]}
             />
@@ -184,19 +172,11 @@ const Login: React.FC = () => {
                 size: 'large',
                 prefix: <LockOutlined />,
               }}
-              placeholder={intl.formatMessage({
-                id: 'pages.login.password.placeholder',
-                defaultMessage: '密码',
-              })}
+              placeholder={"密码"}
               rules={[
                 {
                   required: true,
-                  message: (
-                    <FormattedMessage
-                      id="pages.login.password.required"
-                      defaultMessage="请输入密码！"
-                    />
-                  ),
+                  message: "请输入密码！",
                 },
               ]}
             />
@@ -207,14 +187,14 @@ const Login: React.FC = () => {
             }}
           >
             <ProFormCheckbox noStyle name="autoLogin">
-              <FormattedMessage id="pages.login.rememberMe" defaultMessage="自动登录" />
+            自动登录
             </ProFormCheckbox>
             <a
               style={{
                 float: 'right',
               }}
             >
-              <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
+             忘记密码
             </a>
           </div>
         </LoginForm>

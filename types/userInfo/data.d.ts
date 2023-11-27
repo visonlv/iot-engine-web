@@ -5,6 +5,5 @@ declare namespace USER {
     nickName?: string;
     avatar?: string;
     roleCode?: string;
-    access?: string;
   };
 }
