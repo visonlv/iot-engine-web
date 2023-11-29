@@ -142,6 +142,13 @@ export default defineConfig({
       projectName: 'auth',
       mock: true,
     },
+    {
+      requestLibPath: "import { request } from '@umijs/max'",
+      // schemaPath: 'https://apihub.dev.inrobot.cloud/swaggerui/config/auth.swagger.json',
+      schemaPath: join(__dirname, 'thing.swagger.json'),
+      projectName: 'thing',
+      mock: true,
+    },
   ],
   mfsu: {
     strategy: 'normal',

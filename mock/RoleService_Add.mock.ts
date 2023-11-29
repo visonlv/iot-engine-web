@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 80,
-      msg: '离见种际系压织除见一论效及命。',
-      id: 'D5e176D2-79bE-B48a-ccBc-645ED8AfBFAB',
+      code: 79,
+      msg: '政热格属观西山队教值程得按同。',
+      id: '3BB95FbA-4B0A-C99b-2fE4-fDeFEEeb9Ecd',
     });
   },
 };

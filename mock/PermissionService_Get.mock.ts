@@ -4,18 +4,18 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/PermissionService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 82,
-      msg: '步专究备持离品方难书示里无。',
+      code: 78,
+      msg: '识约运立场后回之直直要器分代期。',
       item: {
-        id: 'db4d9EDF-F43E-DFD5-0ce8-4be236d8c1D8',
-        role_id: 'DE44d4AC-Fa66-DCd3-dA04-d2DcBBEAc8C6',
-        role_name: '火解按六府小利存千是需二程。',
-        app_id: 'A0F786D1-f2d1-6b89-cff4-97E5535ebB02',
-        app_name: '市保选部个世年使走收始报她。',
+        id: '5dB8db77-4B8F-3DC5-7972-3a82A5C44F3c',
+        role_id: '0cEbFFFA-f49e-7540-94FA-1DCCbE2Eb789',
+        role_name: '北精府展明国家得往头原京系。',
+        app_id: '25D8cF5D-0942-4Cb6-DfA9-1348eb6eD688',
+        app_name: '车算相历任感造示千物做白。',
         resource_type: 1,
-        resources: '光组近存照研眼县局北品文压求儿历。',
-        create_time: 'kL5d',
-        resources_json: '土重六何千积斯县能九习被书党体。',
+        resources: '整安老斗有划始话委东外式新列院。',
+        create_time: 'UOV9',
+        resources_json: '管制油极用由就节况转党林别件断象达。',
       },
     });
   },

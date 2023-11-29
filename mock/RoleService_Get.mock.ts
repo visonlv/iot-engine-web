@@ -4,15 +4,15 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 68,
-      msg: '解数心从处红治不多道离比总速感日革。',
+      code: 74,
+      msg: '家定面物料南角近以更类制。',
       role: {
-        id: 'a23bB5ff-823d-b678-ed6f-ca7BFf11f6f8',
-        code: '达教往法达分选意加状法行正府。',
-        name: '史明',
-        create_user: '特间事机候共可还调往完标更。',
-        create_username: '风增西劳品则线重动成音难济色示当有。',
-        create_time: 'n7O@]',
+        id: '2cED2498-Dc14-fAeD-AA5e-EFB9d19fa2C4',
+        code: '状织或矿无此后效车志南般。',
+        name: '林磊',
+        create_user: '果同群发出传先音级团广路改联。',
+        create_username: '段生知技低记科快节组事养族明马子。',
+        create_time: 'lPAd',
       },
     });
   },

@@ -4,17 +4,17 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 88,
-      msg: '区做水定斯到影到民单都族务部所整。',
+      code: 99,
+      msg: '须没列争连议可消认个备使见整保。',
       item: {
-        id: 'B7Cb2132-BFc4-ab58-ce71-c8fCdcA05D7A',
-        name: '谭敏',
-        type: 18,
-        content: '半前养术专为声与国调例有全。',
-        property: '拉济头被理你把化品联分那做下先便九。',
-        parent_id: 'AB896E43-c4E5-23E7-Cd7C-BfeeCc72Fad8',
-        create_time: 'n!&IG',
-        update_time: '4KKg',
+        id: 'C65B5d5D-87D8-cE39-beaa-39f7d212e95C',
+        name: '赖平',
+        type: 21,
+        content: '作对已构商中斯们需少实战代。',
+        property: '根种在代叫小增级容转算好。',
+        parent_id: 'Ef36AfeE-85BD-f991-B930-Ee93Af352622',
+        create_time: 'Ok&T',
+        update_time: 'zzbLxN',
       },
     });
   },

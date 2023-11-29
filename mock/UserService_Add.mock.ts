@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/UserService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 86,
-      msg: '住己去度等流年次立象写比已采识。',
-      id: 'AFE4eFCF-DBEE-BacB-bcbE-2DE7Ffc4D84e',
+      code: 85,
+      msg: '积党易合万它民下调须意铁示龙收这。',
+      id: 'cCCdc683-36Fd-AbdD-AC4b-a1FFB1c664ca',
     });
   },
 };

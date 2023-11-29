@@ -11,7 +11,6 @@
  * @doc https://umijs.org/docs/guides/routes
  */
 export default [
- 
   {
     name: 'login',
     path: '/user/login',
@@ -53,7 +52,16 @@ export default [
     path: '/while_list/page',
     component: './WhiteList',
   },
-  
+  {
+    name: 'productpage',
+    path: '/product/page',
+    component: './Product',
+  },
+  {
+    name: 'devicepage',
+    path: '/device/page',
+    component: './Device',
+  },
   {
     path: '/welcome',
     name: 'welcome',

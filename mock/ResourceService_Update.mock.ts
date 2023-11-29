@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/ResourceService.Update': (req: Request, res: Response) => {
-    res.status(200).send({ code: 61, msg: '对不联值决目资取按保算同路题成。' });
+    res.status(200).send({ code: 89, msg: '织体全规交对认热传压图导你图备。' });
   },
 };
