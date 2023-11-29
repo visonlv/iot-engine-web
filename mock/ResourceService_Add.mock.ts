@@ -5,8 +5,8 @@ export default {
   'POST /rpc/auth/ResourceService.Add': (req: Request, res: Response) => {
     res.status(200).send({
       code: 63,
-      msg: '律记然组高间半为团住器结问。',
-      id: 'Ec12eC5d-4043-Ad3D-627A-E7Aa55eC8562',
+      msg: '飞八北半关飞别据京活期工议带。',
+      id: '861C6fe9-8D9e-12A0-3B6B-60bb64c571De',
     });
   },
 };

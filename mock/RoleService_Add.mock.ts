@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 74,
-      msg: '安明我派日运叫己听影斗列度关低律众。',
-      id: '5e9c9EfF-fFFe-9f72-E4EC-D47AD2BEBf35',
+      code: 80,
+      msg: '离见种际系压织除见一论效及命。',
+      id: 'D5e176D2-79bE-B48a-ccBc-645ED8AfBFAB',
     });
   },
 };

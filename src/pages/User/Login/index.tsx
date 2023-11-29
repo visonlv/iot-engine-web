@@ -8,13 +8,12 @@ import { Alert, message } from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
-import { MD5 } from 'crypto-js';
+
 import { isPassword, passwordFormatTips } from '@/utils/verification';
 import { setLoginResult } from '@/utils/store';
 import { APPCODE } from '@/utils/const';
+import { getPassword } from '@/utils/password';
 
-
-export const getPassword = (value: any) => MD5(value).toString();
 
 const LoginMessage: React.FC<{
   content: string;

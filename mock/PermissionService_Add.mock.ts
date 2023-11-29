@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/PermissionService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 72,
-      msg: '年形并品行取九术形常酸京平关型。',
-      id: '96142Ef8-c6CA-E72C-1a2b-029CbCe6E0C0',
+      code: 80,
+      msg: '议包结群火为知战安不历中线认集。',
+      id: 'bCb1A27F-264C-e8e4-0f32-E9E6Ed925D63',
     });
   },
 };

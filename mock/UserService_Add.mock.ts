@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/UserService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 70,
-      msg: '军单传克级元部农去表要酸很上。',
-      id: 'aed5eeC7-7FdD-4a48-Dffb-B36A042Bf753',
+      code: 86,
+      msg: '住己去度等流年次立象写比已采识。',
+      id: 'AFE4eFCF-DBEE-BacB-bcbE-2DE7Ffc4D84e',
     });
   },
 };

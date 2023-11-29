@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ApiWhiteListService.Del': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 100,
-      msg: '主生海部如备四下满群二列最期。',
-      id: 'd381F688-CCAd-553f-246f-62f56F6D8f14',
+      code: 77,
+      msg: '石传报题受花维接了它状受至情整习。',
+      id: 'EDF132dE-FDFA-D83E-ac14-bbC3Ca8bf4e8',
     });
   },
 };

@@ -11,17 +11,49 @@
  * @doc https://umijs.org/docs/guides/routes
  */
 export default [
+ 
   {
-    path: '/user',
+    name: 'login',
+    path: '/user/login',
+    component: './User/Login',
     layout: false,
-    routes: [
-      {
-        name: 'login',
-        path: '/user/login',
-        component: './User/Login',
-      },
-    ],
   },
+  {
+    name: 'page',
+    path: '/user/page',
+    component: './User',
+  },
+
+  {
+    name: 'apppage',
+    path: '/app/page',
+    component: './App',
+  },
+
+  {
+    name: 'resourcepage',
+    path: '/resource/page',
+    component: './Resource',
+  },
+
+  {
+    name: 'permissionpage',
+    path: '/permission/page',
+    component: './Permission',
+  },
+
+  {
+    name: 'rolepage',
+    path: '/role/page',
+    component: './Role',
+  },
+
+  {
+    name: 'whileListpage',
+    path: '/while_list/page',
+    component: './WhiteList',
+  },
+  
   {
     path: '/welcome',
     name: 'welcome',
@@ -36,17 +68,5 @@ export default [
     path: '*',
     layout: false,
     component: './404',
-  },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    routes: [
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
   },
 ];

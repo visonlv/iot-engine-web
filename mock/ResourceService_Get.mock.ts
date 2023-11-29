@@ -4,17 +4,17 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 82,
-      msg: '切道全立多出求思元产其上查五。',
+      code: 88,
+      msg: '区做水定斯到影到民单都族务部所整。',
       item: {
-        id: 'FBCB66E2-4e6B-2EC9-efD2-7b8B39BdfcC1',
-        name: '田超',
-        type: 13,
-        content: '家布六见率表华便并代技接而意及传。',
-        property: '示从海定生资持走亲精影身。',
-        parent_id: 'dDEB94B8-9ED8-fB8B-83BD-A7BfEfAb4deF',
-        create_time: 'bi)Os',
-        update_time: 'R$An',
+        id: 'B7Cb2132-BFc4-ab58-ce71-c8fCdcA05D7A',
+        name: '谭敏',
+        type: 18,
+        content: '半前养术专为声与国调例有全。',
+        property: '拉济头被理你把化品联分那做下先便九。',
+        parent_id: 'AB896E43-c4E5-23E7-Cd7C-BfeeCc72Fad8',
+        create_time: 'n!&IG',
+        update_time: '4KKg',
       },
     });
   },

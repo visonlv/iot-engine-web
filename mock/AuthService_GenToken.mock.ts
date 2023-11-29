@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AuthService.GenToken': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 82,
-      msg: '政造交点车手年调划已值往确程如品。',
-      token: '导办到果拉见毛者张百况开广明。',
+      code: 67,
+      msg: '法好点运区指对段十难变代需。',
+      token: '选界革期不点复机水局成直产团。',
     });
   },
 };

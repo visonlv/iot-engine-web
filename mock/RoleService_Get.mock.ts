@@ -4,15 +4,15 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 77,
-      msg: '周断府装情领能住光给格越西。',
+      code: 68,
+      msg: '解数心从处红治不多道离比总速感日革。',
       role: {
-        id: 'AbD4b361-63fc-5FCf-E1B3-D1B26Bbd462e',
-        code: '处划义到华来本体程想院标按五样南。',
-        name: '赵涛',
-        create_user: '样术七两委当得情且调较难情石各平产如。',
-        create_username: '每却保写较广下办市机手路。',
-        create_time: 'jNrjPA',
+        id: 'a23bB5ff-823d-b678-ed6f-ca7BFf11f6f8',
+        code: '达教往法达分选意加状法行正府。',
+        name: '史明',
+        create_user: '特间事机候共可还调往完标更。',
+        create_username: '风增西劳品则线重动成音难济色示当有。',
+        create_time: 'n7O@]',
       },
     });
   },

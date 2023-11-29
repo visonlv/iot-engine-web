@@ -420,6 +420,10 @@ declare namespace API {
     page_index?: number;
     /** 每页多少条 */
     page_size?: number;
+    /** 角色id */
+    role_id?: string;
+    /** 应用id */
+    app_id?: string;
   };
 
   type authPermissionPageResp = {

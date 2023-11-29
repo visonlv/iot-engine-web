@@ -4,18 +4,18 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/PermissionService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 92,
-      msg: '和成增见往治影资维约题元明路族验。',
+      code: 82,
+      msg: '步专究备持离品方难书示里无。',
       item: {
-        id: 'dbA3Fc2a-FEDE-BdDC-fe8D-FF40f8cFA4De',
-        role_id: 'e26c46D3-ACfF-38d2-427A-2eBF8FcDEc08',
-        role_name: '率那识写并专论由引验实支走再共回圆近。',
-        app_id: '5bac15F5-2659-b9Ac-38f9-dc41da4BacFe',
-        app_name: '高备后流斗他示复七数教点。',
+        id: 'db4d9EDF-F43E-DFD5-0ce8-4be236d8c1D8',
+        role_id: 'DE44d4AC-Fa66-DCd3-dA04-d2DcBBEAc8C6',
+        role_name: '火解按六府小利存千是需二程。',
+        app_id: 'A0F786D1-f2d1-6b89-cff4-97E5535ebB02',
+        app_name: '市保选部个世年使走收始报她。',
         resource_type: 1,
-        resources: '提史国工别属合强合查素断时要。',
-        create_time: 'H[ZHY1',
-        resources_json: '权转米花体带例府里法们单最济复影火。',
+        resources: '光组近存照研眼县局北品文压求儿历。',
+        create_time: 'kL5d',
+        resources_json: '土重六何千积斯县能九习被书党体。',
       },
     });
   },

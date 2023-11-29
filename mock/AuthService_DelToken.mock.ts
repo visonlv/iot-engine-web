@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/AuthService.DelToken': (req: Request, res: Response) => {
-    res.status(200).send({ code: 68, msg: '元在每受团集领农些置你料律基论且理。' });
+    res.status(200).send({ code: 78, msg: '类已信点究和头为步响存过全提中造示。' });
   },
 };
