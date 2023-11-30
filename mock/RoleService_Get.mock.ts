@@ -4,15 +4,15 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 74,
-      msg: '家定面物料南角近以更类制。',
+      code: 70,
+      msg: '先重积立步现件气深小始军就。',
       role: {
-        id: '2cED2498-Dc14-fAeD-AA5e-EFB9d19fa2C4',
-        code: '状织或矿无此后效车志南般。',
-        name: '林磊',
-        create_user: '果同群发出传先音级团广路改联。',
-        create_username: '段生知技低记科快节组事养族明马子。',
-        create_time: 'lPAd',
+        id: '73FCdDA5-cAfA-794B-96e3-a3c8FdE9358F',
+        code: '共期重级成件上高出何劳都现平料等流。',
+        name: '曹敏',
+        create_user: '过最参起最必示眼为平派道是温整现。',
+        create_username: '西准农点酸段进外龙手头反已。',
+        create_time: '7^lr',
       },
     });
   },

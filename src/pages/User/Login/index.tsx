@@ -3,7 +3,7 @@ import { authServiceLogin } from '@/services/auth/authService';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormCheckbox, ProFormText } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
-import {history,  useModel, Helmet } from '@umijs/max';
+import { history, useModel, Helmet } from '@umijs/max';
 import { Alert, message } from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
@@ -13,7 +13,6 @@ import { isPassword, passwordFormatTips } from '@/utils/verification';
 import { setLoginResult } from '@/utils/store';
 import { APPCODE } from '@/utils/const';
 import { getPassword } from '@/utils/password';
-
 
 const LoginMessage: React.FC<{
   content: string;
@@ -32,7 +31,7 @@ const LoginMessage: React.FC<{
 };
 
 const Login: React.FC = () => {
-  const [userLoginState, setUserLoginState] = useState<API.authLoginResp>({});
+  const [userLoginState, setUserLoginState] = useState<API.protoLoginResp>({});
   const { initialState, setInitialState } = useModel('@@initialState');
 
   const containerClassName = useEmotionCss(() => {
@@ -76,7 +75,7 @@ const Login: React.FC = () => {
     return true;
   };
 
-  const handleSubmit = async (values: API.authLoginReq) => {
+  const handleSubmit = async (values: API.protoLoginReq) => {
     try {
       const account = values.account as string;
       const password = values.password as string;
@@ -94,7 +93,7 @@ const Login: React.FC = () => {
 
       values.password = getPassword(values.password as string);
       // 登录
-      const msg = (await authServiceLogin({ ...values }));
+      const msg = await authServiceLogin({ ...values });
       if (msg.code === 0) {
         message.success('登录成功！');
         //存储token信息
@@ -111,7 +110,7 @@ const Login: React.FC = () => {
     }
   };
 
-  const loginCode = userLoginState.code === undefined?0:userLoginState.code;
+  const loginCode = userLoginState.code === undefined ? 0 : userLoginState.code;
   return (
     <div className={containerClassName}>
       <Helmet>
@@ -135,7 +134,7 @@ const Login: React.FC = () => {
             autoLogin: false,
           }}
           onFinish={async (values) => {
-            const req: API.authLoginReq = {
+            const req: API.protoLoginReq = {
               account: values.username,
               password: values.password,
               role_code: 'ADMIN',
@@ -144,11 +143,7 @@ const Login: React.FC = () => {
             await handleSubmit(req);
           }}
         >
-          {loginCode !== 0 && (
-            <LoginMessage
-              content={'账户或密码错误'}
-            />
-          )}
+          {loginCode !== 0 && <LoginMessage content={'账户或密码错误'} />}
 
           <>
             <ProFormText
@@ -157,11 +152,11 @@ const Login: React.FC = () => {
                 size: 'large',
                 prefix: <UserOutlined />,
               }}
-              placeholder={"用户名"}
+              placeholder={'用户名'}
               rules={[
                 {
                   required: true,
-                  message: "请输入用户名!",
+                  message: '请输入用户名!',
                 },
               ]}
             />
@@ -171,11 +166,11 @@ const Login: React.FC = () => {
                 size: 'large',
                 prefix: <LockOutlined />,
               }}
-              placeholder={"密码"}
+              placeholder={'密码'}
               rules={[
                 {
                   required: true,
-                  message: "请输入密码！",
+                  message: '请输入密码！',
                 },
               ]}
             />
@@ -186,14 +181,14 @@ const Login: React.FC = () => {
             }}
           >
             <ProFormCheckbox noStyle name="autoLogin">
-            自动登录
+              自动登录
             </ProFormCheckbox>
             <a
               style={{
                 float: 'right',
               }}
             >
-             忘记密码
+              忘记密码
             </a>
           </div>
         </LoginForm>

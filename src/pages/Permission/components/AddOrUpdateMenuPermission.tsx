@@ -27,7 +27,7 @@ type UpdateFuncType = typeof permissionServiceUpdate;
 
 const AddOrUpdateMenuPermission: React.FC<{
   flag: string;
-  record?: API.authPermission;
+  record?: API.protoPermission;
   pageRef: React.MutableRefObject<ActionType | undefined>;
   selectAppOptions: { value: string; label: string }[];
   selectRoleOptions: { value: string; label: string }[];
@@ -50,26 +50,26 @@ const AddOrUpdateMenuPermission: React.FC<{
     const resourceStr = JSON.stringify(resourceList);
 
     if (flag === 'update') {
-      const updateReq: API.authPermissionUpdateReq = {
+      const updateReq: API.protoPermissionUpdateReq = {
         id: record?.id as string,
         role_id: values.role_id,
         app_id: values.app_id,
         resources: resourceStr,
       };
-      const res = await updateHandler<UpdateFuncType, API.authPermissionUpdateReq>(
+      const res = await updateHandler<UpdateFuncType, API.protoPermissionUpdateReq>(
         permissionServiceUpdate,
         pageRef,
         updateReq,
       );
       code = res.code;
     } else {
-      const addReq: API.authPermissionAddReq = {
+      const addReq: API.protoPermissionAddReq = {
         role_id: values.role_id,
         app_id: values.app_id,
         resource_type: RESOURCE_TYPE_MENU,
         resources: resourceStr,
       };
-      const res = await addHandler<AddFuncType, API.authPermissionAddReq>(
+      const res = await addHandler<AddFuncType, API.protoPermissionAddReq>(
         permissionServiceAdd,
         pageRef,
         addReq,
@@ -87,8 +87,8 @@ const AddOrUpdateMenuPermission: React.FC<{
    * */
   const queryPage = async (
     params: any,
-  ): Promise<{ data?: API.authPermission[]; total?: number }> => {
-    const body: API.authResourcePageReq = {
+  ): Promise<{ data?: API.protoPermission[]; total?: number }> => {
+    const body: API.protoResourcePageReq = {
       page_index: params.current,
       page_size: params.pageSize,
       type: RESOURCE_TYPE_MENU,
@@ -112,7 +112,7 @@ const AddOrUpdateMenuPermission: React.FC<{
     }
   }, [editFlag, record]);
 
-  const columns: ProColumns<API.authResource>[] = [
+  const columns: ProColumns<API.protoResource>[] = [
     {
       dataIndex: 'index',
       valueType: 'indexBorder',
@@ -125,7 +125,7 @@ const AddOrUpdateMenuPermission: React.FC<{
     {
       title: '菜单内容',
       dataIndex: 'content',
-      render: (_, entity: API.authResource) => {
+      render: (_, entity: API.protoResource) => {
         return (
           <>
             <ShowJson key={entity.id} info={{ name: entity.name, content: entity.content }} />

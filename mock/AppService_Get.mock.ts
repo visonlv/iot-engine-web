@@ -4,16 +4,16 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AppService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 87,
-      msg: '置前联节世红构为列问半劳能即。',
+      code: 77,
+      msg: '收基书量例毛界书路利厂严矿参料较总在。',
       App: {
-        id: '4b536ca4-2BBd-E37F-5c86-bB13a42BF4b1',
-        code: '确度至治千对百完对电表资那八年元部上。',
-        name: '龚娟',
-        describe: '后研起响科联标话七算作组人完便日。',
-        create_user: '斯为作众有成于边米维改将用有近。',
-        create_username: '积计列下先从儿标类必划信人二须。',
-        create_time: '66)sr',
+        id: 'E57d85fD-D039-BA27-b687-f4A78248e3eA',
+        code: '步知和革术设包广支流例整没。',
+        name: '崔磊',
+        describe: '再内所于场主构示表无及作数比叫。',
+        create_user: '身中程方步见出位满品千把山议。',
+        create_username: '利而反龙办数温式度拉把可科。',
+        create_time: 'M@y1',
       },
     });
   },

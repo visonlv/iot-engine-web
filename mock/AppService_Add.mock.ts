@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AppService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 71,
-      msg: '素等易开党多且期律省研律手心须对级。',
-      id: 'Ad7dDdfA-Ffa3-38bb-7eeA-f2B47DDd5f8e',
+      code: 85,
+      msg: '共电容马七八质就六温老文回。',
+      id: '8525b8cB-4d7b-77D1-31bD-AdC21eD7A180',
     });
   },
 };

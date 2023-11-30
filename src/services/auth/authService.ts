@@ -4,10 +4,10 @@ import { request } from '@umijs/max';
 
 /** API权限 POST /rpc/auth/AuthService.APIPermissions */
 export async function authServiceApiPermissions(
-  body: API.authAPIPermissionsReq,
+  body: API.protoAPIPermissionsReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authAPIPermissionsResp>('/rpc/auth/AuthService.APIPermissions', {
+  return request<API.protoAPIPermissionsResp>('/rpc/auth/AuthService.APIPermissions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,10 +19,10 @@ export async function authServiceApiPermissions(
 
 /** 删除token POST /rpc/auth/AuthService.DelToken */
 export async function authServiceDelToken(
-  body: API.authDelTokenReq,
+  body: API.protoDelTokenReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authDelTokenResp>('/rpc/auth/AuthService.DelToken', {
+  return request<API.protoDelTokenResp>('/rpc/auth/AuthService.DelToken', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,10 +34,10 @@ export async function authServiceDelToken(
 
 /** 忘记密码 POST /rpc/auth/AuthService.ForgetPassword */
 export async function authServiceForgetPassword(
-  body: API.authForgetPasswordReq,
+  body: API.protoForgetPasswordReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authForgetPasswordResp>('/rpc/auth/AuthService.ForgetPassword', {
+  return request<API.protoForgetPasswordResp>('/rpc/auth/AuthService.ForgetPassword', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,10 +49,10 @@ export async function authServiceForgetPassword(
 
 /** 生成token POST /rpc/auth/AuthService.GenToken */
 export async function authServiceGenToken(
-  body: API.authGenTokenReq,
+  body: API.protoGenTokenReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authGenTokenResp>('/rpc/auth/AuthService.GenToken', {
+  return request<API.protoGenTokenResp>('/rpc/auth/AuthService.GenToken', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -64,10 +64,10 @@ export async function authServiceGenToken(
 
 /** 检测token POST /rpc/auth/AuthService.Inspect */
 export async function authServiceInspect(
-  body: API.authInspectReq,
+  body: API.protoInspectReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authInspectResp>('/rpc/auth/AuthService.Inspect', {
+  return request<API.protoInspectResp>('/rpc/auth/AuthService.Inspect', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -78,8 +78,8 @@ export async function authServiceInspect(
 }
 
 /** 登录 POST /rpc/auth/AuthService.Login */
-export async function authServiceLogin(body: API.authLoginReq, options?: { [key: string]: any }) {
-  return request<API.authLoginResp>('/rpc/auth/AuthService.Login', {
+export async function authServiceLogin(body: API.protoLoginReq, options?: { [key: string]: any }) {
+  return request<API.protoLoginResp>('/rpc/auth/AuthService.Login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -91,10 +91,10 @@ export async function authServiceLogin(body: API.authLoginReq, options?: { [key:
 
 /** 邮箱登录 POST /rpc/auth/AuthService.LoginByEmail */
 export async function authServiceLoginByEmail(
-  body: API.authLoginByEmailReq,
+  body: API.protoLoginByEmailReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authLoginByEmailResp>('/rpc/auth/AuthService.LoginByEmail', {
+  return request<API.protoLoginByEmailResp>('/rpc/auth/AuthService.LoginByEmail', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -106,10 +106,10 @@ export async function authServiceLoginByEmail(
 
 /** 手机号登录 POST /rpc/auth/AuthService.LoginByPhone */
 export async function authServiceLoginByPhone(
-  body: API.authLoginByPhoneReq,
+  body: API.protoLoginByPhoneReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authLoginByPhoneResp>('/rpc/auth/AuthService.LoginByPhone', {
+  return request<API.protoLoginByPhoneResp>('/rpc/auth/AuthService.LoginByPhone', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -120,8 +120,11 @@ export async function authServiceLoginByPhone(
 }
 
 /** 登出 POST /rpc/auth/AuthService.Logout */
-export async function authServiceLogout(body: API.authLogoutReq, options?: { [key: string]: any }) {
-  return request<API.authLogoutResp>('/rpc/auth/AuthService.Logout', {
+export async function authServiceLogout(
+  body: API.protoLogoutReq,
+  options?: { [key: string]: any },
+) {
+  return request<API.protoLogoutResp>('/rpc/auth/AuthService.Logout', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -133,10 +136,10 @@ export async function authServiceLogout(body: API.authLogoutReq, options?: { [ke
 
 /** 刷新token POST /rpc/auth/AuthService.RefreshToken */
 export async function authServiceRefreshToken(
-  body: API.authRefreshTokenReq,
+  body: API.protoRefreshTokenReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authRefreshTokenResp>('/rpc/auth/AuthService.RefreshToken', {
+  return request<API.protoRefreshTokenResp>('/rpc/auth/AuthService.RefreshToken', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -148,10 +151,10 @@ export async function authServiceRefreshToken(
 
 /** 获取验证码 POST /rpc/auth/AuthService.VerificationCode */
 export async function authServiceVerificationCode(
-  body: API.authVerificationCodeReq,
+  body: API.protoVerificationCodeReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authResponse>('/rpc/auth/AuthService.VerificationCode', {
+  return request<API.protoResponse>('/rpc/auth/AuthService.VerificationCode', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -163,10 +166,10 @@ export async function authServiceVerificationCode(
 
 /** 验证密码 POST /rpc/auth/AuthService.VerifyPassword */
 export async function authServiceVerifyPassword(
-  body: API.authVerifyPasswordReq,
+  body: API.protoVerifyPasswordReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.authVerifyPasswordResp>('/rpc/auth/AuthService.VerifyPassword', {
+  return request<API.protoVerifyPasswordResp>('/rpc/auth/AuthService.VerifyPassword', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

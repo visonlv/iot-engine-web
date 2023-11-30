@@ -4,10 +4,10 @@ import { request } from '@umijs/max';
 
 /** 产品创建 POST /rpc/thing/ProductService.Add */
 export async function productServiceAdd(
-  body: API.thingProductAddReq,
+  body: API.protoProductAddReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingProductAddResp>('/rpc/thing/ProductService.Add', {
+  return request<API.protoProductAddResp>('/rpc/thing/ProductService.Add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,10 +19,10 @@ export async function productServiceAdd(
 
 /** 产品删除 POST /rpc/thing/ProductService.Del */
 export async function productServiceDel(
-  body: API.thingProductDelReq,
+  body: API.protoProductDelReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingProductDelResp>('/rpc/thing/ProductService.Del', {
+  return request<API.protoProductDelResp>('/rpc/thing/ProductService.Del', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,10 +34,10 @@ export async function productServiceDel(
 
 /** 产品获取 POST /rpc/thing/ProductService.Get */
 export async function productServiceGet(
-  body: API.thingProductGetReq,
+  body: API.protoProductGetReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingProductGetResp>('/rpc/thing/ProductService.Get', {
+  return request<API.protoProductGetResp>('/rpc/thing/ProductService.Get', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,10 +49,10 @@ export async function productServiceGet(
 
 /** 产品列表 POST /rpc/thing/ProductService.List */
 export async function productServiceList(
-  body: API.thingProductListReq,
+  body: API.protoProductListReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingProductListResp>('/rpc/thing/ProductService.List', {
+  return request<API.protoProductListResp>('/rpc/thing/ProductService.List', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -64,10 +64,10 @@ export async function productServiceList(
 
 /** 产品分页 POST /rpc/thing/ProductService.Page */
 export async function productServicePage(
-  body: API.thingProductPageReq,
+  body: API.protoProductPageReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingProductPageResp>('/rpc/thing/ProductService.Page', {
+  return request<API.protoProductPageResp>('/rpc/thing/ProductService.Page', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -79,10 +79,10 @@ export async function productServicePage(
 
 /** 产品修改 POST /rpc/thing/ProductService.Update */
 export async function productServiceUpdate(
-  body: API.thingProductUpdateReq,
+  body: API.protoProductUpdateReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingProductUpdateResp>('/rpc/thing/ProductService.Update', {
+  return request<API.protoProductUpdateResp>('/rpc/thing/ProductService.Update', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

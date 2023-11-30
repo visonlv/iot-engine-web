@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 95,
-      msg: '划传育认老价加江小得车基政转。',
-      id: 'FA27bEAa-aC60-56BF-A9B0-5A2BCeaC63E2',
+      code: 63,
+      msg: '持容基参二并将参圆群南决设千。',
+      id: '643fEFa1-C7fD-A2E9-9fcc-C75d7f54b6c5',
     });
   },
 };

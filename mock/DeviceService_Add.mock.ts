@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/DeviceService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 74,
-      msg: '改报酸热号电上西元回后斗周京学细。',
-      id: '88A686A5-Eaa8-CbA2-40F7-79283Ab9E121',
+      code: 85,
+      msg: '样变得战都就维该位形界红查看支基容。',
+      id: '43c97D3c-bEDB-bddA-7085-0F13E2Ff3Be0',
     });
   },
 };

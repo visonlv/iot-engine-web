@@ -4,17 +4,17 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 99,
-      msg: '须没列争连议可消认个备使见整保。',
+      code: 79,
+      msg: '么通复拉等准便农法界观声非元马光代。',
       item: {
-        id: 'C65B5d5D-87D8-cE39-beaa-39f7d212e95C',
-        name: '赖平',
-        type: 21,
-        content: '作对已构商中斯们需少实战代。',
-        property: '根种在代叫小增级容转算好。',
-        parent_id: 'Ef36AfeE-85BD-f991-B930-Ee93Af352622',
-        create_time: 'Ok&T',
-        update_time: 'zzbLxN',
+        id: 'Af16d641-A46F-bfce-fd6d-984B2BcDd7D1',
+        name: '吕洋',
+        type: 2,
+        content: '采叫称研照专表到眼本广织。',
+        property: '自重用史明象东第得农复圆况。',
+        parent_id: 'Eb041D6C-8e54-A45b-85D9-c0B8e9bf2d63',
+        create_time: 'sm#ive',
+        update_time: 'DkciC',
       },
     });
   },

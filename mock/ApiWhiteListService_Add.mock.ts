@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ApiWhiteListService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 68,
-      msg: '开光电根往学他写支想众精制没报。',
-      id: '02feEDEe-cf0f-9Cc4-cc29-8815e66B6E4c',
+      code: 88,
+      msg: '造低什办阶快变比运导王位火。',
+      id: 'dB1aecFA-BfBC-8f5D-6523-9EAF8Ad273E6',
     });
   },
 };

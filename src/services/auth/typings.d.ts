@@ -1,5 +1,5 @@
 declare namespace API {
-  type authAddResourceReq = {
+  type protoAddResourceReq = {
     /** 资源名称 */
     name?: string;
     /** 资源类型 "api"-接口 "menu"-菜单 "rule"-规则 */
@@ -8,7 +8,7 @@ declare namespace API {
     content?: string;
   };
 
-  type authAddResourceResp = {
+  type protoAddResourceResp = {
     /** 返回码 */
     code?: number;
     /** 返回信息 */
@@ -17,14 +17,14 @@ declare namespace API {
     id?: string;
   };
 
-  type authAPIPermissionsReq = {
+  type protoAPIPermissionsReq = {
     /** 用户ID */
     token?: string;
     /** api地址 */
     api?: string;
   };
 
-  type authAPIPermissionsResp = {
+  type protoAPIPermissionsResp = {
     code?: number;
     msg?: string;
     /** 权限使能 */
@@ -41,7 +41,7 @@ declare namespace API {
     is_white?: boolean;
   };
 
-  type authApiWhiteList = {
+  type protoApiWhiteList = {
     /** id */
     id?: string;
     /** 接口名称 */
@@ -54,30 +54,30 @@ declare namespace API {
     create_username?: string;
   };
 
-  type authApiWhiteListAddReq = {
+  type protoApiWhiteListAddReq = {
     /** 接口名称 */
     name?: string;
     /** 接口地址 */
     path?: string;
   };
 
-  type authApiWhiteListAddResp = {
+  type protoApiWhiteListAddResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authApiWhiteListDelReq = {
+  type protoApiWhiteListDelReq = {
     id?: string;
   };
 
-  type authApiWhiteListDelResp = {
+  type protoApiWhiteListDelResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authApiWhiteListPageReq = {
+  type protoApiWhiteListPageReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -86,21 +86,21 @@ declare namespace API {
     name?: string;
   };
 
-  type authApiWhiteListPageResp = {
+  type protoApiWhiteListPageResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authApiWhiteList[];
+    list?: protoApiWhiteList[];
   };
 
-  type authApiWhiteListRefreshReq = {};
+  type protoApiWhiteListRefreshReq = {};
 
-  type authApiWhiteListRefreshResp = {
+  type protoApiWhiteListRefreshResp = {
     code?: number;
     msg?: string;
   };
 
-  type authApiWhiteListUpdateReq = {
+  type protoApiWhiteListUpdateReq = {
     id?: string;
     /** 接口名称 */
     name?: string;
@@ -108,13 +108,13 @@ declare namespace API {
     path?: string;
   };
 
-  type authApiWhiteListUpdateResp = {
+  type protoApiWhiteListUpdateResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authApp = {
+  type protoApp = {
     /** 应用ID */
     id?: string;
     /** 应用标识 */
@@ -131,7 +131,7 @@ declare namespace API {
     create_time?: string;
   };
 
-  type authAppAddReq = {
+  type protoAppAddReq = {
     /** 应用标识 */
     code?: string;
     /** 应用名称 */
@@ -140,34 +140,34 @@ declare namespace API {
     describe?: string;
   };
 
-  type authAppAddResp = {
+  type protoAppAddResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authAppDelReq = {
+  type protoAppDelReq = {
     /** 应用id */
     id?: string;
   };
 
-  type authAppDelResp = {
+  type protoAppDelResp = {
     code?: number;
     msg?: string;
   };
 
-  type authAppGetReq = {
+  type protoAppGetReq = {
     /** 应用id */
     id?: string;
   };
 
-  type authAppGetResp = {
+  type protoAppGetResp = {
     code?: number;
     msg?: string;
-    App?: authApp;
+    App?: protoApp;
   };
 
-  type authAppPageReq = {
+  type protoAppPageReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -176,14 +176,14 @@ declare namespace API {
     name?: string;
   };
 
-  type authAppPageResp = {
+  type protoAppPageResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authApp[];
+    list?: protoApp[];
   };
 
-  type authAppUpdateReq = {
+  type protoAppUpdateReq = {
     /** 应用id */
     id?: string;
     /** 应用名称 */
@@ -194,12 +194,12 @@ declare namespace API {
     describe?: string;
   };
 
-  type authAppUpdateResp = {
+  type protoAppUpdateResp = {
     code?: number;
     msg?: string;
   };
 
-  type authDelTokenReq = {
+  type protoDelTokenReq = {
     /** 用户ID */
     user_id?: string;
     /** 用户角色 */
@@ -210,23 +210,23 @@ declare namespace API {
     token?: string;
   };
 
-  type authDelTokenResp = {
+  type protoDelTokenResp = {
     code?: number;
     msg?: string;
   };
 
-  type authForgetPasswordReq = {
+  type protoForgetPasswordReq = {
     email?: string;
     verification_code?: string;
     password?: string;
   };
 
-  type authForgetPasswordResp = {
+  type protoForgetPasswordResp = {
     code?: number;
     msg?: string;
   };
 
-  type authGenTokenReq = {
+  type protoGenTokenReq = {
     /** 用户id */
     user_id?: string;
     /** 角色code */
@@ -237,36 +237,36 @@ declare namespace API {
     expiry?: string;
   };
 
-  type authGenTokenResp = {
+  type protoGenTokenResp = {
     code?: number;
     msg?: string;
     /** 返回token */
     token?: string;
   };
 
-  type authInspectReq = {
+  type protoInspectReq = {
     /** token字符串 */
     token?: string;
   };
 
-  type authInspectResp = {
+  type protoInspectResp = {
     code?: number;
     msg?: string;
     /** 应用code */
     app_code?: string;
     /** 是否已存在 */
     is_exist?: boolean;
-    user?: authUser;
+    user?: protoUser;
   };
 
-  type authLinkUserRolesReq = {
+  type protoLinkUserRolesReq = {
     /** 用户ID */
     user_id?: string;
     /** 角色标识列表 */
     role_codes?: string[];
   };
 
-  type authLoginByEmailReq = {
+  type protoLoginByEmailReq = {
     /** 用户邮箱 */
     email?: string;
     /** 验证码 */
@@ -279,7 +279,7 @@ declare namespace API {
     expiry?: string;
   };
 
-  type authLoginByEmailResp = {
+  type protoLoginByEmailResp = {
     code?: number;
     msg?: string;
     /** 用户id */
@@ -290,7 +290,7 @@ declare namespace API {
     token?: string;
   };
 
-  type authLoginByPhoneReq = {
+  type protoLoginByPhoneReq = {
     /** 用户手机号 */
     phone?: string;
     /** 验证码 */
@@ -303,7 +303,7 @@ declare namespace API {
     expiry?: string;
   };
 
-  type authLoginByPhoneResp = {
+  type protoLoginByPhoneResp = {
     code?: number;
     msg?: string;
     /** 用户id */
@@ -314,7 +314,7 @@ declare namespace API {
     token?: string;
   };
 
-  type authLoginReq = {
+  type protoLoginReq = {
     /** 用户名 */
     account?: string;
     /** 用户密码 */
@@ -327,7 +327,7 @@ declare namespace API {
     expiry?: string;
   };
 
-  type authLoginResp = {
+  type protoLoginResp = {
     code?: number;
     msg?: string;
     /** 用户id */
@@ -338,14 +338,14 @@ declare namespace API {
     token?: string;
   };
 
-  type authLogoutReq = {};
+  type protoLogoutReq = {};
 
-  type authLogoutResp = {
+  type protoLogoutResp = {
     code?: number;
     msg?: string;
   };
 
-  type authPermission = {
+  type protoPermission = {
     id?: string;
     /** 角色id */
     role_id?: string;
@@ -365,7 +365,7 @@ declare namespace API {
     resources_json?: string;
   };
 
-  type authPermissionAddReq = {
+  type protoPermissionAddReq = {
     /** 角色id */
     role_id?: string;
     /** 应用id */
@@ -376,46 +376,46 @@ declare namespace API {
     resources?: string;
   };
 
-  type authPermissionAddResp = {
+  type protoPermissionAddResp = {
     code?: number;
     msg?: string;
     /** 权限id */
     id?: string;
   };
 
-  type authPermissionDelReq = {
+  type protoPermissionDelReq = {
     /** 权限id */
     id?: string;
   };
 
-  type authPermissionDelResp = {
+  type protoPermissionDelResp = {
     code?: number;
     msg?: string;
   };
 
-  type authPermissionGetMenuReq = {
+  type protoPermissionGetMenuReq = {
     app_code?: string;
   };
 
-  type authPermissionGetMenuResp = {
+  type protoPermissionGetMenuResp = {
     code?: number;
     msg?: string;
     /** 菜单详情 */
     menu?: string;
   };
 
-  type authPermissionGetReq = {
+  type protoPermissionGetReq = {
     /** 权限id */
     id?: string;
   };
 
-  type authPermissionGetResp = {
+  type protoPermissionGetResp = {
     code?: number;
     msg?: string;
-    item?: authPermission;
+    item?: protoPermission;
   };
 
-  type authPermissionPageReq = {
+  type protoPermissionPageReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -426,14 +426,14 @@ declare namespace API {
     app_id?: string;
   };
 
-  type authPermissionPageResp = {
+  type protoPermissionPageResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authPermission[];
+    list?: protoPermission[];
   };
 
-  type authPermissionUpdateReq = {
+  type protoPermissionUpdateReq = {
     /** 权限id */
     id?: string;
     /** 角色Id */
@@ -444,27 +444,27 @@ declare namespace API {
     resources?: string;
   };
 
-  type authPermissionUpdateResp = {
+  type protoPermissionUpdateResp = {
     code?: number;
     msg?: string;
   };
 
-  type authRefreshTokenReq = {
+  type protoRefreshTokenReq = {
     token?: string;
   };
 
-  type authRefreshTokenResp = {
+  type protoRefreshTokenResp = {
     code?: number;
     msg?: string;
     /** token字符串 */
     token?: string;
   };
 
-  type authRequest = {
+  type protoRequest = {
     id?: string;
   };
 
-  type authResource = {
+  type protoResource = {
     /** 资源ID */
     id?: string;
     /** 资源名称 */
@@ -483,15 +483,15 @@ declare namespace API {
     update_time?: string;
   };
 
-  type authResourceGetResp = {
+  type protoResourceGetResp = {
     /** 返回码 */
     code?: number;
     /** 返回信息 */
     msg?: string;
-    item?: authResource;
+    item?: protoResource;
   };
 
-  type authResourcePageReq = {
+  type protoResourcePageReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -504,29 +504,29 @@ declare namespace API {
     content?: string;
   };
 
-  type authResourcePageResp = {
+  type protoResourcePageResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authResource[];
+    list?: protoResource[];
   };
 
-  type authResourceRuleTypeReq = {};
+  type protoResourceRuleTypeReq = {};
 
-  type authResourceRuleTypeResp = {
+  type protoResourceRuleTypeResp = {
     code?: number;
     msg?: string;
     list?: string[];
   };
 
-  type authResponse = {
+  type protoResponse = {
     /** 返回码 */
     code?: number;
     /** 返回信息 */
     msg?: string;
   };
 
-  type authRole = {
+  type protoRole = {
     /** 角色ID */
     id?: string;
     /** 角色标识 */
@@ -541,65 +541,65 @@ declare namespace API {
     create_time?: string;
   };
 
-  type authRoleAddReq = {
+  type protoRoleAddReq = {
     /** 角色标识 */
     code?: string;
     /** 角色名称 */
     name?: string;
   };
 
-  type authRoleAddResp = {
+  type protoRoleAddResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authRoleDelReq = {
+  type protoRoleDelReq = {
     /** 角色id */
     id?: string;
   };
 
-  type authRoleDelResp = {
+  type protoRoleDelResp = {
     code?: number;
     msg?: string;
   };
 
-  type authRoleGetReq = {
+  type protoRoleGetReq = {
     /** 角色id */
     id?: string;
   };
 
-  type authRoleGetResp = {
+  type protoRoleGetResp = {
     code?: number;
     msg?: string;
-    role?: authRole;
+    role?: protoRole;
   };
 
-  type authRoleListByCodeReq = {
+  type protoRoleListByCodeReq = {
     /** 应用标识 */
     app_code?: string;
     /** 角色标识 */
     role_codes?: string[];
   };
 
-  type authRoleListByCodeResp = {
+  type protoRoleListByCodeResp = {
     code?: number;
     msg?: string;
-    items?: authRole[];
+    items?: protoRole[];
   };
 
-  type authRoleListReq = {
+  type protoRoleListReq = {
     /** 应用标识 */
     app_code?: string;
   };
 
-  type authRoleListResp = {
+  type protoRoleListResp = {
     code?: number;
     msg?: string;
-    items?: authRole[];
+    items?: protoRole[];
   };
 
-  type authRolePageReq = {
+  type protoRolePageReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -608,14 +608,14 @@ declare namespace API {
     name?: string;
   };
 
-  type authRolePageResp = {
+  type protoRolePageResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authRole[];
+    list?: protoRole[];
   };
 
-  type authRoleUpdateReq = {
+  type protoRoleUpdateReq = {
     /** 角色id */
     id?: string;
     /** 角色名称 */
@@ -624,19 +624,19 @@ declare namespace API {
     code?: string;
   };
 
-  type authRoleUpdateResp = {
+  type protoRoleUpdateResp = {
     code?: number;
     msg?: string;
   };
 
-  type authUnlinkUserRolesReq = {
+  type protoUnlinkUserRolesReq = {
     /** 用户ID */
     user_id?: string;
     /** 角色标识列表 */
     role_codes?: string[];
   };
 
-  type authUpdatePasswordReq = {
+  type protoUpdatePasswordReq = {
     /** 用户ID */
     user_id?: string;
     /** 当密码 */
@@ -645,12 +645,12 @@ declare namespace API {
     new_password?: string;
   };
 
-  type authUpdatePasswordResp = {
+  type protoUpdatePasswordResp = {
     code?: number;
     msg?: string;
   };
 
-  type authUpdateResourceReq = {
+  type protoUpdateResourceReq = {
     /** 资源ID */
     id?: string;
     /** 资源名称 */
@@ -659,7 +659,7 @@ declare namespace API {
     content?: string;
   };
 
-  type authUser = {
+  type protoUser = {
     /** 用户id */
     id?: string;
     /** 账号 */
@@ -682,44 +682,44 @@ declare namespace API {
     role_code?: string[];
   };
 
-  type authUserAddReq = {
-    item?: authUser;
+  type protoUserAddReq = {
+    item?: protoUser;
     /** 应用标识 */
     app_code?: string;
   };
 
-  type authUserAddResp = {
+  type protoUserAddResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authUserDelReq = {
+  type protoUserDelReq = {
     /** 用户id */
     id?: string;
     /** 应用CODE，不为空时清理该用户在该应用下的角色 */
     app_code?: string;
   };
 
-  type authUserDelResp = {
+  type protoUserDelResp = {
     code?: number;
     msg?: string;
   };
 
-  type authUserGetReq = {
+  type protoUserGetReq = {
     /** 用户id */
     id?: string;
     /** 应用标识 */
     app_code?: string;
   };
 
-  type authUserGetResp = {
+  type protoUserGetResp = {
     code?: number;
     msg?: string;
-    item?: authUser;
+    item?: protoUser;
   };
 
-  type authUserPageBySqlReq = {
+  type protoUserPageBySqlReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -734,14 +734,14 @@ declare namespace API {
     app_code?: string;
   };
 
-  type authUserPageBySqlResp = {
+  type protoUserPageBySqlResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authUser[];
+    list?: protoUser[];
   };
 
-  type authUserPageReq = {
+  type protoUserPageReq = {
     /** 第几页，从1开始 */
     page_index?: number;
     /** 每页多少条 */
@@ -766,26 +766,26 @@ declare namespace API {
     role_codes?: string[];
   };
 
-  type authUserPageResp = {
+  type protoUserPageResp = {
     code?: number;
     msg?: string;
     total?: number;
-    list?: authUser[];
+    list?: protoUser[];
   };
 
-  type authUserUpdateReq = {
-    Item?: authUser;
+  type protoUserUpdateReq = {
+    Item?: protoUser;
     /** 应用标识 */
     app_code?: string;
   };
 
-  type authUserUpdateResp = {
+  type protoUserUpdateResp = {
     code?: number;
     msg?: string;
     id?: string;
   };
 
-  type authVerificationCodeReq = {
+  type protoVerificationCodeReq = {
     /** 发送对象 */
     object?: string;
     /** 验证方式 1-手机 2-邮箱 */
@@ -794,12 +794,12 @@ declare namespace API {
     app_code?: string;
   };
 
-  type authVerifyPasswordReq = {
+  type protoVerifyPasswordReq = {
     user_id?: string;
     password?: string;
   };
 
-  type authVerifyPasswordResp = {
+  type protoVerifyPasswordResp = {
     code?: number;
     msg?: string;
   };

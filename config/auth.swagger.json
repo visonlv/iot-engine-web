@@ -27,12 +27,8 @@
       "name": "PermissionService"
     }
   ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/rpc/auth/ApiWhiteListService.Add": {
       "post": {
@@ -42,7 +38,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListAddResp"
+              "$ref": "#/definitions/protoApiWhiteListAddResp"
             }
           }
         },
@@ -52,13 +48,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListAddReq"
+              "$ref": "#/definitions/protoApiWhiteListAddReq"
             }
           }
         ],
-        "tags": [
-          "ApiWhiteListService"
-        ]
+        "tags": ["ApiWhiteListService"]
       }
     },
     "/rpc/auth/ApiWhiteListService.Del": {
@@ -69,7 +63,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListDelResp"
+              "$ref": "#/definitions/protoApiWhiteListDelResp"
             }
           }
         },
@@ -79,13 +73,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListDelReq"
+              "$ref": "#/definitions/protoApiWhiteListDelReq"
             }
           }
         ],
-        "tags": [
-          "ApiWhiteListService"
-        ]
+        "tags": ["ApiWhiteListService"]
       }
     },
     "/rpc/auth/ApiWhiteListService.Page": {
@@ -96,7 +88,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListPageResp"
+              "$ref": "#/definitions/protoApiWhiteListPageResp"
             }
           }
         },
@@ -106,13 +98,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListPageReq"
+              "$ref": "#/definitions/protoApiWhiteListPageReq"
             }
           }
         ],
-        "tags": [
-          "ApiWhiteListService"
-        ]
+        "tags": ["ApiWhiteListService"]
       }
     },
     "/rpc/auth/ApiWhiteListService.Refresh": {
@@ -123,7 +113,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListRefreshResp"
+              "$ref": "#/definitions/protoApiWhiteListRefreshResp"
             }
           }
         },
@@ -133,13 +123,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListRefreshReq"
+              "$ref": "#/definitions/protoApiWhiteListRefreshReq"
             }
           }
         ],
-        "tags": [
-          "ApiWhiteListService"
-        ]
+        "tags": ["ApiWhiteListService"]
       }
     },
     "/rpc/auth/ApiWhiteListService.Update": {
@@ -150,7 +138,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListUpdateResp"
+              "$ref": "#/definitions/protoApiWhiteListUpdateResp"
             }
           }
         },
@@ -160,13 +148,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authApiWhiteListUpdateReq"
+              "$ref": "#/definitions/protoApiWhiteListUpdateReq"
             }
           }
         ],
-        "tags": [
-          "ApiWhiteListService"
-        ]
+        "tags": ["ApiWhiteListService"]
       }
     },
     "/rpc/auth/AppService.Add": {
@@ -177,7 +163,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAppAddResp"
+              "$ref": "#/definitions/protoAppAddResp"
             }
           }
         },
@@ -187,13 +173,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAppAddReq"
+              "$ref": "#/definitions/protoAppAddReq"
             }
           }
         ],
-        "tags": [
-          "AppService"
-        ]
+        "tags": ["AppService"]
       }
     },
     "/rpc/auth/AppService.Del": {
@@ -204,7 +188,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAppDelResp"
+              "$ref": "#/definitions/protoAppDelResp"
             }
           }
         },
@@ -214,13 +198,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAppDelReq"
+              "$ref": "#/definitions/protoAppDelReq"
             }
           }
         ],
-        "tags": [
-          "AppService"
-        ]
+        "tags": ["AppService"]
       }
     },
     "/rpc/auth/AppService.Get": {
@@ -231,7 +213,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAppGetResp"
+              "$ref": "#/definitions/protoAppGetResp"
             }
           }
         },
@@ -241,13 +223,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAppGetReq"
+              "$ref": "#/definitions/protoAppGetReq"
             }
           }
         ],
-        "tags": [
-          "AppService"
-        ]
+        "tags": ["AppService"]
       }
     },
     "/rpc/auth/AppService.Page": {
@@ -258,7 +238,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAppPageResp"
+              "$ref": "#/definitions/protoAppPageResp"
             }
           }
         },
@@ -268,13 +248,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAppPageReq"
+              "$ref": "#/definitions/protoAppPageReq"
             }
           }
         ],
-        "tags": [
-          "AppService"
-        ]
+        "tags": ["AppService"]
       }
     },
     "/rpc/auth/AppService.Update": {
@@ -285,7 +263,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAppUpdateResp"
+              "$ref": "#/definitions/protoAppUpdateResp"
             }
           }
         },
@@ -295,13 +273,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAppUpdateReq"
+              "$ref": "#/definitions/protoAppUpdateReq"
             }
           }
         ],
-        "tags": [
-          "AppService"
-        ]
+        "tags": ["AppService"]
       }
     },
     "/rpc/auth/AuthService.APIPermissions": {
@@ -312,7 +288,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAPIPermissionsResp"
+              "$ref": "#/definitions/protoAPIPermissionsResp"
             }
           }
         },
@@ -322,13 +298,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAPIPermissionsReq"
+              "$ref": "#/definitions/protoAPIPermissionsReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.DelToken": {
@@ -339,7 +313,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authDelTokenResp"
+              "$ref": "#/definitions/protoDelTokenResp"
             }
           }
         },
@@ -349,13 +323,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authDelTokenReq"
+              "$ref": "#/definitions/protoDelTokenReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.ForgetPassword": {
@@ -366,7 +338,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authForgetPasswordResp"
+              "$ref": "#/definitions/protoForgetPasswordResp"
             }
           }
         },
@@ -376,13 +348,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authForgetPasswordReq"
+              "$ref": "#/definitions/protoForgetPasswordReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.GenToken": {
@@ -393,7 +363,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authGenTokenResp"
+              "$ref": "#/definitions/protoGenTokenResp"
             }
           }
         },
@@ -403,13 +373,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authGenTokenReq"
+              "$ref": "#/definitions/protoGenTokenReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.Inspect": {
@@ -420,7 +388,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authInspectResp"
+              "$ref": "#/definitions/protoInspectResp"
             }
           }
         },
@@ -430,13 +398,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authInspectReq"
+              "$ref": "#/definitions/protoInspectReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.Login": {
@@ -447,7 +413,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authLoginResp"
+              "$ref": "#/definitions/protoLoginResp"
             }
           }
         },
@@ -457,13 +423,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authLoginReq"
+              "$ref": "#/definitions/protoLoginReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.LoginByEmail": {
@@ -474,7 +438,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authLoginByEmailResp"
+              "$ref": "#/definitions/protoLoginByEmailResp"
             }
           }
         },
@@ -484,13 +448,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authLoginByEmailReq"
+              "$ref": "#/definitions/protoLoginByEmailReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.LoginByPhone": {
@@ -501,7 +463,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authLoginByPhoneResp"
+              "$ref": "#/definitions/protoLoginByPhoneResp"
             }
           }
         },
@@ -511,13 +473,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authLoginByPhoneReq"
+              "$ref": "#/definitions/protoLoginByPhoneReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.Logout": {
@@ -528,7 +488,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authLogoutResp"
+              "$ref": "#/definitions/protoLogoutResp"
             }
           }
         },
@@ -538,13 +498,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authLogoutReq"
+              "$ref": "#/definitions/protoLogoutReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.RefreshToken": {
@@ -555,7 +513,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRefreshTokenResp"
+              "$ref": "#/definitions/protoRefreshTokenResp"
             }
           }
         },
@@ -565,13 +523,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRefreshTokenReq"
+              "$ref": "#/definitions/protoRefreshTokenReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.VerificationCode": {
@@ -582,7 +538,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResponse"
+              "$ref": "#/definitions/protoResponse"
             }
           }
         },
@@ -592,13 +548,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authVerificationCodeReq"
+              "$ref": "#/definitions/protoVerificationCodeReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/AuthService.VerifyPassword": {
@@ -609,7 +563,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authVerifyPasswordResp"
+              "$ref": "#/definitions/protoVerifyPasswordResp"
             }
           }
         },
@@ -619,13 +573,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authVerifyPasswordReq"
+              "$ref": "#/definitions/protoVerifyPasswordReq"
             }
           }
         ],
-        "tags": [
-          "AuthService"
-        ]
+        "tags": ["AuthService"]
       }
     },
     "/rpc/auth/PermissionService.Add": {
@@ -636,7 +588,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authPermissionAddResp"
+              "$ref": "#/definitions/protoPermissionAddResp"
             }
           }
         },
@@ -646,13 +598,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authPermissionAddReq"
+              "$ref": "#/definitions/protoPermissionAddReq"
             }
           }
         ],
-        "tags": [
-          "PermissionService"
-        ]
+        "tags": ["PermissionService"]
       }
     },
     "/rpc/auth/PermissionService.Del": {
@@ -663,7 +613,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authPermissionDelResp"
+              "$ref": "#/definitions/protoPermissionDelResp"
             }
           }
         },
@@ -673,13 +623,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authPermissionDelReq"
+              "$ref": "#/definitions/protoPermissionDelReq"
             }
           }
         ],
-        "tags": [
-          "PermissionService"
-        ]
+        "tags": ["PermissionService"]
       }
     },
     "/rpc/auth/PermissionService.Get": {
@@ -690,7 +638,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authPermissionGetResp"
+              "$ref": "#/definitions/protoPermissionGetResp"
             }
           }
         },
@@ -700,13 +648,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authPermissionGetReq"
+              "$ref": "#/definitions/protoPermissionGetReq"
             }
           }
         ],
-        "tags": [
-          "PermissionService"
-        ]
+        "tags": ["PermissionService"]
       }
     },
     "/rpc/auth/PermissionService.GetMenu": {
@@ -717,7 +663,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authPermissionGetMenuResp"
+              "$ref": "#/definitions/protoPermissionGetMenuResp"
             }
           }
         },
@@ -727,13 +673,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authPermissionGetMenuReq"
+              "$ref": "#/definitions/protoPermissionGetMenuReq"
             }
           }
         ],
-        "tags": [
-          "PermissionService"
-        ]
+        "tags": ["PermissionService"]
       }
     },
     "/rpc/auth/PermissionService.Page": {
@@ -744,7 +688,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authPermissionPageResp"
+              "$ref": "#/definitions/protoPermissionPageResp"
             }
           }
         },
@@ -754,13 +698,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authPermissionPageReq"
+              "$ref": "#/definitions/protoPermissionPageReq"
             }
           }
         ],
-        "tags": [
-          "PermissionService"
-        ]
+        "tags": ["PermissionService"]
       }
     },
     "/rpc/auth/PermissionService.Update": {
@@ -771,7 +713,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authPermissionUpdateResp"
+              "$ref": "#/definitions/protoPermissionUpdateResp"
             }
           }
         },
@@ -781,13 +723,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authPermissionUpdateReq"
+              "$ref": "#/definitions/protoPermissionUpdateReq"
             }
           }
         ],
-        "tags": [
-          "PermissionService"
-        ]
+        "tags": ["PermissionService"]
       }
     },
     "/rpc/auth/ResourceService.Add": {
@@ -798,7 +738,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authAddResourceResp"
+              "$ref": "#/definitions/protoAddResourceResp"
             }
           }
         },
@@ -808,13 +748,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authAddResourceReq"
+              "$ref": "#/definitions/protoAddResourceReq"
             }
           }
         ],
-        "tags": [
-          "ResourceService"
-        ]
+        "tags": ["ResourceService"]
       }
     },
     "/rpc/auth/ResourceService.Del": {
@@ -825,7 +763,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResponse"
+              "$ref": "#/definitions/protoResponse"
             }
           }
         },
@@ -835,13 +773,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRequest"
+              "$ref": "#/definitions/protoRequest"
             }
           }
         ],
-        "tags": [
-          "ResourceService"
-        ]
+        "tags": ["ResourceService"]
       }
     },
     "/rpc/auth/ResourceService.Get": {
@@ -852,7 +788,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResourceGetResp"
+              "$ref": "#/definitions/protoResourceGetResp"
             }
           }
         },
@@ -862,13 +798,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRequest"
+              "$ref": "#/definitions/protoRequest"
             }
           }
         ],
-        "tags": [
-          "ResourceService"
-        ]
+        "tags": ["ResourceService"]
       }
     },
     "/rpc/auth/ResourceService.Page": {
@@ -879,7 +813,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResourcePageResp"
+              "$ref": "#/definitions/protoResourcePageResp"
             }
           }
         },
@@ -889,13 +823,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authResourcePageReq"
+              "$ref": "#/definitions/protoResourcePageReq"
             }
           }
         ],
-        "tags": [
-          "ResourceService"
-        ]
+        "tags": ["ResourceService"]
       }
     },
     "/rpc/auth/ResourceService.RuleType": {
@@ -906,7 +838,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResourceRuleTypeResp"
+              "$ref": "#/definitions/protoResourceRuleTypeResp"
             }
           }
         },
@@ -916,13 +848,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authResourceRuleTypeReq"
+              "$ref": "#/definitions/protoResourceRuleTypeReq"
             }
           }
         ],
-        "tags": [
-          "ResourceService"
-        ]
+        "tags": ["ResourceService"]
       }
     },
     "/rpc/auth/ResourceService.Update": {
@@ -933,7 +863,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResponse"
+              "$ref": "#/definitions/protoResponse"
             }
           }
         },
@@ -943,13 +873,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUpdateResourceReq"
+              "$ref": "#/definitions/protoUpdateResourceReq"
             }
           }
         ],
-        "tags": [
-          "ResourceService"
-        ]
+        "tags": ["ResourceService"]
       }
     },
     "/rpc/auth/RoleService.Add": {
@@ -960,7 +888,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRoleAddResp"
+              "$ref": "#/definitions/protoRoleAddResp"
             }
           }
         },
@@ -970,13 +898,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRoleAddReq"
+              "$ref": "#/definitions/protoRoleAddReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/RoleService.Del": {
@@ -987,7 +913,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRoleDelResp"
+              "$ref": "#/definitions/protoRoleDelResp"
             }
           }
         },
@@ -997,13 +923,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRoleDelReq"
+              "$ref": "#/definitions/protoRoleDelReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/RoleService.Get": {
@@ -1014,7 +938,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRoleGetResp"
+              "$ref": "#/definitions/protoRoleGetResp"
             }
           }
         },
@@ -1024,13 +948,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRoleGetReq"
+              "$ref": "#/definitions/protoRoleGetReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/RoleService.List": {
@@ -1041,7 +963,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRoleListResp"
+              "$ref": "#/definitions/protoRoleListResp"
             }
           }
         },
@@ -1051,13 +973,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRoleListReq"
+              "$ref": "#/definitions/protoRoleListReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/RoleService.ListByCode": {
@@ -1068,7 +988,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRoleListByCodeResp"
+              "$ref": "#/definitions/protoRoleListByCodeResp"
             }
           }
         },
@@ -1078,13 +998,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRoleListByCodeReq"
+              "$ref": "#/definitions/protoRoleListByCodeReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/RoleService.Page": {
@@ -1095,7 +1013,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRolePageResp"
+              "$ref": "#/definitions/protoRolePageResp"
             }
           }
         },
@@ -1105,13 +1023,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRolePageReq"
+              "$ref": "#/definitions/protoRolePageReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/RoleService.Update": {
@@ -1122,7 +1038,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authRoleUpdateResp"
+              "$ref": "#/definitions/protoRoleUpdateResp"
             }
           }
         },
@@ -1132,13 +1048,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authRoleUpdateReq"
+              "$ref": "#/definitions/protoRoleUpdateReq"
             }
           }
         ],
-        "tags": [
-          "RoleService"
-        ]
+        "tags": ["RoleService"]
       }
     },
     "/rpc/auth/UserService.Add": {
@@ -1149,7 +1063,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUserAddResp"
+              "$ref": "#/definitions/protoUserAddResp"
             }
           }
         },
@@ -1159,13 +1073,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUserAddReq"
+              "$ref": "#/definitions/protoUserAddReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.Del": {
@@ -1176,7 +1088,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUserDelResp"
+              "$ref": "#/definitions/protoUserDelResp"
             }
           }
         },
@@ -1186,13 +1098,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUserDelReq"
+              "$ref": "#/definitions/protoUserDelReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.Get": {
@@ -1203,7 +1113,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUserGetResp"
+              "$ref": "#/definitions/protoUserGetResp"
             }
           }
         },
@@ -1213,13 +1123,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUserGetReq"
+              "$ref": "#/definitions/protoUserGetReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.LinkUserRoles": {
@@ -1230,7 +1138,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResponse"
+              "$ref": "#/definitions/protoResponse"
             }
           }
         },
@@ -1240,13 +1148,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authLinkUserRolesReq"
+              "$ref": "#/definitions/protoLinkUserRolesReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.Page": {
@@ -1257,7 +1163,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUserPageResp"
+              "$ref": "#/definitions/protoUserPageResp"
             }
           }
         },
@@ -1267,13 +1173,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUserPageReq"
+              "$ref": "#/definitions/protoUserPageReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.PageBySql": {
@@ -1284,7 +1188,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUserPageBySqlResp"
+              "$ref": "#/definitions/protoUserPageBySqlResp"
             }
           }
         },
@@ -1294,13 +1198,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUserPageBySqlReq"
+              "$ref": "#/definitions/protoUserPageBySqlReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.UnlinkUserRoles": {
@@ -1311,7 +1213,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authResponse"
+              "$ref": "#/definitions/protoResponse"
             }
           }
         },
@@ -1321,13 +1223,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUnlinkUserRolesReq"
+              "$ref": "#/definitions/protoUnlinkUserRolesReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.Update": {
@@ -1338,7 +1238,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUserUpdateResp"
+              "$ref": "#/definitions/protoUserUpdateResp"
             }
           }
         },
@@ -1348,13 +1248,11 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUserUpdateReq"
+              "$ref": "#/definitions/protoUserUpdateReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     },
     "/rpc/auth/UserService.UpdatePassword": {
@@ -1365,7 +1263,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/authUpdatePasswordResp"
+              "$ref": "#/definitions/protoUpdatePasswordResp"
             }
           }
         },
@@ -1375,18 +1273,16 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/authUpdatePasswordReq"
+              "$ref": "#/definitions/protoUpdatePasswordReq"
             }
           }
         ],
-        "tags": [
-          "UserService"
-        ]
+        "tags": ["UserService"]
       }
     }
   },
   "definitions": {
-    "authAPIPermissionsReq": {
+    "protoAPIPermissionsReq": {
       "type": "object",
       "properties": {
         "token": {
@@ -1400,7 +1296,7 @@
       },
       "title": "API权限请求参数"
     },
-    "authAPIPermissionsResp": {
+    "protoAPIPermissionsResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1441,7 +1337,7 @@
       },
       "title": "API权限应答参数"
     },
-    "authAddResourceReq": {
+    "protoAddResourceReq": {
       "type": "object",
       "properties": {
         "name": {
@@ -1459,7 +1355,7 @@
       },
       "title": "添加资源请求参数"
     },
-    "authAddResourceResp": {
+    "protoAddResourceResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1478,7 +1374,7 @@
       },
       "title": "添加资源返回结果"
     },
-    "authApiWhiteList": {
+    "protoApiWhiteList": {
       "type": "object",
       "properties": {
         "id": {
@@ -1505,7 +1401,7 @@
       },
       "title": "报名单"
     },
-    "authApiWhiteListAddReq": {
+    "protoApiWhiteListAddReq": {
       "type": "object",
       "properties": {
         "name": {
@@ -1519,7 +1415,7 @@
       },
       "title": "添加白名单请求参数"
     },
-    "authApiWhiteListAddResp": {
+    "protoApiWhiteListAddResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1535,7 +1431,7 @@
       },
       "title": "添加白名单返回结果"
     },
-    "authApiWhiteListDelReq": {
+    "protoApiWhiteListDelReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -1544,7 +1440,7 @@
       },
       "title": "删除白名单请求参数"
     },
-    "authApiWhiteListDelResp": {
+    "protoApiWhiteListDelResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1560,7 +1456,7 @@
       },
       "title": "删除白名单返回结果"
     },
-    "authApiWhiteListPageReq": {
+    "protoApiWhiteListPageReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -1580,7 +1476,7 @@
       },
       "title": "分页白名单请求参数"
     },
-    "authApiWhiteListPageResp": {
+    "protoApiWhiteListPageResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1598,18 +1494,18 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authApiWhiteList"
+            "$ref": "#/definitions/protoApiWhiteList"
           }
         }
       },
       "title": "分页白名单返回结果"
     },
-    "authApiWhiteListRefreshReq": {
+    "protoApiWhiteListRefreshReq": {
       "type": "object",
       "properties": {},
       "title": "刷新白名单请求参数"
     },
-    "authApiWhiteListRefreshResp": {
+    "protoApiWhiteListRefreshResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1622,7 +1518,7 @@
       },
       "title": "刷新白名单返回结果"
     },
-    "authApiWhiteListUpdateReq": {
+    "protoApiWhiteListUpdateReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -1639,7 +1535,7 @@
       },
       "title": "更新白名单请求参数"
     },
-    "authApiWhiteListUpdateResp": {
+    "protoApiWhiteListUpdateResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1655,7 +1551,7 @@
       },
       "title": "更新白名单返回结果"
     },
-    "authApp": {
+    "protoApp": {
       "type": "object",
       "properties": {
         "id": {
@@ -1689,7 +1585,7 @@
         }
       }
     },
-    "authAppAddReq": {
+    "protoAppAddReq": {
       "type": "object",
       "properties": {
         "code": {
@@ -1707,7 +1603,7 @@
       },
       "title": "添加应用请求参数"
     },
-    "authAppAddResp": {
+    "protoAppAddResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1723,7 +1619,7 @@
       },
       "title": "添加应用应答参数"
     },
-    "authAppDelReq": {
+    "protoAppDelReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -1733,7 +1629,7 @@
       },
       "title": "删除应用请求参数"
     },
-    "authAppDelResp": {
+    "protoAppDelResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1746,7 +1642,7 @@
       },
       "title": "删除应用应答参数"
     },
-    "authAppGetReq": {
+    "protoAppGetReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -1756,7 +1652,7 @@
       },
       "title": "获取应用请求参数"
     },
-    "authAppGetResp": {
+    "protoAppGetResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1767,12 +1663,12 @@
           "type": "string"
         },
         "App": {
-          "$ref": "#/definitions/authApp"
+          "$ref": "#/definitions/protoApp"
         }
       },
       "title": "获取应用应答参数"
     },
-    "authAppPageReq": {
+    "protoAppPageReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -1792,7 +1688,7 @@
       },
       "title": "应用分页请求参数"
     },
-    "authAppPageResp": {
+    "protoAppPageResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1810,13 +1706,13 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authApp"
+            "$ref": "#/definitions/protoApp"
           }
         }
       },
       "title": "应用分页返回参数"
     },
-    "authAppUpdateReq": {
+    "protoAppUpdateReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -1838,7 +1734,7 @@
       },
       "title": "更新应用请求参数"
     },
-    "authAppUpdateResp": {
+    "protoAppUpdateResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1851,7 +1747,7 @@
       },
       "title": "更新应用应答参数"
     },
-    "authDelTokenReq": {
+    "protoDelTokenReq": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -1873,7 +1769,7 @@
       },
       "title": "删除token的请求参数"
     },
-    "authDelTokenResp": {
+    "protoDelTokenResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1886,7 +1782,7 @@
       },
       "title": "删除token的应答参数"
     },
-    "authForgetPasswordReq": {
+    "protoForgetPasswordReq": {
       "type": "object",
       "properties": {
         "email": {
@@ -1901,7 +1797,7 @@
       },
       "title": "获取验证码请求参数"
     },
-    "authForgetPasswordResp": {
+    "protoForgetPasswordResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1914,7 +1810,7 @@
       },
       "title": "获取验证码返回结果"
     },
-    "authGenTokenReq": {
+    "protoGenTokenReq": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -1937,7 +1833,7 @@
       },
       "title": "生成token的请求参数"
     },
-    "authGenTokenResp": {
+    "protoGenTokenResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1954,7 +1850,7 @@
       },
       "title": "生成token的应答参数"
     },
-    "authInspectReq": {
+    "protoInspectReq": {
       "type": "object",
       "properties": {
         "token": {
@@ -1964,7 +1860,7 @@
       },
       "title": "检测token的请求参数"
     },
-    "authInspectResp": {
+    "protoInspectResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -1983,13 +1879,13 @@
           "title": "是否已存在"
         },
         "user": {
-          "$ref": "#/definitions/authUser",
+          "$ref": "#/definitions/protoUser",
           "title": "用戶信息"
         }
       },
       "title": "检测token的应答参数"
     },
-    "authLinkUserRolesReq": {
+    "protoLinkUserRolesReq": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -2006,7 +1902,7 @@
       },
       "title": "关联用户到角色请求参数"
     },
-    "authLoginByEmailReq": {
+    "protoLoginByEmailReq": {
       "type": "object",
       "properties": {
         "email": {
@@ -2033,7 +1929,7 @@
       },
       "title": "邮箱登录的请求参数"
     },
-    "authLoginByEmailResp": {
+    "protoLoginByEmailResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2061,7 +1957,7 @@
       },
       "title": "邮箱登录的应答参数"
     },
-    "authLoginByPhoneReq": {
+    "protoLoginByPhoneReq": {
       "type": "object",
       "properties": {
         "phone": {
@@ -2088,7 +1984,7 @@
       },
       "title": "手机号登录的请求参数"
     },
-    "authLoginByPhoneResp": {
+    "protoLoginByPhoneResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2116,7 +2012,7 @@
       },
       "title": "手机号登录的应答参数"
     },
-    "authLoginReq": {
+    "protoLoginReq": {
       "type": "object",
       "properties": {
         "account": {
@@ -2143,7 +2039,7 @@
       },
       "title": "登录的请求参数"
     },
-    "authLoginResp": {
+    "protoLoginResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2171,12 +2067,12 @@
       },
       "title": "登录的应答参数"
     },
-    "authLogoutReq": {
+    "protoLogoutReq": {
       "type": "object",
       "properties": {},
       "title": "登出的请求参数"
     },
-    "authLogoutResp": {
+    "protoLogoutResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2189,7 +2085,7 @@
       },
       "title": "登出的应答参数"
     },
-    "authPermission": {
+    "protoPermission": {
       "type": "object",
       "properties": {
         "id": {
@@ -2231,7 +2127,7 @@
       },
       "title": "权限信息"
     },
-    "authPermissionAddReq": {
+    "protoPermissionAddReq": {
       "type": "object",
       "properties": {
         "role_id": {
@@ -2253,7 +2149,7 @@
       },
       "title": "权限添加请求参数"
     },
-    "authPermissionAddResp": {
+    "protoPermissionAddResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2270,7 +2166,7 @@
       },
       "title": "权限添加返回结果"
     },
-    "authPermissionDelReq": {
+    "protoPermissionDelReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2280,7 +2176,7 @@
       },
       "title": "权限删除请求参数"
     },
-    "authPermissionDelResp": {
+    "protoPermissionDelResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2293,7 +2189,7 @@
       },
       "title": "权限删除返回结果"
     },
-    "authPermissionGetMenuReq": {
+    "protoPermissionGetMenuReq": {
       "type": "object",
       "properties": {
         "app_code": {
@@ -2302,7 +2198,7 @@
       },
       "title": "角色对应应用的菜单请求参数"
     },
-    "authPermissionGetMenuResp": {
+    "protoPermissionGetMenuResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2319,7 +2215,7 @@
       },
       "title": "角色对应应用的菜单返回结果"
     },
-    "authPermissionGetReq": {
+    "protoPermissionGetReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2329,7 +2225,7 @@
       },
       "title": "权限详情请求参数"
     },
-    "authPermissionGetResp": {
+    "protoPermissionGetResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2340,13 +2236,13 @@
           "type": "string"
         },
         "item": {
-          "$ref": "#/definitions/authPermission",
+          "$ref": "#/definitions/protoPermission",
           "title": "权限详情"
         }
       },
       "title": "权限详情返回结果"
     },
-    "authPermissionPageReq": {
+    "protoPermissionPageReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -2370,7 +2266,7 @@
       },
       "title": "权限分页请求参数"
     },
-    "authPermissionPageResp": {
+    "protoPermissionPageResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2388,13 +2284,13 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authPermission"
+            "$ref": "#/definitions/protoPermission"
           }
         }
       },
       "title": "权限分页返回结果"
     },
-    "authPermissionUpdateReq": {
+    "protoPermissionUpdateReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2416,7 +2312,7 @@
       },
       "title": "权限更新请求参数"
     },
-    "authPermissionUpdateResp": {
+    "protoPermissionUpdateResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2429,7 +2325,7 @@
       },
       "title": "权限更新返回结果"
     },
-    "authRefreshTokenReq": {
+    "protoRefreshTokenReq": {
       "type": "object",
       "properties": {
         "token": {
@@ -2438,7 +2334,7 @@
       },
       "title": "刷新token的请求参数"
     },
-    "authRefreshTokenResp": {
+    "protoRefreshTokenResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2455,7 +2351,7 @@
       },
       "title": "刷新token的应答参数"
     },
-    "authRequest": {
+    "protoRequest": {
       "type": "object",
       "properties": {
         "id": {
@@ -2464,7 +2360,7 @@
       },
       "title": "通用请求"
     },
-    "authResource": {
+    "protoResource": {
       "type": "object",
       "properties": {
         "id": {
@@ -2504,7 +2400,7 @@
       },
       "title": "资源信息"
     },
-    "authResourceGetResp": {
+    "protoResourceGetResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2517,13 +2413,13 @@
           "title": "返回信息"
         },
         "item": {
-          "$ref": "#/definitions/authResource",
+          "$ref": "#/definitions/protoResource",
           "title": "资源"
         }
       },
       "title": "获取资源请求参数"
     },
-    "authResourcePageReq": {
+    "protoResourcePageReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -2551,7 +2447,7 @@
       },
       "title": "资源列表请求参数"
     },
-    "authResourcePageResp": {
+    "protoResourcePageResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2569,18 +2465,18 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authResource"
+            "$ref": "#/definitions/protoResource"
           }
         }
       },
       "title": "资源列表返回结果"
     },
-    "authResourceRuleTypeReq": {
+    "protoResourceRuleTypeReq": {
       "type": "object",
       "properties": {},
       "title": "规则类型请求参数"
     },
-    "authResourceRuleTypeResp": {
+    "protoResourceRuleTypeResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2599,7 +2495,7 @@
       },
       "title": "规则类型返回结果"
     },
-    "authResponse": {
+    "protoResponse": {
       "type": "object",
       "properties": {
         "code": {
@@ -2614,7 +2510,7 @@
       },
       "title": "通用应答"
     },
-    "authRole": {
+    "protoRole": {
       "type": "object",
       "properties": {
         "id": {
@@ -2645,7 +2541,7 @@
       },
       "title": "角色信息"
     },
-    "authRoleAddReq": {
+    "protoRoleAddReq": {
       "type": "object",
       "properties": {
         "code": {
@@ -2659,7 +2555,7 @@
       },
       "title": "添加角色请求参数"
     },
-    "authRoleAddResp": {
+    "protoRoleAddResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2675,7 +2571,7 @@
       },
       "title": "添加角色应答参数"
     },
-    "authRoleDelReq": {
+    "protoRoleDelReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2685,7 +2581,7 @@
       },
       "title": "删除角色请求参数"
     },
-    "authRoleDelResp": {
+    "protoRoleDelResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2698,7 +2594,7 @@
       },
       "title": "删除角色应答参数"
     },
-    "authRoleGetReq": {
+    "protoRoleGetReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2708,7 +2604,7 @@
       },
       "title": "获取角色请求参数"
     },
-    "authRoleGetResp": {
+    "protoRoleGetResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2719,12 +2615,12 @@
           "type": "string"
         },
         "role": {
-          "$ref": "#/definitions/authRole"
+          "$ref": "#/definitions/protoRole"
         }
       },
       "title": "获取角色应答参数"
     },
-    "authRoleListByCodeReq": {
+    "protoRoleListByCodeReq": {
       "type": "object",
       "properties": {
         "app_code": {
@@ -2741,7 +2637,7 @@
       },
       "title": "角色标识获取角色列表请求参数"
     },
-    "authRoleListByCodeResp": {
+    "protoRoleListByCodeResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2755,13 +2651,13 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authRole"
+            "$ref": "#/definitions/protoRole"
           }
         }
       },
       "title": "角色标识获取角色列表应答参数"
     },
-    "authRoleListReq": {
+    "protoRoleListReq": {
       "type": "object",
       "properties": {
         "app_code": {
@@ -2771,7 +2667,7 @@
       },
       "title": "应用标识获取角色列表请求参数"
     },
-    "authRoleListResp": {
+    "protoRoleListResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2785,13 +2681,13 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authRole"
+            "$ref": "#/definitions/protoRole"
           }
         }
       },
       "title": "应用标识获取角色列表应答参数"
     },
-    "authRolePageReq": {
+    "protoRolePageReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -2811,7 +2707,7 @@
       },
       "title": "角色分页请求参数"
     },
-    "authRolePageResp": {
+    "protoRolePageResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2829,13 +2725,13 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authRole"
+            "$ref": "#/definitions/protoRole"
           }
         }
       },
       "title": "角色分页返回参数"
     },
-    "authRoleUpdateReq": {
+    "protoRoleUpdateReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2853,7 +2749,7 @@
       },
       "title": "更新角色请求参数"
     },
-    "authRoleUpdateResp": {
+    "protoRoleUpdateResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2866,7 +2762,7 @@
       },
       "title": "更新角色应答参数"
     },
-    "authUnlinkUserRolesReq": {
+    "protoUnlinkUserRolesReq": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -2883,7 +2779,7 @@
       },
       "title": "取消关联用户到角色返回结果"
     },
-    "authUpdatePasswordReq": {
+    "protoUpdatePasswordReq": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -2901,7 +2797,7 @@
       },
       "title": "更新用户密码请求参数"
     },
-    "authUpdatePasswordResp": {
+    "protoUpdatePasswordResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -2914,7 +2810,7 @@
       },
       "title": "更新用户密码返回结果"
     },
-    "authUpdateResourceReq": {
+    "protoUpdateResourceReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -2932,7 +2828,7 @@
       },
       "title": "更新资源请求参数"
     },
-    "authUser": {
+    "protoUser": {
       "type": "object",
       "properties": {
         "id": {
@@ -2982,11 +2878,11 @@
       },
       "title": "用户信息"
     },
-    "authUserAddReq": {
+    "protoUserAddReq": {
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/authUser"
+          "$ref": "#/definitions/protoUser"
         },
         "app_code": {
           "type": "string",
@@ -2995,7 +2891,7 @@
       },
       "title": "添加用户请求参数"
     },
-    "authUserAddResp": {
+    "protoUserAddResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -3011,7 +2907,7 @@
       },
       "title": "添加用户返回结果"
     },
-    "authUserDelReq": {
+    "protoUserDelReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -3025,7 +2921,7 @@
       },
       "title": "删除用户请求参数"
     },
-    "authUserDelResp": {
+    "protoUserDelResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -3038,7 +2934,7 @@
       },
       "title": "删除用户返回结果"
     },
-    "authUserGetReq": {
+    "protoUserGetReq": {
       "type": "object",
       "properties": {
         "id": {
@@ -3052,7 +2948,7 @@
       },
       "title": "获取用户请求参数"
     },
-    "authUserGetResp": {
+    "protoUserGetResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -3063,12 +2959,12 @@
           "type": "string"
         },
         "item": {
-          "$ref": "#/definitions/authUser"
+          "$ref": "#/definitions/protoUser"
         }
       },
       "title": "获取用户返回结果"
     },
-    "authUserPageBySqlReq": {
+    "protoUserPageBySqlReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -3100,7 +2996,7 @@
       },
       "title": "分页用户请求参数"
     },
-    "authUserPageBySqlResp": {
+    "protoUserPageBySqlResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -3118,13 +3014,13 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authUser"
+            "$ref": "#/definitions/protoUser"
           }
         }
       },
       "title": "分页用户返回结果"
     },
-    "authUserPageReq": {
+    "protoUserPageReq": {
       "type": "object",
       "properties": {
         "page_index": {
@@ -3179,7 +3075,7 @@
       },
       "title": "分页用户请求参数"
     },
-    "authUserPageResp": {
+    "protoUserPageResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -3197,17 +3093,17 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/authUser"
+            "$ref": "#/definitions/protoUser"
           }
         }
       },
       "title": "分页用户返回结果"
     },
-    "authUserUpdateReq": {
+    "protoUserUpdateReq": {
       "type": "object",
       "properties": {
         "Item": {
-          "$ref": "#/definitions/authUser",
+          "$ref": "#/definitions/protoUser",
           "title": "用户信息"
         },
         "app_code": {
@@ -3217,7 +3113,7 @@
       },
       "title": "更新用户请求参数"
     },
-    "authUserUpdateResp": {
+    "protoUserUpdateResp": {
       "type": "object",
       "properties": {
         "code": {
@@ -3233,7 +3129,7 @@
       },
       "title": "更新用户返回结果"
     },
-    "authVerificationCodeReq": {
+    "protoVerificationCodeReq": {
       "type": "object",
       "properties": {
         "object": {
@@ -3252,7 +3148,7 @@
       },
       "title": "获取验证码的请求参数"
     },
-    "authVerifyPasswordReq": {
+    "protoVerifyPasswordReq": {
       "type": "object",
       "properties": {
         "user_id": {
@@ -3264,7 +3160,7 @@
       },
       "title": "验证密码请求参数"
     },
-    "authVerifyPasswordResp": {
+    "protoVerifyPasswordResp": {
       "type": "object",
       "properties": {
         "code": {

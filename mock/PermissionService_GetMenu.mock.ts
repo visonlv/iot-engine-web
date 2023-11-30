@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/PermissionService.GetMenu': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 98,
-      msg: '员发生据还得素界容光论口。',
-      menu: '接元她起过称使表资三热示线党作学条。',
+      code: 63,
+      msg: '指低属般适此得更眼红走按标。',
+      menu: '段路造有着子利土解民验重建心党决。',
     });
   },
 };

@@ -4,10 +4,10 @@ import { request } from '@umijs/max';
 
 /** 设备创建 POST /rpc/thing/DeviceService.Add */
 export async function deviceServiceAdd(
-  body: API.thingDeviceAddReq,
+  body: API.protoDeviceAddReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDeviceAddResp>('/rpc/thing/DeviceService.Add', {
+  return request<API.protoDeviceAddResp>('/rpc/thing/DeviceService.Add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,10 +19,10 @@ export async function deviceServiceAdd(
 
 /** 设备鉴权 POST /rpc/thing/DeviceService.Auth */
 export async function deviceServiceAuth(
-  body: API.thingDeviceAuthReq,
+  body: API.protoDeviceAuthReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDeviceAuthResp>('/rpc/thing/DeviceService.Auth', {
+  return request<API.protoDeviceAuthResp>('/rpc/thing/DeviceService.Auth', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,10 +34,10 @@ export async function deviceServiceAuth(
 
 /** 设备删除 POST /rpc/thing/DeviceService.Del */
 export async function deviceServiceDel(
-  body: API.thingDeviceDelReq,
+  body: API.protoDeviceDelReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDeviceDelResp>('/rpc/thing/DeviceService.Del', {
+  return request<API.protoDeviceDelResp>('/rpc/thing/DeviceService.Del', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,10 +49,10 @@ export async function deviceServiceDel(
 
 /** 设备获取 POST /rpc/thing/DeviceService.Get */
 export async function deviceServiceGet(
-  body: API.thingDeviceGetReq,
+  body: API.protoDeviceGetReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDeviceGetResp>('/rpc/thing/DeviceService.Get', {
+  return request<API.protoDeviceGetResp>('/rpc/thing/DeviceService.Get', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -64,10 +64,10 @@ export async function deviceServiceGet(
 
 /** 设备列表 POST /rpc/thing/DeviceService.List */
 export async function deviceServiceList(
-  body: API.thingDeviceListReq,
+  body: API.protoDeviceListReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDeviceListResp>('/rpc/thing/DeviceService.List', {
+  return request<API.protoDeviceListResp>('/rpc/thing/DeviceService.List', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -79,10 +79,10 @@ export async function deviceServiceList(
 
 /** 设备分页 POST /rpc/thing/DeviceService.Page */
 export async function deviceServicePage(
-  body: API.thingDevicePageReq,
+  body: API.protoDevicePageReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDevicePageResp>('/rpc/thing/DeviceService.Page', {
+  return request<API.protoDevicePageResp>('/rpc/thing/DeviceService.Page', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -94,10 +94,10 @@ export async function deviceServicePage(
 
 /** 设备修改 POST /rpc/thing/DeviceService.Update */
 export async function deviceServiceUpdate(
-  body: API.thingDeviceUpdateReq,
+  body: API.protoDeviceUpdateReq,
   options?: { [key: string]: any },
 ) {
-  return request<API.thingDeviceUpdateResp>('/rpc/thing/DeviceService.Update', {
+  return request<API.protoDeviceUpdateResp>('/rpc/thing/DeviceService.Update', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

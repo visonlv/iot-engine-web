@@ -5,30 +5,30 @@ import { PAGE_SIZE_MAX } from '@/utils/const';
 
 type roleSelectResult = {
   list: { label: string; value: string }[];
-  map: {[key:string]:{ label: string; value: string }};
+  map: { [key: string]: { label: string; value: string } };
 };
 
 const useGetSelectRoles = () => {
-  const [selectRoles, setSelectRoles] = useState<roleSelectResult>({list:[],map:{}});
-  const querySelectRoles = async() => {
+  const [selectRoles, setSelectRoles] = useState<roleSelectResult>({ list: [], map: {} });
+  const querySelectRoles = async () => {
     try {
       const res = await roleServicePage({
         page_index: 1,
         page_size: PAGE_SIZE_MAX,
       });
-      const list =  (res.list as API.authRole[]).map((item : API.authRole) => {
+      const list = (res.list as API.protoRole[]).map((item: API.protoRole) => {
         return {
           label: item.name,
           value: item.code,
         } as { label: string; value: string };
       });
 
-      const m : {[key:string]:{ label: string; value: string }} = {} 
-      for (let v of list) {  
-        m[v.value] = v;  
-      } 
+      const m: { [key: string]: { label: string; value: string } } = {};
+      for (let v of list) {
+        m[v.value] = v;
+      }
 
-      setSelectRoles({list:list,map:m});
+      setSelectRoles({ list: list, map: m });
     } catch (error) {
       message.error((error as Error)?.message);
     }

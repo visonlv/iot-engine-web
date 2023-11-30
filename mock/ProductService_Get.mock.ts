@@ -4,20 +4,19 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/ProductService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 62,
-      msg: '拉满科原照包常儿头老消马边际和观。',
+      code: 81,
+      msg: '员外水新际空老节快务义院件干。',
       item: {
-        id: 'fA70bF2f-dCDe-Ba79-4CC9-8AD19D1cd886',
-        name: '贺明',
-        model: '元格线头引省亲质形快细切我。',
-        pk: '为千气种王报不教传和构一深六便太。',
-        transform: '真等族感打运九去白资平音确动油龙构。',
-        protocol: '口类元响则同见度习确保区白上他别。',
-        type: 33,
-        thing_def: '打里且道务只到即水定使最。',
-        thing_def_version: 'siU$3',
-        desc: '始民提间次件题之算山划之六除被问县适。',
-        create_time: 'Ki3[]',
+        id: 'F3feDD44-5fE1-bC7c-Df42-77eCf9E0e1B9',
+        name: '邹伟',
+        model: '果压细际素被整近统值样单便实进那确华。',
+        pk: '事往金难日叫低法度强员才机在员往。',
+        transform: '打阶车党本该经江论八品那党也。',
+        protocol: '地接世由然能厂专毛将建阶习。',
+        type: 39,
+        thing_def: '较示个太行次东看段名还间当据理。',
+        desc: '接电积大类政求持水发式面至业。',
+        create_time: 'm9@pD',
       },
     });
   },

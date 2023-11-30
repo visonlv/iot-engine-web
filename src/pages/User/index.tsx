@@ -1,9 +1,6 @@
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import {
-  PageContainer,
-  ProTable,
-} from '@ant-design/pro-components';
-import { Button} from 'antd';
+import { PageContainer, ProTable } from '@ant-design/pro-components';
+import { Button } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { userServiceDel, userServicePage } from '@/services/auth/userService';
 import AddOrUpdateUser from './components/AddOrUpdateUser';
@@ -17,28 +14,27 @@ const UserPage: React.FC = () => {
   const pageRef = useRef<ActionType>();
   const { selectRoles, querySelectRoles } = useGetSelectRoles();
 
-    // 删除操作
-    const showDeleteConfirm = (record: API.authUser) => {
-      const body:API.authUserDelReq = {
-        id: record.id ?? '',
-      };
-      deleteHandler<API.authUserDelReq>(userServiceDel, pageRef, {
-        title: '是否删除当前用户',
-        content: `所选用户: ${record?.nick_name ?? '未知用户'},  删除后无法恢复，请确认`,
-        body,
-      });
+  // 删除操作
+  const showDeleteConfirm = (record: API.protoUser) => {
+    const body: API.protoUserDelReq = {
+      id: record.id ?? '',
     };
-
+    deleteHandler<API.protoUserDelReq>(userServiceDel, pageRef, {
+      title: '是否删除当前用户',
+      content: `所选用户: ${record?.nick_name ?? '未知用户'},  删除后无法恢复，请确认`,
+      body,
+    });
+  };
 
   /**
    * 查询数据
    * */
-  const queryPage = async (params: any,): Promise<{ data?: API.authUser[]; total?: number }> => {
-    const body:API.authUserPageReq = {
-      page_index:params.current,
-      page_size:params.pageSize,
-      account:params.account,
-      nick_name:params.nick_name,
+  const queryPage = async (params: any): Promise<{ data?: API.protoUser[]; total?: number }> => {
+    const body: API.protoUserPageReq = {
+      page_index: params.current,
+      page_size: params.pageSize,
+      account: params.account,
+      nick_name: params.nick_name,
     };
     const res = await userServicePage(body);
     return {
@@ -47,47 +43,48 @@ const UserPage: React.FC = () => {
     };
   };
 
-  const columns: ProColumns<API.authUser>[] = [
+  const columns: ProColumns<API.protoUser>[] = [
     {
       dataIndex: 'index',
       valueType: 'indexBorder',
       width: 48,
     },
     {
-      title: "用户名称",
+      title: '用户名称',
       dataIndex: 'nick_name',
     },
     {
-      title: "用户账号",
+      title: '用户账号',
       dataIndex: 'account',
     },
     {
-      title: "角色",
+      title: '角色',
       dataIndex: 'role_code',
       search: false,
-      render: (_, entity: API.authUser) => {
-        let roleNames = "-"
-        const roles = entity.role_code as string[]
+      render: (_, entity: API.protoUser) => {
+        let roleNames = '-';
+        const roles = entity.role_code as string[];
         if (roles.length > 0) {
-          roleNames = ""
+          roleNames = '';
           for (let index = 0; index < roles.length; index++) {
             const code = roles[index];
-            selectRoles.map[code] && (roleNames = selectRoles.map[code].label + " ")
+            selectRoles.map[code] && (roleNames = selectRoles.map[code].label + ' ');
           }
         }
-        return roleNames
-      },    
+        return roleNames;
+      },
     },
     {
-      title: "创建时间",
+      title: '创建时间',
       sorter: true,
       dataIndex: 'create_time',
       valueType: 'dateTime',
-      render: (_, entity: API.authUser) => timestampToDateStr(Number(entity.create_time), 'YYYY-MM-DD HH:mm:ss.SSS'),
+      render: (_, entity: API.protoUser) =>
+        timestampToDateStr(Number(entity.create_time), 'YYYY-MM-DD HH:mm:ss.SSS'),
       search: false,
     },
     {
-      title: "创建人",
+      title: '创建人',
       dataIndex: 'create_username',
       search: false,
     },
@@ -95,26 +92,23 @@ const UserPage: React.FC = () => {
       title: '操作',
       valueType: 'option',
       key: 'option',
-      render: (text, record: API.authUser) => (
+      render: (text, record: API.protoUser) => (
         <>
           <AddOrUpdateUser
-              flag="update"
-              key={record.id+"AddOrUpdateUser"}
-              record={record}
-              pageRef={pageRef}
-              selectOptions={selectRoles.list}
+            flag="update"
+            key={record.id + 'AddOrUpdateUser'}
+            record={record}
+            pageRef={pageRef}
+            selectOptions={selectRoles.list}
           />
 
-          <UpdatePassword
-              key={record.id+"UpdatePassword"}
-              record={record}
-          />
+          <UpdatePassword key={record.id + 'UpdatePassword'} record={record} />
 
           <Button
             type="link"
             danger
             onClick={() => {
-              showDeleteConfirm(record)
+              showDeleteConfirm(record);
             }}
             style={{ paddingRight: 10 }}
           >
@@ -128,7 +122,7 @@ const UserPage: React.FC = () => {
   useEffect(() => {
     querySelectRoles();
   }, []);
-  
+
   return (
     <PageContainer>
       <ProTable
@@ -152,11 +146,11 @@ const UserPage: React.FC = () => {
         dateFormatter="string"
         toolBarRender={() => [
           <AddOrUpdateUser
-          flag="create"
-          pageRef={pageRef}
-          key="createUser"
-          selectOptions={selectRoles.list}
-        />,
+            flag="create"
+            pageRef={pageRef}
+            key="createUser"
+            selectOptions={selectRoles.list}
+          />,
         ]}
       />
     </PageContainer>

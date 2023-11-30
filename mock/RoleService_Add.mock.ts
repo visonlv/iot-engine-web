@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 79,
-      msg: '政热格属观西山队教值程得按同。',
-      id: '3BB95FbA-4B0A-C99b-2fE4-fDeFEEeb9Ecd',
+      code: 86,
+      msg: '调满界元构几干广质看团口金。',
+      id: '8fceF881-6D37-3bf6-c99D-2E6b8D7E4784',
     });
   },
 };

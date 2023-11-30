@@ -1,20 +1,37 @@
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { PageContainer, ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { productServiceDel, productServicePage } from '@/services/thing/productService';
 import useTableDelete from '@/hooks/useTableDelete';
 import { timestampToDateStr } from '@/utils/date';
+import {
+  THING_PRODUCT_PROTOCAL,
+  THING_PRODUCT_TRANSFORM,
+  THING_PRODUCT_TYPE,
+  convert2ValueEnum,
+} from '@/utils/const';
+import AddOrUpdateProduct from './components/AddOrUpdateProduct';
 
 const ProductPage: React.FC = () => {
   const { deleteHandler } = useTableDelete();
   const pageRef = useRef<ActionType>();
+  const transformRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_TRANSFORM),
+  );
+  const protocalRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_PROTOCAL),
+  );
+  const productTypeRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_TYPE),
+  );
+
   // 删除操作
-  const showDeleteConfirm = (record: API.thingProduct) => {
-    const body: API.thingProductDelReq = {
+  const showDeleteConfirm = (record: API.protoProduct) => {
+    const body: API.protoProductDelReq = {
       id: record.id ?? '',
     };
-    deleteHandler<API.thingProductDelReq>(productServiceDel, pageRef, {
+    deleteHandler<API.protoProductDelReq>(productServiceDel, pageRef, {
       title: '是否删除当前产品',
       content: `所选产品: ${record?.name ?? '未知产品'},  删除后无法恢复，请确认`,
       body,
@@ -24,11 +41,14 @@ const ProductPage: React.FC = () => {
   /**
    * 查询数据
    * */
-  const queryPage = async (params: any): Promise<{ data?: API.thingProduct[]; total?: number }> => {
-    const body: API.thingProductPageReq = {
+  const queryPage = async (params: any): Promise<{ data?: API.protoProduct[]; total?: number }> => {
+    const body: API.protoProductPageReq = {
       page_index: params.current,
       page_size: params.pageSize,
       name: params.name,
+      model: params.model,
+      pk: params.pk,
+      type: params.type,
     };
     const res = await productServicePage(body);
     return {
@@ -37,7 +57,7 @@ const ProductPage: React.FC = () => {
     };
   };
 
-  const columns: ProColumns<API.thingProduct>[] = [
+  const columns: ProColumns<API.protoProduct>[] = [
     {
       dataIndex: 'index',
       valueType: 'indexBorder',
@@ -59,18 +79,25 @@ const ProductPage: React.FC = () => {
       title: '传输类型',
       dataIndex: 'transform',
       search: false,
+      valueEnum: transformRef.current,
+    },
+    {
+      title: '协议',
+      dataIndex: 'protocol',
+      search: false,
+      valueEnum: protocalRef.current,
     },
     {
       title: '产品类型',
       dataIndex: 'type',
-      search: false,
+      valueEnum: productTypeRef.current,
     },
     {
       title: '创建时间',
       sorter: true,
       dataIndex: 'create_time',
       valueType: 'dateTime',
-      render: (_, entity: API.thingProduct) =>
+      render: (_, entity: API.protoProduct) =>
         timestampToDateStr(Number(entity.create_time), 'YYYY-MM-DD HH:mm:ss.SSS'),
       search: false,
     },
@@ -78,8 +105,9 @@ const ProductPage: React.FC = () => {
       title: '操作',
       valueType: 'option',
       key: 'option',
-      render: (text, record: API.thingProduct) => (
+      render: (text, record: API.protoProduct) => (
         <>
+          <AddOrUpdateProduct flag="update" key={record.id} record={record} pageRef={pageRef} />
           <Button
             type="link"
             danger
@@ -97,14 +125,14 @@ const ProductPage: React.FC = () => {
 
   return (
     <PageContainer>
-      <ProTable<API.thingProduct, API.thingProductPageReq>
+      <ProTable<API.protoProduct, API.protoProductPageReq>
         rowKey="id"
         columns={columns}
         actionRef={pageRef}
         bordered
         request={queryPage}
         search={{
-          span: 6,
+          span: 5,
           labelWidth: 'auto',
         }}
         options={{
@@ -116,7 +144,9 @@ const ProductPage: React.FC = () => {
           pageSize: 10,
         }}
         dateFormatter="string"
-        toolBarRender={() => []}
+        toolBarRender={() => [
+          <AddOrUpdateProduct flag="create" pageRef={pageRef} key="createProduct" />,
+        ]}
       />
     </PageContainer>
   );

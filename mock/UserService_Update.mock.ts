@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/UserService.Update': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 90,
-      msg: '采口由对总果族的目号角王快种无存集风。',
-      id: 'bE6dFD62-E6c8-A143-BD63-1850cf9b76eF',
+      code: 71,
+      msg: '相目百管酸七团员身间热处心员求则写按。',
+      id: 'f6FC338f-4dD2-0D9c-378d-F84A45FddE98',
     });
   },
 };

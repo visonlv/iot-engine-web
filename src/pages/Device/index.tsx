@@ -10,11 +10,11 @@ const DevicePage: React.FC = () => {
   const { deleteHandler } = useTableDelete();
   const pageRef = useRef<ActionType>();
   // 删除操作
-  const showDeleteConfirm = (record: API.thingDevice) => {
-    const body: API.thingDeviceDelReq = {
+  const showDeleteConfirm = (record: API.protoDevice) => {
+    const body: API.protoDeviceDelReq = {
       id: record.id ?? '',
     };
-    deleteHandler<API.thingDeviceDelReq>(deviceServiceDel, pageRef, {
+    deleteHandler<API.protoDeviceDelReq>(deviceServiceDel, pageRef, {
       title: '是否删除当前设备',
       content: `所选设备: ${record?.name ?? '未知设备'},  删除后无法恢复，请确认`,
       body,
@@ -24,8 +24,8 @@ const DevicePage: React.FC = () => {
   /**
    * 查询数据
    * */
-  const queryPage = async (params: any): Promise<{ data?: API.thingDevice[]; total?: number }> => {
-    const body: API.thingDevicePageReq = {
+  const queryPage = async (params: any): Promise<{ data?: API.protoDevice[]; total?: number }> => {
+    const body: API.protoDevicePageReq = {
       page_index: params.current,
       page_size: params.pageSize,
       name: params.name,
@@ -37,7 +37,7 @@ const DevicePage: React.FC = () => {
     };
   };
 
-  const columns: ProColumns<API.thingDevice>[] = [
+  const columns: ProColumns<API.protoDevice>[] = [
     {
       dataIndex: 'index',
       valueType: 'indexBorder',
@@ -65,7 +65,7 @@ const DevicePage: React.FC = () => {
       sorter: true,
       dataIndex: 'create_time',
       valueType: 'dateTime',
-      render: (_, entity: API.thingDevice) =>
+      render: (_, entity: API.protoDevice) =>
         timestampToDateStr(Number(entity.create_time), 'YYYY-MM-DD HH:mm:ss.SSS'),
       search: false,
     },
@@ -73,7 +73,7 @@ const DevicePage: React.FC = () => {
       title: '操作',
       valueType: 'option',
       key: 'option',
-      render: (text, record: API.thingDevice) => (
+      render: (text, record: API.protoDevice) => (
         <>
           <Button
             type="link"
@@ -92,7 +92,7 @@ const DevicePage: React.FC = () => {
 
   return (
     <PageContainer>
-      <ProTable<API.thingDevice, API.thingDevicePageReq>
+      <ProTable<API.protoDevice, API.protoDevicePageReq>
         rowKey="id"
         columns={columns}
         actionRef={pageRef}
