@@ -5,8 +5,9 @@ import React, { useEffect, useRef } from 'react';
 import { productServiceDel, productServicePage } from '@/services/thing/productService';
 import useTableDelete from '@/hooks/useTableDelete';
 import { timestampToDateStr } from '@/utils/date';
+import { history } from '@@/core/history';
 import {
-  THING_PRODUCT_PROTOCAL,
+  THING_PRODUCT_PROTOCOL,
   THING_PRODUCT_TRANSFORM,
   THING_PRODUCT_TYPE,
   convert2ValueEnum,
@@ -19,8 +20,8 @@ const ProductPage: React.FC = () => {
   const transformRef = useRef<{ [key: string]: { text: string } }>(
     convert2ValueEnum(THING_PRODUCT_TRANSFORM),
   );
-  const protocalRef = useRef<{ [key: string]: { text: string } }>(
-    convert2ValueEnum(THING_PRODUCT_PROTOCAL),
+  const protocolRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_PROTOCOL),
   );
   const productTypeRef = useRef<{ [key: string]: { text: string } }>(
     convert2ValueEnum(THING_PRODUCT_TYPE),
@@ -85,7 +86,7 @@ const ProductPage: React.FC = () => {
       title: '协议',
       dataIndex: 'protocol',
       search: false,
-      valueEnum: protocalRef.current,
+      valueEnum: protocolRef.current,
     },
     {
       title: '产品类型',
@@ -107,6 +108,14 @@ const ProductPage: React.FC = () => {
       key: 'option',
       render: (text, record: API.protoProduct) => (
         <>
+           <a
+            key="show"
+            onClick={() => {
+              history.push('/product/detail/' + record.id);
+            }}
+          >
+            查看
+          </a>
           <AddOrUpdateProduct flag="update" key={record.id} record={record} pageRef={pageRef} />
           <Button
             type="link"
@@ -125,7 +134,7 @@ const ProductPage: React.FC = () => {
 
   return (
     <PageContainer>
-      <ProTable<API.protoProduct, API.protoProductPageReq>
+      <ProTable
         rowKey="id"
         columns={columns}
         actionRef={pageRef}

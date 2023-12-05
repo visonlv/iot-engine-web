@@ -2,7 +2,7 @@ import useTableAdd from '@/hooks/useTableAdd';
 import useTableUpdate from '@/hooks/useTableUpdate';
 import { productServiceAdd, productServiceUpdate } from '@/services/thing/productService';
 import {
-  THING_PRODUCT_PROTOCAL,
+  THING_PRODUCT_PROTOCOL,
   THING_PRODUCT_TRANSFORM,
   THING_PRODUCT_TYPE,
   convert2ValueEnum,
@@ -177,7 +177,7 @@ const AddOrUpdateDevice: React.FC<{
             message: '协议是必填项！',
           },
         ]}
-        valueEnum={convert2ValueEnum(THING_PRODUCT_PROTOCAL)}
+        valueEnum={convert2ValueEnum(THING_PRODUCT_PROTOCOL)}
       />
 
       <ProFormTextArea

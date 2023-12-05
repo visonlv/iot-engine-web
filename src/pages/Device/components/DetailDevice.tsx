@@ -2,7 +2,7 @@ import useTableAdd from '@/hooks/useTableAdd';
 import useTableUpdate from '@/hooks/useTableUpdate';
 import { productServiceAdd, productServiceUpdate } from '@/services/thing/productService';
 import {
-  THING_PRODUCT_PROTOCAL,
+  THING_PRODUCT_PROTOCOL,
   THING_PRODUCT_TRANSFORM,
   THING_PRODUCT_TYPE,
   convert2ValueEnum,
@@ -47,7 +47,6 @@ const DetailDevice: React.FC<{
       const updateReq: API.protoProductUpdateReq = {
         name: values.name,
         model: values.model,
-        thing_def: values.thing_def,
         desc: values.desc,
         id: record?.id as string,
       };
@@ -65,7 +64,6 @@ const DetailDevice: React.FC<{
         transform: values.transform,
         protocol: values.protocol,
         type: values.type,
-        thing_def: values.thing_def,
         desc: values.desc,
       };
       console.log('addReq', addReq);
@@ -179,7 +177,7 @@ const DetailDevice: React.FC<{
             message: '协议是必填项！',
           },
         ]}
-        valueEnum={convert2ValueEnum(THING_PRODUCT_PROTOCAL)}
+        valueEnum={convert2ValueEnum(THING_PRODUCT_PROTOCOL)}
       />
 
       <ProFormTextArea

@@ -92,7 +92,7 @@ const DevicePage: React.FC = () => {
 
   return (
     <PageContainer>
-      <ProTable<API.protoDevice, API.protoDevicePageReq>
+      <ProTable
         rowKey="id"
         columns={columns}
         actionRef={pageRef}

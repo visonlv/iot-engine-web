@@ -6,6 +6,7 @@ export const RESOURCE_TYPE_API = 'api';
 export const RESOURCE_TYPE_MENU = 'menu';
 export const RESOURCE_TYPE_RULE = 'rule';
 
+
 export const RESOURCE_TYPE_VALUE = {
   [RESOURCE_TYPE_API]: { text: '接口' },
   [RESOURCE_TYPE_MENU]: { text: '菜单' },
@@ -14,15 +15,31 @@ export const RESOURCE_TYPE_VALUE = {
 
 export const RESOURCE_RULE_VALUE_OPTIONS = [{ value: 'bool', label: 'bool' }];
 
+export const THING_DATA_TYPE_BOOL = "bool"
+export const THING_DATA_TYPE_INT = "int"
+export const THING_DATA_TYPE_STRING = "string"
+export const THING_DATA_TYPE_FLOAT = "float"
+export const THING_DATA_TYPE_ARRAY = "array"
+export const THING_DATA_TYPE_OBJECT = "object"
+
+export const THING_MODEL_TYPE_PROPERTY = 'property';
+export const THING_MODEL_TYPE_SERVICE = 'service';
+export const THING_MODEL_TYPE_EVENT = 'event';
+
 export const THING_DATA_TYPE = [
-  { value: 'bool', label: 'bool' },
-  { value: 'int', label: 'int' },
-  { value: 'string', label: 'string' },
-  { value: 'timestamp', label: 'timestamp' },
-  { value: 'float', label: 'float' },
-  { value: 'enum', label: 'enum' },
-  { value: 'array', label: 'array' },
-  { value: 'struct', label: 'struct' },
+  { value: THING_DATA_TYPE_BOOL, label: '布尔型' },
+  { value: THING_DATA_TYPE_INT, label: '整数型' },
+  { value: THING_DATA_TYPE_STRING, label: '字符串' },
+  { value: THING_DATA_TYPE_FLOAT, label: '浮点型' },
+  { value: THING_DATA_TYPE_ARRAY, label: '数组' },
+  { value: THING_DATA_TYPE_OBJECT, label: '对象' },
+];
+
+export const THING_DATA_TYPE_SUB = [
+  { value: THING_DATA_TYPE_BOOL, label: '布尔型' },
+  { value: THING_DATA_TYPE_INT, label: '整数型' },
+  { value: THING_DATA_TYPE_STRING, label: '字符串' },
+  { value: THING_DATA_TYPE_FLOAT, label: '浮点型' },
 ];
 
 export const THING_PROPERTY_MODE = [
@@ -30,18 +47,25 @@ export const THING_PROPERTY_MODE = [
   { value: 'rw', label: '读写' },
 ];
 
+
+export const THING_EVENT_TYPE_INFO = 'info'
+export const THING_EVENT_TYPE_ALERT = 'alert'
+export const THING_EVENT_TYPE_FAULT = 'fault'
 export const THING_EVENT_TYPE = [
-  { value: 'info', label: '信息' },
-  { value: 'alert', label: '告警' },
-  { value: 'fault', label: '故障' },
+  { value: THING_EVENT_TYPE_INFO, label: '信息' },
+  { value: THING_EVENT_TYPE_ALERT, label: '告警' },
+  { value: THING_EVENT_TYPE_FAULT, label: '故障' },
 ];
+
+export const THING_SERVICE_DIR_TYPE_UP = 'up'
+export const THING_SERVICE_DIR_TYPE_DOWN = 'down'
 
 export const THING_SERVICE_DIR_TYPE = [
-  { value: 'up', label: '上行调用' },
-  { value: 'down', label: '下行调用' },
+  { value: THING_SERVICE_DIR_TYPE_UP, label: '上行调用' },
+  { value: THING_SERVICE_DIR_TYPE_DOWN, label: '下行调用' },
 ];
 
-export const THING_PRODUCT_PROTOCAL = [
+export const THING_PRODUCT_PROTOCOL = [
   { value: 'websocket', label: 'websocket' },
   { value: 'coap', label: 'coap' },
   { value: 'mqtt3', label: 'mqtt3' },

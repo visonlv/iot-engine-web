@@ -18,48 +18,72 @@ export default [
     layout: false,
   },
   {
-    name: 'page',
-    path: '/user/page',
+    name: 'userIndex',
+    path: '/user',
     component: './User',
   },
 
   {
-    name: 'apppage',
-    path: '/app/page',
+    name: 'appIndex',
+    path: '/app',
     component: './App',
   },
 
   {
-    name: 'resourcepage',
-    path: '/resource/page',
+    name: 'resourceIndex',
+    path: '/resource',
     component: './Resource',
   },
 
   {
-    name: 'permissionpage',
-    path: '/permission/page',
+    name: 'permissionIndex',
+    path: '/permission',
     component: './Permission',
   },
 
   {
-    name: 'rolepage',
-    path: '/role/page',
+    name: 'roleIndex',
+    path: '/role',
     component: './Role',
   },
 
   {
-    name: 'whileListpage',
-    path: '/while_list/page',
+    name: 'whileListIndex',
+    path: '/while_list',
     component: './WhiteList',
   },
   {
-    name: 'productpage',
-    path: '/product/page',
+    name: 'productIndex',
+    path: '/product',
     component: './Product',
   },
   {
-    name: 'devicepage',
-    path: '/device/page',
+    name: '产品详情',
+    hideInMenu: true,
+    path: '/product/detail/:id',
+    component: './Product/detail',
+  },
+  {
+    name: '属性新增或编辑',
+    hideInMenu: true,
+    path: '/product/detail/:id/property/:subid',
+    component: './Product/detail/AddOrUpdateProperty',
+  },
+  {
+    name: '事件新增或编辑',
+    hideInMenu: true,
+    path: '/product/detail/:id/event/:subid',
+    component: './Product/detail/AddOrUpdateEvent',
+  },
+  {
+    name: '服务新增或编辑',
+    hideInMenu: true,
+    path: '/product/detail/:id/service/:subid',
+    component: './Product/detail/AddOrUpdateService',
+  },
+  {
+    name: 'deviceIndex',
+    path: '/device',
     component: './Device',
   },
   {
