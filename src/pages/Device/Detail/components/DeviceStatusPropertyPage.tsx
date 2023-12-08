@@ -1,4 +1,4 @@
-import { CopyOutlined, DownloadOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { CopyOutlined, DownloadOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import { ActionType, ProColumns,ProForm,ProFormList } from '@ant-design/pro-components';
 import { ProList } from '@ant-design/pro-components';
 import { Alert, Button, Input, message, Modal, Tag } from 'antd';
@@ -9,22 +9,13 @@ import { THING_DATA_TYPE, THING_DATA_TYPE_BOOL, THING_DATA_TYPE_FLOAT, THING_DAT
 import useTableDelete from '@/hooks/useTableDelete';
 import { history } from '@@/core/history';
 import { ModelProperty } from '@/utils/type';
+import { deviceServiceProperties } from '@/services/thing/deviceService';
+import { timestampToDateStr } from '@/utils/date';
 
 const DeviceStatusPropertyPage: React.FC<{
-  productInfo: API.protoProduct;
-  deviceInfo: API.protoDevice;
-  changeIndex:string;
-}> = ({productInfo, deviceInfo, changeIndex}) => {
-  const [propertysData, setPropertysData] = useState<ModelProperty[]>([] as ModelProperty[]);
-
-  const getDefinition = (record: API.protoProductModel) => {
-    try {
-      return JSON.parse(record.model_def!);
-    } catch (e) {
-      console.error(e);
-      message.error('JSON 解析错误');
-    }
-  };
+  deviceId: string;
+}> = ({deviceId}) => {
+  const [propertysData, setPropertysData] = useState<any[]>([] as any[]);
 
   
 const data = [
@@ -59,62 +50,34 @@ const data = [
   ),
 }));
 
-  const queryPage = async (): Promise<{ data?: API.protoProductModel[]; total?: number }> => {
-    const param : API.protoProductModelPageReq = {
-        page_index: 1,
-        page_size: 10000,
-        name: "",
-        code: "",
-        type: THING_MODEL_TYPE_EVENT,
-        product_id: productInfo?.id,
+  const queryList = async (): Promise<any[]> => {
+    const param : API.protoDevicePropertiesReq = {
+        id: deviceId,
     };
-    const res = await productModelServicePage(param);
+    const res = await deviceServiceProperties(param);
     if (res.code !== 0) {
-      return {
-        data: [],
-        total: 0,
-      };
+      return [];
     }
-    setPropertysData(res.items as any)
-    return {
-      data: res.items,
-      total: res.total,
-    };
+
+    const newList = res.items!.map((value: any)=>{
+      value.avatar = "/xingzhuang.svg"
+      return value
+    })
+
+    setPropertysData(newList)
+    return newList;
   };
 
-  const columns = [
-    {
-      title: '名称',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: '值',
-      dataIndex: 'value',
-      key: 'value',
-     
-    },
-    {
-      title: '更新时间',
-      dataIndex: 'time',
-      key: 'time',
-     
-    },
-  ];
-
   useEffect(() => {
-    queryPage()
-  }, [productInfo, deviceInfo]);
-
-  useMemo(() => {
-  }, [changeIndex]);
+    queryList()
+  }, []);
 
   return (
     <ProList<any>
       pagination={false}
       showActions="hover"
-      rowSelection={{}}
-      grid={{ gutter: 16, column: 4 }}
+      rowSelection={false}
+      grid={{ gutter: 16, column: 3,}}
       onItem={(record: any) => {
         return {
           onClick: () => {
@@ -126,26 +89,32 @@ const data = [
         title: {dataIndex:"name"},
         subTitle: {
           render(dom, entity, index, action, schema) {
-              return <Tag color="#5BD8A6">语1雀专栏</Tag>
+              return <Tag color="#5BD8A6">{entity.type}</Tag>
           },
         },
         type: {},
-        avatar: {},
+        avatar: {dataIndex:"avatar"},
         content: {
-          // render: (entity: any) => {
-          //   console.log("entity", entity)
-          //   return (
-          //     <div>
-          //       段落示意：蚂蚁金服设计平台
-          //       design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台
-          //       design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
-          //     </div>
-          //   );
-          // },
+          render(dom, entity, index, action, schema) {
+            return <div>
+              <div style={{height:60,}}>
+                <div style={{fontWeight:'bold'}}>{entity.value === ""?"-":entity.value}</div>
+              </div>
+              <div>
+                <ClockCircleOutlined/><text style={{marginLeft:'5px'}}>更新时间:
+                {timestampToDateStr(Number(entity.update_time), 'YYYY-MM-DD HH:mm:ss.SSS')} 
+                </text>
+              </div>
+              </div>
         },
-        actions: {},
+        },
+        actions: {
+          render(dom, entity, index, action, schema) {
+            return <Button type='link'>详情</Button>
+          },
+        },
       }}
-      dataSource={data}
+      dataSource={propertysData}
     />
   );
 };

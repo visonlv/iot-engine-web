@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ApiWhiteListService.Del': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 85,
-      msg: '器土单油满听有非江单战美候。',
-      id: 'De2bC30A-b51A-887e-0cd5-ACbf2cEf8288',
+      code: 97,
+      msg: '是被美现直领青界真型重权九到论老。',
+      id: '6cec1AB1-B742-e0Ce-1BbA-DFbBe81F4273',
     });
   },
 };

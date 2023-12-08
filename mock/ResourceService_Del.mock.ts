@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/ResourceService.Del': (req: Request, res: Response) => {
-    res.status(200).send({ code: 63, msg: '整主状消只听阶反细设型不员下却张往。' });
+    res.status(200).send({ code: 87, msg: '三以图地精律整热第之传持积通据后。' });
   },
 };

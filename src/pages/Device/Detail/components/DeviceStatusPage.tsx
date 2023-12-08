@@ -18,12 +18,12 @@ import ModelEventPage from '@/pages/Product/detail/components/ModelEventPage';
 import DeviceStatusPropertyPage from './DeviceStatusPropertyPage';
 
 const { TabPane } = Tabs;
-const DeviceStatusPage: React.FC<{productInfo: API.protoProduct;deviceInfo: API.protoDevice;}> = ({productInfo,deviceInfo}) => {
+const DeviceStatusPage: React.FC<{deviceId: string;}> = ({deviceId}) => {
     return (
     <Card>
         <Tabs>
             <TabPane tab="属性" key="1">
-                <DeviceStatusPropertyPage changeIndex="" readonly={true} productInfo={productInfo} key="ModelPropertyPage" />
+                <DeviceStatusPropertyPage deviceId={deviceId} key="DeviceStatusPropertyPage" />
             </TabPane>
             <TabPane tab="服务" key="2">
             </TabPane>

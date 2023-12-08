@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/UserService.UpdatePassword': (req: Request, res: Response) => {
-    res.status(200).send({ code: 92, msg: '果除建话片江着参门强立总素性性。' });
+    res.status(200).send({ code: 99, msg: '先根写不万强器求结主那造南少务二证。' });
   },
 };

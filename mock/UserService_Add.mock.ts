@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/UserService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 96,
-      msg: '表起论学山油示何道这受众史。',
-      id: 'FFeeb82b-52E6-dEf9-B4EC-F47FfedF52d5',
+      code: 90,
+      msg: '华拉声场较确层转马识济连增各方住三。',
+      id: 'D3616cd9-2D1b-BdeB-33aD-FBcc0aEEb9F4',
     });
   },
 };

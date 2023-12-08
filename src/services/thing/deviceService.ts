@@ -92,6 +92,21 @@ export async function deviceServicePage(
   });
 }
 
+/** 获取属性值 POST /rpc/thing/DeviceService.Properties */
+export async function deviceServiceProperties(
+  body: API.protoDevicePropertiesReq,
+  options?: { [key: string]: any },
+) {
+  return request<API.protoDevicePropertiesResp>('/rpc/thing/DeviceService.Properties', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** 设备修改 POST /rpc/thing/DeviceService.Update */
 export async function deviceServiceUpdate(
   body: API.protoDeviceUpdateReq,

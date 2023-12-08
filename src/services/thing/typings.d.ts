@@ -108,6 +108,27 @@ declare namespace API {
     items?: protoDevice[];
   };
 
+  type protoDevicePropertiesReq = {
+    id?: string;
+    property?: string;
+  };
+
+  type protoDevicePropertiesResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+    items?: protoDeviceProperty[];
+  };
+
+  type protoDeviceProperty = {
+    code?: string;
+    name?: string;
+    desc?: string;
+    type?: string;
+    value?: string;
+    update_time?: string;
+  };
+
   type protoDeviceUpdateReq = {
     /** 设备id */
     id?: string;

@@ -4,19 +4,19 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/ProductService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 90,
-      msg: '片明龙少育铁外增工打集运证风声管。',
+      code: 99,
+      msg: '同然加美立话事一千织或亲难一应却素。',
       item: {
-        id: '11C1A987-3bEC-Fd33-Ad4f-19e17c249e1f',
-        name: '曾芳',
-        model: '话条江铁决月么小党务较说断活回。',
-        pk: '明其象信发片院车际着增土。',
-        transform: '才种选系东更例容争究准行利技。',
-        protocol: '见系造改长整式金体集本最关。',
-        type: 56,
-        thing_def: '史问联心万级此置管并意么别设长。',
-        desc: '个间样认政组到农影很决证华断会特劳。',
-        create_time: 'EnM1M1T',
+        id: '5EcEf5c3-cdC0-1AB4-8549-4d18D3c7DFC7',
+        name: '周秀英',
+        model: '去南报风受能给市给料查教标机七西连。',
+        pk: '且议个合院头究位并风行按信民级。',
+        transform: '斯土示发品道构将自主主活史总。',
+        protocol: '统话院新始消等报经飞厂学回维劳。',
+        type: 68,
+        thing_def: '要力状过育周采气派中会约专多。',
+        desc: '组部技条都率任证须直更放之不。',
+        create_time: 'NZk(Wp',
       },
     });
   },

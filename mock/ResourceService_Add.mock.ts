@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 72,
-      msg: '观量元口比次治业可书必成数几又。',
-      id: 'F6BEdC30-3a7A-67d6-8336-3e4357F74ceF',
+      code: 65,
+      msg: '干知她安产命则们形产传件体。',
+      id: 'c866CaE1-645E-282d-2c88-0Ed51Cdf49D3',
     });
   },
 };

@@ -184,6 +184,33 @@
         ]
       }
     },
+    "/rpc/thing/DeviceService.Properties": {
+      "post": {
+        "summary": "获取属性值",
+        "operationId": "DeviceService_Properties",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoDevicePropertiesResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoDevicePropertiesReq"
+            }
+          }
+        ],
+        "tags": [
+          "DeviceService"
+        ]
+      }
+    },
     "/rpc/thing/DeviceService.Update": {
       "post": {
         "summary": "设备修改",
@@ -848,6 +875,65 @@
         }
       },
       "title": "设备分页返回结果"
+    },
+    "protoDevicePropertiesReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "property": {
+          "type": "string"
+        }
+      },
+      "title": "获取属性值请求参数"
+    },
+    "protoDevicePropertiesResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protoDeviceProperty"
+          }
+        }
+      },
+      "title": "获取属性值返回结果"
+    },
+    "protoDeviceProperty": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "update_time": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
     },
     "protoDeviceUpdateReq": {
       "type": "object",

@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/ProductModelService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 96,
-      msg: '律记外间更权里己外义日院组列将。',
-      id: 'A4bD93C7-63f6-0F64-7a0e-fCB04626F8a1',
+      code: 85,
+      msg: '己思华角达今再易也计治的备电利。',
+      id: '1Fec2519-Db3E-9eC6-D3B5-413F3D5eEAFF',
     });
   },
 };

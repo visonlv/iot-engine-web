@@ -92,7 +92,7 @@ const IndexPage: React.FC = () => {
             <DeviceBaseTabPage deviceInfo={deviceInfo} />,
         </TabPane>
         <TabPane tab="设备状态" key="2">
-            <DeviceStatusPage deviceInfo={deviceInfo} productInfo={productInfo} />,
+            <DeviceStatusPage deviceId={deviceInfo.id!} />,
         </TabPane>
         <TabPane tab="物模型" key="3">
             <ModelTabPage productInfo={productInfo} />,

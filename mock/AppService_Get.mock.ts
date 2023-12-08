@@ -4,16 +4,16 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AppService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 99,
-      msg: '入约科老感片在音低二所合易社史。',
+      code: 100,
+      msg: '道和交方划保且军华矿上真想要。',
       App: {
-        id: '4d7D0b1b-Ce79-E1f2-bDFD-e1C74579fEA6',
-        code: '着最新存观红情局节区点叫加观验能第。',
-        name: '白霞',
-        describe: '复消知加公育期日才候样元解备。',
-        create_user: '段导江代平方革金近运已十走理。',
-        create_username: '科水关点斗装劳家相百究个着报次品还你。',
-        create_time: 'ucAM&',
+        id: '1416DdcE-14b2-8e17-4C5C-7FD8100aeDCe',
+        code: '况长手月列共同信办自属光科科。',
+        name: '韩超',
+        describe: '认已认而华看马单五义南战选科革。',
+        create_user: '持或省线战红局六王二流维现。',
+        create_username: '和东口政写文样专类问构米及花深步。',
+        create_time: 'qdgq@Z',
       },
     });
   },

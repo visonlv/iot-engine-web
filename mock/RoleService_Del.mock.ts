@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/RoleService.Del': (req: Request, res: Response) => {
-    res.status(200).send({ code: 99, msg: '识我南最或转始些其确信合且业型。' });
+    res.status(200).send({ code: 99, msg: '维红导家无教传式自将保重备见。' });
   },
 };

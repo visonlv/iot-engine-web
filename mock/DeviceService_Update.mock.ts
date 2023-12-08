@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/DeviceService.Update': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 94,
-      msg: '收红候及思品区参务意族比转。',
-      id: 'b8Ce876a-dc6e-FC61-168b-2E4FA413EDBE',
+      code: 85,
+      msg: '须法切气克元电命志火名第。',
+      id: '97Fd48d7-1459-F1F5-05F4-cB3CDA6AFF7c',
     });
   },
 };

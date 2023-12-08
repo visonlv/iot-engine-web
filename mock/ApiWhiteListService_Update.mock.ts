@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ApiWhiteListService.Update': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 76,
-      msg: '理队观自术常其影北联务候引极及资小则。',
-      id: 'Ebd6cC33-5DDB-Ae37-dcD7-5684bBAf2AAe',
+      code: 90,
+      msg: '观记王说矿果料风通石究展政生养等立。',
+      id: '5e8C64C3-4Dc2-2edd-EebF-dD4BcD488A3A',
     });
   },
 };

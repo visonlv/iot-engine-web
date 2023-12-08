@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ApiWhiteListService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 82,
-      msg: '公细书圆式程金清压身去京业维该地引所。',
-      id: 'ebE0fCB1-CBb6-e4DD-a8Df-AfBeBca4cFD7',
+      code: 64,
+      msg: '走构去军参月行族边程设个院位易标元。',
+      id: 'F2FcBF38-Ae72-aF8e-fbB0-4E69dE3Dfe7c',
     });
   },
 };

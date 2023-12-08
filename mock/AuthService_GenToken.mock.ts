@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AuthService.GenToken': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 64,
-      msg: '米报整通内革出状数联产者空划线。',
-      token: '类共记力果广后机带结期及连派千素两量。',
+      code: 97,
+      msg: '结现界走但九中话越准半维部音么因龙。',
+      token: '确革规他从建成型拉产与性色成水龙得。',
     });
   },
 };

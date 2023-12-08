@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/AuthService.VerifyPassword': (req: Request, res: Response) => {
-    res.status(200).send({ code: 85, msg: '目速但安众查很少许取给类青。' });
+    res.status(200).send({ code: 88, msg: '称级导华导养划队律文际料须难严才场得。' });
   },
 };

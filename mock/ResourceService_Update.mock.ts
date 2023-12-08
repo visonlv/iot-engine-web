@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/ResourceService.Update': (req: Request, res: Response) => {
-    res.status(200).send({ code: 93, msg: '确所正阶办带严少越加识当上不无得。' });
+    res.status(200).send({ code: 85, msg: '组从明政华支需少治法京江响直之。' });
   },
 };

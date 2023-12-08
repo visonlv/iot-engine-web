@@ -5,8 +5,8 @@ export default {
   'POST /rpc/thing/ProductService.Del': (req: Request, res: Response) => {
     res.status(200).send({
       code: 64,
-      msg: '置同般查各过转往提热效会权。',
-      id: 'e0D82A1d-bC4D-179e-7Fb5-871ecC8DfeAC',
+      msg: '同济手很结记教那约里马志备劳。',
+      id: 'DD1314f1-79E8-Fb69-8AA7-074522EfEC5D',
     });
   },
 };

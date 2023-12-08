@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/AppService.Del': (req: Request, res: Response) => {
-    res.status(200).send({ code: 83, msg: '复越日离公装明林内军行造又土声组。' });
+    res.status(200).send({ code: 67, msg: '构外眼华技么被物老多现不。' });
   },
 };
