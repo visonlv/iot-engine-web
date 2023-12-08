@@ -24,3 +24,11 @@ export const setUserId = (userID: string) => {
 export const getUserId = () => {
   return localStorage.getItem(`${PREFIX}-userId`) ?? '';
 };
+
+export const setModelTabId = (tabId: string) => {
+  return localStorage.setItem(`${PREFIX}-modelTabId`, tabId);
+};
+
+export const getModelTabId = () => {
+  return localStorage.getItem(`${PREFIX}-modelTabId`) ?? '';
+};

@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 63,
-      msg: '持容基参二并将参圆群南决设千。',
-      id: '643fEFa1-C7fD-A2E9-9fcc-C75d7f54b6c5',
+      code: 72,
+      msg: '观量元口比次治业可书必成数几又。',
+      id: 'F6BEdC30-3a7A-67d6-8336-3e4357F74ceF',
     });
   },
 };

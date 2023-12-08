@@ -3,13 +3,13 @@ import { roleServicePage } from '@/services/auth/roleService';
 import { useState } from 'react';
 import { PAGE_SIZE_MAX } from '@/utils/const';
 
-type roleSelectResult = {
+type selectResult = {
   list: { label: string; value: string }[];
   map: { [key: string]: { label: string; value: string } };
 };
 
 const useGetSelectRoles = () => {
-  const [selectRoles, setSelectRoles] = useState<roleSelectResult>({ list: [], map: {} });
+  const [selectRoles, setSelectRoles] = useState<selectResult>({ list: [], map: {} });
   const querySelectRoles = async () => {
     try {
       const res = await roleServicePage({

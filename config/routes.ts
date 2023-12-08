@@ -82,6 +82,12 @@ export default [
     component: './Product/detail/AddOrUpdateService',
   },
   {
+    name: '设备详情',
+    hideInMenu: true,
+    path: '/device/detail/:id',
+    component: './Device/Detail',
+  },
+  {
     name: 'deviceIndex',
     path: '/device',
     component: './Device',

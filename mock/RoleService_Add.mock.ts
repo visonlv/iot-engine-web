@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/RoleService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 86,
-      msg: '调满界元构几干广质看团口金。',
-      id: '8fceF881-6D37-3bf6-c99D-2E6b8D7E4784',
+      code: 68,
+      msg: '意值类世青头西铁资思值由须学少口拉代。',
+      id: '2Ed17D5d-E5D4-eF48-D1b1-F82DCd94AFF2',
     });
   },
 };

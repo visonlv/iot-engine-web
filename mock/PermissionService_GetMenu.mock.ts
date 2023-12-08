@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/PermissionService.GetMenu': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 63,
-      msg: '指低属般适此得更眼红走按标。',
-      menu: '段路造有着子利土解民验重建心党决。',
+      code: 93,
+      msg: '成级经区格术才接定争年究一值到设则。',
+      menu: '即意共这没十置特个适月发飞。',
     });
   },
 };

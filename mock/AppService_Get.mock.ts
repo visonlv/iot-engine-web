@@ -4,16 +4,16 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AppService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 77,
-      msg: '收基书量例毛界书路利厂严矿参料较总在。',
+      code: 99,
+      msg: '入约科老感片在音低二所合易社史。',
       App: {
-        id: 'E57d85fD-D039-BA27-b687-f4A78248e3eA',
-        code: '步知和革术设包广支流例整没。',
-        name: '崔磊',
-        describe: '再内所于场主构示表无及作数比叫。',
-        create_user: '身中程方步见出位满品千把山议。',
-        create_username: '利而反龙办数温式度拉把可科。',
-        create_time: 'M@y1',
+        id: '4d7D0b1b-Ce79-E1f2-bDFD-e1C74579fEA6',
+        code: '着最新存观红情局节区点叫加观验能第。',
+        name: '白霞',
+        describe: '复消知加公育期日才候样元解备。',
+        create_user: '段导江代平方革金近运已十走理。',
+        create_username: '科水关点斗装劳家相百究个着报次品还你。',
+        create_time: 'ucAM&',
       },
     });
   },

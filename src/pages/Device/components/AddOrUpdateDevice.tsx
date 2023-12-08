@@ -1,6 +1,6 @@
 import useTableAdd from '@/hooks/useTableAdd';
 import useTableUpdate from '@/hooks/useTableUpdate';
-import { productServiceAdd, productServiceUpdate } from '@/services/thing/productService';
+import { deviceServiceAdd, deviceServiceUpdate } from '@/services/thing/deviceService';
 import {
   THING_PRODUCT_PROTOCOL,
   THING_PRODUCT_TRANSFORM,
@@ -25,14 +25,15 @@ const FORMITEM_LAYOUT = {
 
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
 
-type AddFuncType = typeof productServiceAdd;
-type UpdateFuncType = typeof productServiceUpdate;
+type AddFuncType = typeof deviceServiceAdd;
+type UpdateFuncType = typeof deviceServiceUpdate;
 
 const AddOrUpdateDevice: React.FC<{
   flag: string;
-  record?: API.protoProduct;
+  record?: API.protoDevice;
   pageRef: React.MutableRefObject<ActionType | undefined>;
-}> = ({ flag, record, pageRef }) => {
+  selectOptions: { value: string; label: string }[];
+}> = ({ flag, record, pageRef,selectOptions }) => {
   const { addHandler } = useTableAdd();
   const { updateHandler } = useTableUpdate();
   const [editFlag, setEditFlag] = useState(false);
@@ -44,31 +45,28 @@ const AddOrUpdateDevice: React.FC<{
   const formSubmit = async (values: any) => {
     let code = -1;
     if (flag === 'update') {
-      const updateReq: API.protoProductUpdateReq = {
+      const updateReq: API.protoDeviceUpdateReq = {
         name: values.name,
-        model: values.model,
+        secret: values.secret,
         desc: values.desc,
         id: record?.id as string,
       };
-      console.log('updateReq', updateReq);
-      const res = await updateHandler<UpdateFuncType, API.protoProductUpdateReq>(
-        productServiceUpdate,
+      const res = await updateHandler<UpdateFuncType, API.protoDeviceUpdateReq>(
+        deviceServiceUpdate,
         pageRef,
         updateReq,
       );
       code = res.code;
     } else {
-      const addReq: API.protoProductAddReq = {
+      const addReq: API.protoDeviceAddReq = {
+        pk: values.pk,
         name: values.name,
-        model: values.model,
-        transform: values.transform,
-        protocol: values.protocol,
-        type: values.type,
+        sn: values.sn,
+        secret: values.secret,
         desc: values.desc,
       };
-      console.log('addReq', addReq);
-      const res = await addHandler<AddFuncType, API.protoProductAddReq>(
-        productServiceAdd,
+      const res = await addHandler<AddFuncType, API.protoDeviceAddReq>(
+        deviceServiceAdd,
         pageRef,
         addReq,
       );
@@ -89,7 +87,7 @@ const AddOrUpdateDevice: React.FC<{
       initialValues={record}
       width={550}
       formRef={editFormRef}
-      title={flag === 'update' ? '编辑产品信息' : '添加产品'}
+      title={flag === 'update' ? '编辑设备信息' : '添加设备'}
       trigger={
         <Button
           type={flag === 'update' ? 'link' : 'primary'}
@@ -98,7 +96,7 @@ const AddOrUpdateDevice: React.FC<{
             onOpen();
           }}
         >
-          {flag === 'update' ? '编辑' : '添加产品'}
+          {flag === 'update' ? '编辑' : '添加设备'}
         </Button>
       }
       open={visible}
@@ -114,8 +112,8 @@ const AddOrUpdateDevice: React.FC<{
       <ProFormText
         name="name"
         width="md"
-        label="产品名称"
-        placeholder="请输入产品名称"
+        label="设备名称"
+        placeholder="请输入设备名称"
         rules={[
           {
             required: true,
@@ -124,10 +122,11 @@ const AddOrUpdateDevice: React.FC<{
       />
 
       <ProFormText
-        name="model"
+        disabled={flag === 'update'}
+        name="sn"
         width="md"
-        label="产品型号"
-        placeholder="请输入产品型号"
+        label="设备sn"
+        placeholder="请输入设备sn"
         rules={[
           {
             required: true,
@@ -135,49 +134,32 @@ const AddOrUpdateDevice: React.FC<{
         ]}
       />
 
-      <ProFormSelect
-        disabled={flag === 'update'}
+      <ProFormText
         width="md"
-        name="type"
-        label="产品类型"
-        placeholder="请选择产品类型"
+        name="secret"
+        label="密钥"
+        placeholder="请选择密钥"
         rules={[
           {
             required: true,
-            message: '产品类型是必填项！',
+            message: '设备密钥是必填项！',
           },
         ]}
-        valueEnum={convert2ValueEnum(THING_PRODUCT_TYPE)}
       />
 
       <ProFormSelect
         disabled={flag === 'update'}
         width="md"
-        name="transform"
-        label="传输类型"
-        placeholder="请选择传输类型"
+        name="pk"
+        label="产品"
+        placeholder="请选择产品"
         rules={[
           {
             required: true,
-            message: '传输类型是必填项！',
+            message: '产品是必填项！',
           },
         ]}
-        valueEnum={convert2ValueEnum(THING_PRODUCT_TRANSFORM)}
-      />
-
-      <ProFormSelect
-        disabled={flag === 'update'}
-        width="md"
-        name="protocol"
-        label="协议"
-        placeholder="请选择协议"
-        rules={[
-          {
-            required: true,
-            message: '协议是必填项！',
-          },
-        ]}
-        valueEnum={convert2ValueEnum(THING_PRODUCT_PROTOCOL)}
+        valueEnum={convert2ValueEnum(selectOptions)}
       />
 
       <ProFormTextArea

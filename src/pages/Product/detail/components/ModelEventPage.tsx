@@ -4,14 +4,16 @@ import { ProTable } from '@ant-design/pro-components';
 import { Alert, Button, Input, message, Modal } from 'antd';
 import styles from './style.less';
 import { productModelServiceDel, productModelServicePage } from '@/services/thing/productModelService';
-import { useRef } from 'react';
+import { useRef,useMemo, MutableRefObject } from 'react';
 import { THING_DATA_TYPE, THING_DATA_TYPE_BOOL, THING_DATA_TYPE_FLOAT, THING_DATA_TYPE_INT, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, THING_MODEL_TYPE_PROPERTY, THING_PROPERTY_MODE, convert2ValueEnum } from '@/utils/const';
 import useTableDelete from '@/hooks/useTableDelete';
 import { history } from '@@/core/history';
 
 const ModelEventPage: React.FC<{
   productInfo: API.protoProduct;
-}> = ({productInfo}) => {
+  changeIndex:string;
+  readonly?:boolean;
+}> = ({productInfo, changeIndex, readonly = false}) => {
   const { deleteHandler } = useTableDelete();
   const pageRef = useRef<ActionType>();
   const thingDataTypeMap = useRef<{ [key: string]: { text: string } }>(
@@ -71,16 +73,16 @@ const ModelEventPage: React.FC<{
       key: 'option',
       render: (text, record: API.protoProductModel) => (
         <>
-        <a
+          {!readonly && (<a
             key="updateModelEvent"
             onClick={() => {
               history.push('/product/detail/' + productInfo.id + '/event/'+record.id);
             }}
           >
             编辑
-          </a>
+          </a>)}
 
-          <Button
+          {!readonly && (<Button
             type="link"
             danger
             onClick={() => {
@@ -89,7 +91,7 @@ const ModelEventPage: React.FC<{
             style={{ paddingRight: 10 }}
           >
             删除
-          </Button>
+          </Button>)}
         </>
       ),
     },
@@ -115,8 +117,12 @@ const ModelEventPage: React.FC<{
       data: res.items,
       total: res.total,
     };
-  
   };
+
+  const form = useMemo(() => {
+    pageRef.current?.reload()
+  }, [changeIndex]);
+
 
   return (
     <ProTable
@@ -124,7 +130,7 @@ const ModelEventPage: React.FC<{
         columns={columns}
         actionRef={pageRef}
         bordered
-        request={queryPage}
+        request={useMemo(()=>{return queryPage}, [productInfo])}
         search={{
           span: 5,
           labelWidth: 'auto',
@@ -138,16 +144,18 @@ const ModelEventPage: React.FC<{
           pageSize: 10,
         }}
         dateFormatter="string"
-        toolBarRender={() => [
-          <a
-          key="addModelEvent"
-          onClick={() => {
-            history.push('/product/detail/' + productInfo.id + '/event/0');
-          }}
-        >
-          添加
-        </a>
-        ]}
+        toolBarRender={readonly?false:() => {
+          return [
+            <Button
+            type={'primary'}
+            onClick={() => {
+              history.push('/product/detail/' + productInfo.id + '/event/0');
+            }}
+            >
+            添加事件
+          </Button>
+          ]
+        }}
       />
   );
 };

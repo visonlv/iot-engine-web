@@ -1,14 +1,22 @@
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { PageContainer, ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { deviceServiceDel, deviceServicePage } from '@/services/thing/deviceService';
 import useTableDelete from '@/hooks/useTableDelete';
 import { timestampToDateStr } from '@/utils/date';
+import AddOrUpdateDevice from './components/AddOrUpdateDevice';
+import useGetSelectRoles from '@/hooks/useGetSelectRoleOption';
+import useGetSelectProducts from '@/hooks/useGetSelectProductOption';
+import { convert2ValueEnum } from '@/utils/const';
+import { history } from '@@/core/history';
+
 
 const DevicePage: React.FC = () => {
   const { deleteHandler } = useTableDelete();
   const pageRef = useRef<ActionType>();
+  const { selectProducts, querySelectProducts } = useGetSelectProducts();
+
   // 删除操作
   const showDeleteConfirm = (record: API.protoDevice) => {
     const body: API.protoDeviceDelReq = {
@@ -29,6 +37,8 @@ const DevicePage: React.FC = () => {
       page_index: params.current,
       page_size: params.pageSize,
       name: params.name,
+      sn: params.sn,
+      pk: params.pk,
     };
     const res = await deviceServicePage(body);
     return {
@@ -54,20 +64,26 @@ const DevicePage: React.FC = () => {
     {
       title: '密钥',
       dataIndex: 'secret',
+      search: false,
     },
     {
       title: '产品',
       dataIndex: 'pk',
-      search: false,
+      valueType: "select",
+      valueEnum:convert2ValueEnum(selectProducts.list),
+    },
+    {
+      title: '在线状态',
+      dataIndex: 'online',
     },
     {
       title: '创建时间',
       sorter: true,
+      search: false,
       dataIndex: 'create_time',
       valueType: 'dateTime',
       render: (_, entity: API.protoDevice) =>
         timestampToDateStr(Number(entity.create_time), 'YYYY-MM-DD HH:mm:ss.SSS'),
-      search: false,
     },
     {
       title: '操作',
@@ -75,6 +91,16 @@ const DevicePage: React.FC = () => {
       key: 'option',
       render: (text, record: API.protoDevice) => (
         <>
+        <a
+            key="show"
+            onClick={() => {
+              history.push('/device/detail/' + record.id);
+            }}
+          >
+            查看
+          </a>
+
+          <AddOrUpdateDevice flag="update" record={record} pageRef={pageRef} selectOptions={selectProducts.list} key="updateDevice" />,
           <Button
             type="link"
             danger
@@ -89,6 +115,11 @@ const DevicePage: React.FC = () => {
       ),
     },
   ];
+
+
+  useEffect(() => {
+    querySelectProducts();
+  }, []);
 
   return (
     <PageContainer>
@@ -111,7 +142,9 @@ const DevicePage: React.FC = () => {
           pageSize: 10,
         }}
         dateFormatter="string"
-        toolBarRender={() => []}
+        toolBarRender={() => [
+          <AddOrUpdateDevice flag="create" pageRef={pageRef} selectOptions={selectProducts.list} key="createDevice" />,
+        ]}
       />
     </PageContainer>
   );

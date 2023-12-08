@@ -99,14 +99,12 @@ const AddOrUpdateProperty: React.FC = () => {
         desc:"",
         required:false,
         type:THING_DATA_TYPE_BOOL,
-
-        bool_options:[false],
-        int_options:[],
-        float_options:[],
-        string_options:[],
-        array_options:[],
+        default_bool:false,
+        default_number:0,
+        range:[0,0],
+        step:0,
+        unit:"",
         array_options_items:[],
-        object_options:[],
         object_options_items:[],
         mode:"rw",
         is_use_shadow : false,
@@ -141,7 +139,7 @@ const AddOrUpdateProperty: React.FC = () => {
 
   return (
     <PageContainer
-    title={productModelPropertyDef.name}
+    title={params.subid === "0"?"新建属性":productModelPropertyDef.name}
     onBack={() => history.back()}
     >
     <ProForm
@@ -246,7 +244,6 @@ const AddOrUpdateProperty: React.FC = () => {
         name="desc"
         label="描述"
         placeholder="请输入描述"
-        
       />
       <ExtraProperty modelProperty={productModelPropertyDef}/>
     </ProForm>

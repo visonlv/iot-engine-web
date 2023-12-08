@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { userServiceDel, userServicePage } from '@/services/auth/userService';
 import AddOrUpdateUser from './components/AddOrUpdateUser';
-import useGetSelectRoles from '@/hooks/useGetSelectOption';
+import useGetSelectRoles from '@/hooks/useGetSelectRoleOption';
 import useTableDelete from '@/hooks/useTableDelete';
 import { timestampToDateStr } from '@/utils/date';
 import UpdatePassword from './components/UpdatePassword';

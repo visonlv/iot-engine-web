@@ -6,6 +6,7 @@ import {
   ProFormSelect,
   ProFormText,
   ProFormTextArea,
+  ProCard,
 } from '@ant-design/pro-components';
 import { message } from 'antd';
 import { productModelServiceAdd, productModelServiceGet, productModelServiceUpdate } from '@/services/thing/productModelService';
@@ -113,7 +114,7 @@ const AddOrUpdateEvent: React.FC = () => {
 
   return (
     <PageContainer
-    title={productModelEventDef.name}
+    title={params.subid === "0"?"新建事件":productModelEventDef.name}
     onBack={() => history.back()}
     >
     <ProForm
@@ -181,10 +182,16 @@ const AddOrUpdateEvent: React.FC = () => {
             max = {10}
             itemRender={({ listDom, action }, { record }) => {
               return (
-                <OneProperty data={record} subSelect={false} key={record.code}></OneProperty>
+                  <ProCard extra={action} style={{padding:'10px', marginTop:"20px", border: '1px solid blue'}}>{listDom}</ProCard>
               );
-            }}
+          }}
         >
+          {(f, index, action) => {
+          const record = action.getCurrentRowData()
+          return (
+              <OneProperty data={record} subSelect={false} key={record.code}></OneProperty>
+          );
+        }}
       </ProFormList>
     </ProForm>
     </PageContainer>

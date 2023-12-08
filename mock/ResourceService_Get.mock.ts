@@ -4,17 +4,17 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/ResourceService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 79,
-      msg: '么通复拉等准便农法界观声非元马光代。',
+      code: 63,
+      msg: '边比才花长听采况局龙样成场。',
       item: {
-        id: 'Af16d641-A46F-bfce-fd6d-984B2BcDd7D1',
-        name: '吕洋',
-        type: 2,
-        content: '采叫称研照专表到眼本广织。',
-        property: '自重用史明象东第得农复圆况。',
-        parent_id: 'Eb041D6C-8e54-A45b-85D9-c0B8e9bf2d63',
-        create_time: 'sm#ive',
-        update_time: 'DkciC',
+        id: 'CEfddEC6-C2dB-5e29-dcaf-2eEAd8fbA5ED',
+        name: '杨静',
+        type: 18,
+        content: '这院京术新情权点长系精比必。',
+        property: '派清易用象海想想因装该确化。',
+        parent_id: 'E63b22d7-59dE-58C2-D24f-b7f09cDEeCa5',
+        create_time: 'bJQtyS',
+        update_time: '&1$G',
       },
     });
   },

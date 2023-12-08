@@ -47,6 +47,21 @@ export async function productServiceGet(
   });
 }
 
+/** 获取物模型 POST /rpc/thing/ProductService.GetModel */
+export async function productServiceGetModel(
+  body: API.protoProductGetModelReq,
+  options?: { [key: string]: any },
+) {
+  return request<API.protoProductGetModelResp>('/rpc/thing/ProductService.GetModel', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** 产品列表 POST /rpc/thing/ProductService.List */
 export async function productServiceList(
   body: API.protoProductListReq,
@@ -83,6 +98,21 @@ export async function productServiceUpdate(
   options?: { [key: string]: any },
 ) {
   return request<API.protoProductUpdateResp>('/rpc/thing/ProductService.Update', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** 更新物模型 POST /rpc/thing/ProductService.UpdateModel */
+export async function productServiceUpdateModel(
+  body: API.protoProductUpdateModelReq,
+  options?: { [key: string]: any },
+) {
+  return request<API.protoProductUpdateModelResp>('/rpc/thing/ProductService.UpdateModel', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

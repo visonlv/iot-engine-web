@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/ProductModelService.Update': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 79,
-      msg: '传基速边取带整达局县地市多始。',
-      id: '6CaBDef8-bF84-6C52-4bF7-EcEB3092FfFc',
+      code: 64,
+      msg: '府利提又院育前最属社制几适那。',
+      id: '0daBE94d-dbF2-1d4E-8F34-09EFbE8ff32d',
     });
   },
 };

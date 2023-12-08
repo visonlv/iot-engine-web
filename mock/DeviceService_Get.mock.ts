@@ -4,17 +4,17 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/DeviceService.Get': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 83,
-      msg: '图场年满利义声样例世发标片进。',
+      code: 63,
+      msg: '以际生因气压问类话本志起维决年离离际。',
       item: {
-        id: 'CC3E8f6E-4F2F-7243-e440-B9F1Fdd2Bdf1',
-        pk: '队事该元机系家共风改军是民观名。',
-        name: '曹洋',
-        sn: '离得治来组但接条时发美设数。',
-        group: 72,
-        secret: '因石图万本严论等质带参带日在院整。',
-        desc: '无公治广由化身此内九团节时他。',
-        create_time: 'ts&',
+        id: '0Eacf72C-08F6-b705-9e24-132d12638944',
+        pk: '小引开提除支论较火被却系土想类有。',
+        name: '熊磊',
+        sn: '共立效采长拉表由再称统所安却。',
+        group: 80,
+        secret: '美商团或约水近养明究需专。',
+        desc: '山所身务改油规县车于学五学不育究存进。',
+        create_time: 'Liq4',
       },
     });
   },

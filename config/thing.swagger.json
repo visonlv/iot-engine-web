@@ -15,8 +15,12 @@
       "name": "ProductModelService"
     }
   ],
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/rpc/thing/DeviceService.Add": {
       "post": {
@@ -40,7 +44,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/DeviceService.Auth": {
@@ -65,7 +71,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/DeviceService.Del": {
@@ -90,7 +98,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/DeviceService.Get": {
@@ -115,7 +125,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/DeviceService.List": {
@@ -140,7 +152,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/DeviceService.Page": {
@@ -165,7 +179,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/DeviceService.Update": {
@@ -190,7 +206,9 @@
             }
           }
         ],
-        "tags": ["DeviceService"]
+        "tags": [
+          "DeviceService"
+        ]
       }
     },
     "/rpc/thing/ProductModelService.Add": {
@@ -215,7 +233,9 @@
             }
           }
         ],
-        "tags": ["ProductModelService"]
+        "tags": [
+          "ProductModelService"
+        ]
       }
     },
     "/rpc/thing/ProductModelService.Del": {
@@ -240,7 +260,9 @@
             }
           }
         ],
-        "tags": ["ProductModelService"]
+        "tags": [
+          "ProductModelService"
+        ]
       }
     },
     "/rpc/thing/ProductModelService.Get": {
@@ -265,7 +287,9 @@
             }
           }
         ],
-        "tags": ["ProductModelService"]
+        "tags": [
+          "ProductModelService"
+        ]
       }
     },
     "/rpc/thing/ProductModelService.List": {
@@ -290,7 +314,9 @@
             }
           }
         ],
-        "tags": ["ProductModelService"]
+        "tags": [
+          "ProductModelService"
+        ]
       }
     },
     "/rpc/thing/ProductModelService.Page": {
@@ -315,7 +341,9 @@
             }
           }
         ],
-        "tags": ["ProductModelService"]
+        "tags": [
+          "ProductModelService"
+        ]
       }
     },
     "/rpc/thing/ProductModelService.Update": {
@@ -340,7 +368,9 @@
             }
           }
         ],
-        "tags": ["ProductModelService"]
+        "tags": [
+          "ProductModelService"
+        ]
       }
     },
     "/rpc/thing/ProductService.Add": {
@@ -365,7 +395,9 @@
             }
           }
         ],
-        "tags": ["ProductService"]
+        "tags": [
+          "ProductService"
+        ]
       }
     },
     "/rpc/thing/ProductService.Del": {
@@ -390,7 +422,9 @@
             }
           }
         ],
-        "tags": ["ProductService"]
+        "tags": [
+          "ProductService"
+        ]
       }
     },
     "/rpc/thing/ProductService.Get": {
@@ -415,7 +449,36 @@
             }
           }
         ],
-        "tags": ["ProductService"]
+        "tags": [
+          "ProductService"
+        ]
+      }
+    },
+    "/rpc/thing/ProductService.GetModel": {
+      "post": {
+        "summary": "获取物模型",
+        "operationId": "ProductService_GetModel",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoProductGetModelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoProductGetModelReq"
+            }
+          }
+        ],
+        "tags": [
+          "ProductService"
+        ]
       }
     },
     "/rpc/thing/ProductService.List": {
@@ -440,7 +503,9 @@
             }
           }
         ],
-        "tags": ["ProductService"]
+        "tags": [
+          "ProductService"
+        ]
       }
     },
     "/rpc/thing/ProductService.Page": {
@@ -465,7 +530,9 @@
             }
           }
         ],
-        "tags": ["ProductService"]
+        "tags": [
+          "ProductService"
+        ]
       }
     },
     "/rpc/thing/ProductService.Update": {
@@ -490,7 +557,36 @@
             }
           }
         ],
-        "tags": ["ProductService"]
+        "tags": [
+          "ProductService"
+        ]
+      }
+    },
+    "/rpc/thing/ProductService.UpdateModel": {
+      "post": {
+        "summary": "更新物模型",
+        "operationId": "ProductService_UpdateModel",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoProductUpdateModelResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoProductUpdateModelReq"
+            }
+          }
+        ],
+        "tags": [
+          "ProductService"
+        ]
       }
     }
   },
@@ -909,12 +1005,40 @@
       },
       "title": "产品删除返回结果"
     },
+    "protoProductGetModelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "获取物模型请求参数"
+    },
+    "protoProductGetModelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "item": {
+          "$ref": "#/definitions/protoProduct"
+        }
+      },
+      "title": "获取物模型返回结果"
+    },
     "protoProductGetReq": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string",
           "title": "产品id"
+        },
+        "pk": {
+          "type": "string"
         }
       },
       "title": "产品获取请求参数"
@@ -953,6 +1077,10 @@
         "type": {
           "type": "string",
           "title": "产品类型 direct 直连 gateway 网关 child 子设备"
+        },
+        "load_model_def": {
+          "type": "boolean",
+          "title": "是否加载物模型"
         }
       },
       "title": "产品列表请求参数"
@@ -1317,6 +1445,37 @@
         }
       },
       "title": "产品分页返回结果"
+    },
+    "protoProductUpdateModelReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "thing_def": {
+          "type": "string"
+        }
+      },
+      "title": "获取物模型请求参数"
+    },
+    "protoProductUpdateModelResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "thing_def": {
+          "type": "string"
+        }
+      },
+      "title": "获取物模型返回结果"
     },
     "protoProductUpdateReq": {
       "type": "object",

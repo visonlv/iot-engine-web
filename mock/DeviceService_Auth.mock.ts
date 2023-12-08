@@ -4,10 +4,10 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/DeviceService.Auth': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 63,
-      msg: '可只飞消维带就表特老会象步化二解动。',
-      result: '任后改书教员天厂军素快还片适干证克。',
-      is_superuser: true,
+      code: 85,
+      msg: '区成主解快节用次此决技亲。',
+      result: '事得府这上省联公技门次号达别改。',
+      is_superuser: false,
     });
   },
 };

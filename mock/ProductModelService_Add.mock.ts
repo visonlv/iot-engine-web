@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/thing/ProductModelService.Add': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 62,
-      msg: '叫值业取石度并后深天合安七劳使由究。',
-      id: 'FDC1c367-DB3d-BccA-19BA-fd0cB90C93dE',
+      code: 96,
+      msg: '律记外间更权里己外义日院组列将。',
+      id: 'A4bD93C7-63f6-0F64-7a0e-fCB04626F8a1',
     });
   },
 };

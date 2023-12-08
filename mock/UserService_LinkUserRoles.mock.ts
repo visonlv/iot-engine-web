@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/UserService.LinkUserRoles': (req: Request, res: Response) => {
-    res.status(200).send({ code: 66, msg: '教相商劳阶志容选前党级型周共标。' });
+    res.status(200).send({ code: 100, msg: '信二历在系队量光列证现上物山。' });
   },
 };

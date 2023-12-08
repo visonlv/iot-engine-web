@@ -180,9 +180,20 @@ declare namespace API {
     id?: string;
   };
 
+  type protoProductGetModelReq = {
+    id?: string;
+  };
+
+  type protoProductGetModelResp = {
+    code?: number;
+    msg?: string;
+    item?: protoProduct;
+  };
+
   type protoProductGetReq = {
     /** 产品id */
     id?: string;
+    pk?: string;
   };
 
   type protoProductGetResp = {
@@ -200,6 +211,8 @@ declare namespace API {
     pk?: string;
     /** 产品类型 direct 直连 gateway 网关 child 子设备 */
     type?: string;
+    /** 是否加载物模型 */
+    load_model_def?: boolean;
   };
 
   type protoProductListResp = {
@@ -352,6 +365,18 @@ declare namespace API {
     msg?: string;
     total?: number;
     items?: protoProduct[];
+  };
+
+  type protoProductUpdateModelReq = {
+    id?: string;
+    thing_def?: string;
+  };
+
+  type protoProductUpdateModelResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+    thing_def?: string;
   };
 
   type protoProductUpdateReq = {

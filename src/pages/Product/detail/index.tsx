@@ -1,19 +1,63 @@
-import { Card,  Tabs } from 'antd';
-import { PageContainer,ProDescriptions } from '@ant-design/pro-components';
+import { Button, Card,  Tabs, Upload, message } from 'antd';
+import { PageContainer,ProDescriptions,ActionType,ModalForm } from '@ant-design/pro-components';
 import { history } from '@@/core/history';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from '@umijs/max';
-import { productServiceGet } from '@/services/thing/productService';
+import { productServiceGet, productServiceGetModel, productServiceUpdateModel } from '@/services/thing/productService';
 import { THING_PRODUCT_PROTOCOL, THING_PRODUCT_TRANSFORM, THING_PRODUCT_TYPE, convert2ValueEnum } from '@/utils/const';
 import { timestampToDateStr } from '@/utils/date';
 import ModelPropertyPage from './components/ModelPropertyPage';
 import ModelServicePage from './components/ModelServicePage';
 import ModelEventPage from './components/ModelEventPage';
+import { getModelTabId, setModelTabId } from '@/utils/store';
+import { downloadFunction } from '@/utils/utils';
+import { DownloadOutlined, EyeOutlined, ImportOutlined } from '@ant-design/icons';
+import ReactJson from 'react-json-view';
+
+const ShowModelJson: React.FC<{
+  info: any;
+}> = ({info}) => {
+  const [visible, setVisible] = useState(false);
+  const onOpen = () => setVisible(true);
+  const onClose = () => setVisible(false);
+  return (
+      <ModalForm
+      width={550}
+      title={"json数据"}
+      trigger={
+        <Button
+          icon={<EyeOutlined/>}
+          onClick={() => {
+            onOpen();
+          }}
+        >
+       查看物模型
+        </Button>
+      }
+      open={visible}
+      modalProps={{
+        onCancel: () => {
+          onClose()
+        },
+      }}
+      onFinish={async ()=> {onClose()}}
+    >
+    <ReactJson
+      src={JSON.parse(info.content as string)}
+      name={false}
+    />
+    </ModalForm>
+  
+  );
+};
 
 const { TabPane } = Tabs;
 const IndexPage: React.FC = () => {
-  const [productInfo, setProductInfo] = useState<API.protoProduct>({ name: '' });
   const params = useParams() as { id: string };
+  const [productInfo, setProductInfo] = useState<API.protoProduct>({ name: '', id:params.id });
+  const [thingDef, setThingDef] = useState<string>("{}");
+  const [changeIndex, setChangeIndex] = useState<string>("");
+
   const transformRef = useRef<{ [key: string]: { text: string } }>(
     convert2ValueEnum(THING_PRODUCT_TRANSFORM),
   );
@@ -33,10 +77,39 @@ const IndexPage: React.FC = () => {
     return res.item!;
   };
 
+  const getModelDef = async () => {
+    const res = await productServiceGetModel({id:params.id});
+    if (res.code === 0) {
+      const content = res.item!.thing_def!;
+      setThingDef(content)
+      return content
+    }
+    return "{}"
+  }
+
+  const download = async () => {
+    const filename = productInfo.name + '-model.json';
+    const content = getModelDef() as any;
+    downloadFunction(JSON.stringify(JSON.parse(content), null, 2), filename);
+  };
+
+  const uploadModelDef = async(data:string)=> {
+    console.log("uploadModelDef", data)
+    const res = await productServiceUpdateModel({id:productInfo.id, thing_def:data})
+    if (res.code === 0) {
+      message.success("更新成功")
+      getModelDef();
+      const currentTime = new Date();
+      setChangeIndex(currentTime +"")
+    }
+  };
 
   useEffect(() => {
     queryProduct();
+    getModelDef();
   }, []);
+
+  
 
   return (
     <PageContainer
@@ -89,30 +162,50 @@ const IndexPage: React.FC = () => {
           title: '操作',
           valueType: 'option',
           render: () => [
-            <a target="_blank" rel="noopener noreferrer" onClick={()=>{alert("")}} key="link">
-              导入物模型
-            </a>,
-            <a target="_blank" rel="noopener noreferrer" key="warning">
-              导出物模型
-            </a>,
-            <a target="_blank" rel="noopener noreferrer" key="view">
-              查看物模型
-            </a>,
+            <Button icon={<DownloadOutlined/>} onClick={download}>导出物模型</Button>
+            ,
+            <Upload 
+            multiple={false}
+            directory={false}
+            showUploadList={false}
+            type='select'
+            accept='.json'
+            maxCount={1}
+            beforeUpload={(file)=>{
+              let reader = new FileReader()
+              reader.onload = function () {
+                uploadModelDef(reader.result as string)
+              }
+              reader.readAsText(file as any)
+            }}
+            >
+            <Button icon={<ImportOutlined/>}>导入物模型</Button>
+            </Upload>
+            ,
+            
+            <ShowModelJson info={{title:"",content: thingDef }} />,
+            ,
           ],
         },
       ]}
     >
+
     </ProDescriptions>
       <Card>
-        <Tabs defaultActiveKey="3">
-          <TabPane tab="属性"  key="1">
-            <ModelPropertyPage productInfo={productInfo} key="ModelPropertyPage" />
+        <Tabs  
+          defaultActiveKey={getModelTabId()}
+          onChange={(index)=>{
+            setModelTabId(index)
+          }}
+        >
+          <TabPane tab="属性" key="1">
+            <ModelPropertyPage changeIndex={changeIndex} productInfo={productInfo} key="ModelPropertyPage" />
           </TabPane>
           <TabPane tab="服务" key="2">
-          <ModelServicePage productInfo={productInfo} key="ModelServicePage" />
+            <ModelServicePage changeIndex={changeIndex} productInfo={productInfo} key="ModelServicePage" />
           </TabPane>
           <TabPane tab="事件" key="3">
-          <ModelEventPage productInfo={productInfo} key="ModelEventPage" />
+            <ModelEventPage changeIndex={changeIndex} productInfo={productInfo} key="ModelEventPage" />
           </TabPane>
         </Tabs>
       </Card>

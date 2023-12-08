@@ -11,7 +11,7 @@ import {
   ProFormSelect,
   ProFormText,
   ProFormTextArea,
-  ProFormTreeSelect,
+  ProCard,
   ProFormSwitch
 } from '@ant-design/pro-components';
 import {  message } from 'antd';
@@ -116,7 +116,7 @@ const AddOrUpdateService: React.FC = () => {
 
   return (
     <PageContainer
-    title={productModelServiceDef.name}
+    title={params.subid === "0"?"新建服务":productModelServiceDef.name}
     onBack={() => history.back()}
     >
     <ProForm
@@ -185,10 +185,16 @@ const AddOrUpdateService: React.FC = () => {
             max = {10}
             itemRender={({ listDom, action }, { record }) => {
               return (
-                <OneProperty data={record} subSelect={false} key={record.code}></OneProperty>
+                  <ProCard extra={action} style={{padding:'10px', marginTop:"20px", border: '1px solid blue'}}>{listDom}</ProCard>
               );
-            }}
+          }}
         >
+          {(f, index, action) => {
+            const record = action.getCurrentRowData()
+            return (
+                <OneProperty data={record} subSelect={false} key={record.code}></OneProperty>
+            );
+        }}
       </ProFormList>
 
       <ProFormList 
@@ -197,10 +203,16 @@ const AddOrUpdateService: React.FC = () => {
             max = {10}
             itemRender={({ listDom, action }, { record }) => {
               return (
-                <OneProperty data={record} subSelect={false} key={record.code}></OneProperty>
+                  <ProCard extra={action} style={{padding:'10px', marginTop:"20px", border: '1px solid blue'}}>{listDom}</ProCard>
               );
-            }}
+          }}
         >
+        {(f, index, action) => {
+          const record = action.getCurrentRowData()
+          return (
+              <OneProperty data={record} subSelect={false} key={record.code}></OneProperty>
+          );
+        }}
       </ProFormList>
     </ProForm>
     </PageContainer>

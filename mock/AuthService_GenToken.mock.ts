@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AuthService.GenToken': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 91,
-      msg: '养西也保层为团水容可反青争面状克复。',
-      token: '日水置持观电情生能学北验各精。',
+      code: 64,
+      msg: '米报整通内革出状数联产者空划线。',
+      token: '类共记力果广后机带结期及连派千素两量。',
     });
   },
 };

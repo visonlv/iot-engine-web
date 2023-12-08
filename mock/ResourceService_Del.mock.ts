@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/ResourceService.Del': (req: Request, res: Response) => {
-    res.status(200).send({ code: 97, msg: '向合认非门象结东生准是用。' });
+    res.status(200).send({ code: 63, msg: '整主状消只听阶反细设型不员下却张往。' });
   },
 };

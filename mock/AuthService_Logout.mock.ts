@@ -3,6 +3,6 @@ import { Request, Response } from 'express';
 
 export default {
   'POST /rpc/auth/AuthService.Logout': (req: Request, res: Response) => {
-    res.status(200).send({ code: 95, msg: '般六知快温当量难产里团设此。' });
+    res.status(200).send({ code: 86, msg: '利存此感证界得志东义中其理式。' });
   },
 };

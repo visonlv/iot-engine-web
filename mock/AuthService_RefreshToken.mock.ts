@@ -4,9 +4,9 @@ import { Request, Response } from 'express';
 export default {
   'POST /rpc/auth/AuthService.RefreshToken': (req: Request, res: Response) => {
     res.status(200).send({
-      code: 70,
-      msg: '律外好别新只速政上证组采。',
-      token: '集改按约产识表比始世设根复使声们快式。',
+      code: 99,
+      msg: '光据主信前然量场江况行那应。',
+      token: '干矿有认反西越决名流线题习严分新族军。',
     });
   },
 };
