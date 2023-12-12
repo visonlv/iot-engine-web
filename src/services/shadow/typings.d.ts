@@ -41,6 +41,24 @@ declare namespace API {
     update_time?: string;
   };
 
+  type protoForwardingPublishMsgReq = {
+    sn?: string;
+    context_id?: string;
+    msg_type?: string;
+    code?: string;
+    topic?: string;
+    use_topic?: boolean;
+    payload?: string;
+    /** 毫秒超时 */
+    timeout?: number;
+  };
+
+  type protoForwardingPublishMsgResp = {
+    code?: number;
+    msg?: string;
+    m?: messagingMessage;
+  };
+
   type protoForwardingServiceReplyReq = {
     sn?: string;
     /** 空为异步请求 */
@@ -129,6 +147,7 @@ declare namespace API {
     msg_id?: string;
     context_id?: string;
     result?: string;
+    code?: string;
   };
 
   type protoMsgLogPageReq = {

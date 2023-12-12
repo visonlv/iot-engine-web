@@ -18,39 +18,6 @@ const DeviceStatusPageProperty: React.FC<{
 }> = ({deviceId}) => {
   const [propertysData, setPropertysData] = useState<any[]>([] as any[]);
 
-  
-const data = [
-  '语雀的天空',
-  'Ant Design',
-  '蚂蚁金服体验科技',
-  'TechUI',
-  'TechUI 2.0',
-  'Bigfish',
-  'Umi',
-  'Ant Design Pro',
-].map((item) => ({
-  title: item,
-  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-  actions: [<a key="delete">详情</a>],
-  avatar:
-    '/xingzhuang.svg',
-  content: (
-    <div
-      style={{
-        flex: 1,
-      }}
-    >
-      <div
-        style={{
-          width: 200,
-        }}
-      >
-        <div>发布中</div>
-      </div>
-    </div>
-  ),
-}));
-
   const queryList = async (): Promise<any[]> => {
     const param : API.protoDevicePropertiesReq = {
         id: deviceId,

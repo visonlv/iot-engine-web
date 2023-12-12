@@ -17,6 +17,8 @@ import ModelServicePage from '@/pages/Product/detail/components/ModelServicePage
 import ModelEventPage from '@/pages/Product/detail/components/ModelEventPage';
 import DeviceDebugPageProperty from './DeviceDebugPageProperty';
 import DeviceDebugPageService from './DeviceDebugPageService';
+import DeviceDebugPageCommon from './DeviceDebugPageCommon';
+
 const { TabPane } = Tabs;
 const DeviceDebugPage: React.FC<{productInfo: API.protoProduct;deviceInfo: API.protoDevice;}> = ({productInfo, deviceInfo}) => {
     return (
@@ -27,6 +29,9 @@ const DeviceDebugPage: React.FC<{productInfo: API.protoProduct;deviceInfo: API.p
             </TabPane>
             <TabPane tab="服务调用" key="2">
                 <DeviceDebugPageService productInfo={productInfo} deviceInfo={deviceInfo} key="DeviceDebugPageService" />
+            </TabPane>
+            <TabPane tab="通用" key="3">
+                <DeviceDebugPageCommon productInfo={productInfo} deviceInfo={deviceInfo} key="DeviceDebugPageCommon" />
             </TabPane>
         </Tabs>
     </Card>

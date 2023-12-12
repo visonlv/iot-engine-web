@@ -140,7 +140,6 @@ const DeviceStatusPageEvent: React.FC<{
   ];
 
   return (
-    
     <ProTable
         options={false}
         rowKey="msg_id"

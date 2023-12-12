@@ -17,6 +17,21 @@ export async function forwardingServiceProperties(
   });
 }
 
+/** 此处后端没有提供注释 POST /rpc/shadow/ForwardingService.PublishMsg */
+export async function forwardingServicePublishMsg(
+  body: API.protoForwardingPublishMsgReq,
+  options?: { [key: string]: any },
+) {
+  return request<API.protoForwardingPublishMsgResp>('/rpc/shadow/ForwardingService.PublishMsg', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** 此处后端没有提供注释 POST /rpc/shadow/ForwardingService.Service */
 export async function forwardingServiceService(
   body: API.protoForwardingServiceReq,

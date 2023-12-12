@@ -48,6 +48,32 @@
         ]
       }
     },
+    "/rpc/shadow/ForwardingService.PublishMsg": {
+      "post": {
+        "operationId": "ForwardingService_PublishMsg",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoForwardingPublishMsgResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoForwardingPublishMsgReq"
+            }
+          }
+        ],
+        "tags": [
+          "ForwardingService"
+        ]
+      }
+    },
     "/rpc/shadow/ForwardingService.Service": {
       "post": {
         "operationId": "ForwardingService_Service",
@@ -487,6 +513,53 @@
         }
       }
     },
+    "protoForwardingPublishMsgReq": {
+      "type": "object",
+      "properties": {
+        "sn": {
+          "type": "string"
+        },
+        "context_id": {
+          "type": "string"
+        },
+        "msg_type": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "use_topic": {
+          "type": "boolean"
+        },
+        "payload": {
+          "type": "string"
+        },
+        "timeout": {
+          "type": "integer",
+          "format": "int32",
+          "title": "毫秒超时"
+        }
+      }
+    },
+    "protoForwardingPublishMsgResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "m": {
+          "$ref": "#/definitions/messagingMessage",
+          "title": "异步请求不返回消息体"
+        }
+      }
+    },
     "protoForwardingServiceReplyReq": {
       "type": "object",
       "properties": {
@@ -501,8 +574,7 @@
           "type": "string"
         },
         "payload": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         }
       }
     },
@@ -532,8 +604,7 @@
           "type": "string"
         },
         "payload": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         },
         "timeout": {
           "type": "integer",
@@ -569,8 +640,7 @@
           "title": "空为异步请求"
         },
         "payload": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         },
         "timeout": {
           "type": "integer",
@@ -609,8 +679,7 @@
           "type": "string"
         },
         "payload": {
-          "type": "string",
-          "format": "byte"
+          "type": "string"
         },
         "timeout": {
           "type": "integer",
@@ -730,6 +799,9 @@
           "type": "string"
         },
         "result": {
+          "type": "string"
+        },
+        "code": {
           "type": "string"
         }
       }

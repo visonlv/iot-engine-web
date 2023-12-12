@@ -19,6 +19,7 @@ import DeviceBaseTabPage from './components/DeviceBaseTabPage';
 import DeviceStatusPage from './components/DeviceStatusPage';
 import DeviceLogPage from './components/DeviceLogPage';
 import DeviceDebugPage from './components/DeviceDebugPage';
+import DeviceSimulationPage from './components/DeviceSimulationPage';
 
 
 const { TabPane } = Tabs;
@@ -113,6 +114,7 @@ const IndexPage: React.FC = () => {
           <DeviceDebugPage productInfo={productInfo} deviceInfo={deviceInfo}></DeviceDebugPage>
         </TabPane>
         <TabPane tab="真机模拟" key="5">
+        <DeviceSimulationPage productInfo={productInfo} deviceInfo={deviceInfo}></DeviceSimulationPage>
         </TabPane>
         <TabPane tab="交互日志" key="6">
           <DeviceLogPage deviceId={deviceInfo.id!}></DeviceLogPage>
