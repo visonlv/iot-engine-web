@@ -15,27 +15,22 @@ import { deviceServiceGet } from '@/services/thing/deviceService';
 import ModelPropertyPage from '@/pages/Product/detail/components/ModelPropertyPage';
 import ModelServicePage from '@/pages/Product/detail/components/ModelServicePage';
 import ModelEventPage from '@/pages/Product/detail/components/ModelEventPage';
-import DeviceStatusPageProperty from './DeviceStatusPageProperty';
-import DeviceStatusPageEvent from './DeviceStatusPageEvent';
-import DeviceStatusPageService from './DeviceStatusPageService';
-
+import DeviceDebugPageProperty from './DeviceDebugPageProperty';
+import DeviceDebugPageService from './DeviceDebugPageService';
 const { TabPane } = Tabs;
-const DeviceStatusPage: React.FC<{deviceId: string;}> = ({deviceId}) => {
+const DeviceDebugPage: React.FC<{productInfo: API.protoProduct;deviceInfo: API.protoDevice;}> = ({productInfo, deviceInfo}) => {
     return (
     <Card>
         <Tabs>
-            <TabPane tab="属性" key="1">
-                <DeviceStatusPageProperty deviceId={deviceId} key="DeviceStatusPageProperty" />
+            <TabPane tab="属性更新" key="1">
+                <DeviceDebugPageProperty productInfo={productInfo} deviceInfo={deviceInfo} key="DeviceDebugPageProperty" />
             </TabPane>
-            <TabPane tab="服务" key="2">
-                <DeviceStatusPageService deviceId={deviceId} key="DeviceStatusPageService" />
-            </TabPane>
-            <TabPane tab="事件" key="3">
-                <DeviceStatusPageEvent deviceId={deviceId} key="DeviceStatusPageEvent" />
+            <TabPane tab="服务调用" key="2">
+                <DeviceDebugPageService productInfo={productInfo} deviceInfo={deviceInfo} key="DeviceDebugPageService" />
             </TabPane>
         </Tabs>
     </Card>
     );
 };
 
-export default DeviceStatusPage;
+export default DeviceDebugPage;

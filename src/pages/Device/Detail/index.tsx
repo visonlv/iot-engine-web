@@ -17,6 +17,8 @@ import ModelEventPage from '@/pages/Product/detail/components/ModelEventPage';
 import ModelTabPage from './components/ModelTabPage';
 import DeviceBaseTabPage from './components/DeviceBaseTabPage';
 import DeviceStatusPage from './components/DeviceStatusPage';
+import DeviceLogPage from './components/DeviceLogPage';
+import DeviceDebugPage from './components/DeviceDebugPage';
 
 
 const { TabPane } = Tabs;
@@ -79,6 +81,15 @@ const IndexPage: React.FC = () => {
           ellipsis: true,
           copyable: true,
         },
+        {
+          title: '接入标识',
+          dataIndex: 'pk',
+          ellipsis: true,
+          copyable: true,
+          renderText(text, record, index, action) {
+              return record.pk + "|" + record.sn
+          },
+        },
       ]}
     >
     </ProDescriptions>
@@ -99,10 +110,12 @@ const IndexPage: React.FC = () => {
         </TabPane>
         
         <TabPane tab="设备调试" key="4">
+          <DeviceDebugPage productInfo={productInfo} deviceInfo={deviceInfo}></DeviceDebugPage>
         </TabPane>
-        <TabPane tab="设备日志" key="5">
+        <TabPane tab="真机模拟" key="5">
         </TabPane>
-        <TabPane tab="云端日志" key="6">
+        <TabPane tab="交互日志" key="6">
+          <DeviceLogPage deviceId={deviceInfo.id!}></DeviceLogPage>
         </TabPane>
         </Tabs>
       </Card>

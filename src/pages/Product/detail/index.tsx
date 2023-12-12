@@ -189,7 +189,6 @@ const IndexPage: React.FC = () => {
         },
       ]}
     >
-
     </ProDescriptions>
       <Card>
         <Tabs  

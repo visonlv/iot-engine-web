@@ -23,8 +23,18 @@ export const THING_DATA_TYPE_ARRAY = "array"
 export const THING_DATA_TYPE_OBJECT = "object"
 
 export const THING_MODEL_TYPE_PROPERTY = 'property';
+export const THING_MODEL_TYPE_PROPERTY_REPLY = 'property_reply';
 export const THING_MODEL_TYPE_SERVICE = 'service';
+export const THING_MODEL_TYPE_SERVICE_REPLY = 'service_reply';
 export const THING_MODEL_TYPE_EVENT = 'event';
+
+export const THING_MODEL_TYPE = [
+  { value: THING_MODEL_TYPE_PROPERTY, label: '属性' },
+  { value: THING_MODEL_TYPE_SERVICE, label: '服务' },
+  { value: THING_MODEL_TYPE_EVENT, label: '事件' },
+  { value: THING_MODEL_TYPE_PROPERTY_REPLY, label: '属性回复' },
+  { value: THING_MODEL_TYPE_SERVICE_REPLY, label: '服务回复' },
+];
 
 export const THING_DATA_TYPE = [
   { value: THING_DATA_TYPE_BOOL, label: '布尔型' },
@@ -82,6 +92,8 @@ export const THING_PRODUCT_TRANSFORM = [
   { value: 'model', label: '物模型' },
   { value: 'raw', label: '透传' },
 ];
+
+
 
 export function convert2ValueEnum(list: { value: string; label: string }[]): {
   [key: string]: { text: string };

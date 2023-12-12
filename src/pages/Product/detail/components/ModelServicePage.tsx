@@ -67,22 +67,32 @@ const ModelServicePage: React.FC<{
       dataIndex: 'desc',
       search:false,
     },
-    {
+  ];
+
+  if(readonly) {
+    columns.push({
+      title: '物模型',
+      dataIndex: 'model_def',
+      search:false,
+      width:350,
+      ellipsis:true,
+    })
+  } else {
+    columns.push({
       title: '操作',
       valueType: 'option',
       key: 'option',
       render: (text, record: API.protoProduct) => (
         <>
-         {!readonly && (<a
+         <a
             key="updateModelService"
             onClick={() => {
               history.push('/product/detail/' + productInfo.id + '/service/'+record.id);
             }}
           >
             编辑
-          </a>)}
-
-          {!readonly && (<Button
+          </a>
+          <Button
             type="link"
             danger
             onClick={() => {
@@ -91,12 +101,11 @@ const ModelServicePage: React.FC<{
             style={{ paddingRight: 10 }}
           >
             删除
-          </Button>)}
+          </Button>
         </>
       ),
-    },
-  ];
-
+    })
+  }
   const queryPage = async (params: any): Promise<{ data?: API.protoProductModel[]; total?: number }> => {
     const param : API.protoProductModelPageReq = {
         page_index: params.current,

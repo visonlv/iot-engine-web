@@ -140,14 +140,21 @@ export default defineConfig({
       // schemaPath: 'https://apihub.dev.inrobot.cloud/swaggerui/config/auth.swagger.json',
       schemaPath: join(__dirname, 'auth.swagger.json'),
       projectName: 'auth',
-      mock: true,
+      // mock: true,
     },
     {
       requestLibPath: "import { request } from '@umijs/max'",
       // schemaPath: 'https://apihub.dev.inrobot.cloud/swaggerui/config/auth.swagger.json',
       schemaPath: join(__dirname, 'thing.swagger.json'),
       projectName: 'thing',
-      mock: true,
+      // mock: true,
+    },
+    {
+      requestLibPath: "import { request } from '@umijs/max'",
+      // schemaPath: 'https://apihub.dev.inrobot.cloud/swaggerui/config/auth.swagger.json',
+      schemaPath: join(__dirname, 'shadow.swagger.json'),
+      projectName: 'shadow',
+      // mock: true,
     },
   ],
   mfsu: {
