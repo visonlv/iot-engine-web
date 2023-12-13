@@ -65,8 +65,6 @@ const AddOrUpdateService: React.FC = () => {
         message.success("更新成功")
       }
       history.back()
-    } else {
-      message.error(msg)
     }
   };
 
@@ -89,7 +87,7 @@ const AddOrUpdateService: React.FC = () => {
         dir:THING_SERVICE_DIR_TYPE_UP,
         input:[],
         output:[],
-        is_sys:false,
+        is_sys:0,
       }
       setProductModelServiceDef(p)
       return p
@@ -99,12 +97,9 @@ const AddOrUpdateService: React.FC = () => {
       id: params.subid,
     };
     const res = await productModelServiceGet(body);
-    console.log("source data=", res.item!)
-
     const m = getDefinition(res.item!)
-
     const p : ModelService = decodeServiceData(m)
-    console.log("source data convertServiceToCache=", p)
+    p.is_sys = res.item!.is_sys!
     setProductModelServiceDef(p)
     console.log("p", p)
     return p;
@@ -116,7 +111,7 @@ const AddOrUpdateService: React.FC = () => {
 
   return (
     <PageContainer
-    title={params.subid === "0"?"新建服务":productModelServiceDef.name}
+    title={params.subid === "0"?"新建服务":productModelServiceDef.name+(productModelServiceDef.is_sys === 1?"(系统服务)":"")}
     onBack={() => history.back()}
     >
     <ProForm
@@ -124,6 +119,7 @@ const AddOrUpdateService: React.FC = () => {
         console.log("values", values)
         formSubmit(values)
       }}
+      disabled={productModelServiceDef.is_sys === 1}
       grid={true}
       formRef={formRef}
       request={queryProductModel}

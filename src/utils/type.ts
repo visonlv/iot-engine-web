@@ -17,7 +17,7 @@ export type ModelProperty = {
 	mode : string;
 	is_use_shadow: boolean; //是否使用影子
 	is_no_record: boolean;  //是否存储历史
-  is_sys : boolean;
+  is_sys : number;
 }
 
 export const decodePropertyData = (data:any):ModelProperty => {
@@ -132,7 +132,7 @@ export type ModelEvent = {
     desc: string; 
     type: string; 
     params :ModelProperty[];
-    is_sys : boolean;
+    is_sys : number;
 }
 
 export const encodeEventData = (values: any, isFirst:boolean) => {
@@ -171,7 +171,7 @@ export type ModelService = {
     dir: string; 
     input :ModelProperty[];
     output :ModelProperty[];
-    is_sys : boolean;
+    is_sys : number;
 }
 
 export const encodeServiceData = (values: any, isFirst:boolean) => {

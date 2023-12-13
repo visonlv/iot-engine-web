@@ -64,8 +64,6 @@ const AddOrUpdateEvent: React.FC = () => {
         message.success("更新成功")
       }
       history.back()
-    } else {
-      message.error(msg)
     }
   };
 
@@ -87,7 +85,7 @@ const AddOrUpdateEvent: React.FC = () => {
         desc:"",
         type:THING_EVENT_TYPE_INFO,
         params:[],
-        is_sys:false,
+        is_sys:0,
       }
       setProductModelEventDef(p)
       return p
@@ -97,12 +95,12 @@ const AddOrUpdateEvent: React.FC = () => {
       id: params.subid,
     };
     const res = await productModelServiceGet(body);
-    console.log("source data=", res.item!)
 
     const m = getDefinition(res.item!)
 
     const p : ModelEvent = decodeEventData(m)
-    console.log("source data convertEventToCache=", p)
+    p.is_sys = res.item!.is_sys!
+
     setProductModelEventDef(p)
     console.log("p", p)
     return p;
@@ -114,7 +112,7 @@ const AddOrUpdateEvent: React.FC = () => {
 
   return (
     <PageContainer
-    title={params.subid === "0"?"新建事件":productModelEventDef.name}
+    title={params.subid === "0"?"新建事件":productModelEventDef.name+ (productModelEventDef.is_sys === 1?"(系统事件)":"")}
     onBack={() => history.back()}
     >
     <ProForm
@@ -122,6 +120,7 @@ const AddOrUpdateEvent: React.FC = () => {
         console.log("values", values)
         formSubmit(values)
       }}
+      disabled={productModelEventDef.is_sys === 1}
       grid={true}
       formRef={formRef}
       request={queryProductModel}

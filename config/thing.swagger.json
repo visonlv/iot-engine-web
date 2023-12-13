@@ -654,6 +654,10 @@
           "type": "string",
           "format": "int64",
           "title": "创建时间"
+        },
+        "online": {
+          "type": "boolean",
+          "title": "是否在线"
         }
       }
     },
@@ -882,8 +886,11 @@
         "id": {
           "type": "string"
         },
-        "property": {
-          "type": "string"
+        "codes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "title": "获取属性值请求参数"
@@ -1228,8 +1235,8 @@
           "title": "创建时间"
         },
         "is_sys": {
-          "type": "string",
-          "format": "int64",
+          "type": "integer",
+          "format": "int32",
           "title": "是否系统模型 1 是 0 否"
         }
       }

@@ -1,26 +1,49 @@
 
-import { Button, Card,  Tabs, Upload, message } from 'antd';
-import { PageContainer,ProDescriptions,ActionType,ModalForm } from '@ant-design/pro-components';
-import { history } from '@@/core/history';
+import { Button, message } from 'antd';
+import { ProDescriptions,ActionType } from '@ant-design/pro-components';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useParams } from '@umijs/max';
-import { productServiceGet, productServiceGetModel, productServiceUpdateModel } from '@/services/thing/productService';
-import { THING_PRODUCT_PROTOCOL, THING_PRODUCT_TRANSFORM, THING_PRODUCT_TYPE, convert2ValueEnum } from '@/utils/const';
 import { timestampToDateStr } from '@/utils/date';
-import { getModelTabId, setModelTabId } from '@/utils/store';
-import { downloadFunction } from '@/utils/utils';
-import { CopyOutlined, DownloadOutlined, EyeOutlined, ImportOutlined } from '@ant-design/icons';
+import { CopyOutlined} from '@ant-design/icons';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { deviceServiceProperties } from '@/services/thing/deviceService';
 
-const DeviceBaseTabPage: React.FC<{deviceInfo: API.protoDevice;}> = ({deviceInfo}) => {
+const DeviceBaseTabPage: React.FC<{activeKey:string, deviceInfo: API.protoDevice;}> = ({activeKey, deviceInfo}) => {
+   const formRef = useRef<ActionType>();
+   const [onlien, setOnlien] = useState<string>("-");
+
     const copyText = useMemo(() => {
-        return deviceInfo
-          ? JSON.stringify(deviceInfo)
-          : '';
-      }, [deviceInfo]);
+      return deviceInfo
+        ? JSON.stringify(deviceInfo)
+        : '';
+    }, [deviceInfo]);
+
+    const queryOnline = async () => {
+      const param : API.protoDevicePropertiesReq = {
+          id: deviceInfo.id,
+          codes:["online"],
+      };
+      const res = await deviceServiceProperties(param);
+      if (res.code !== 0) {
+        return "-";
+      }
+      let onlienText = "离线"
+      if (res.items![0].value == "true") {
+        onlienText = "在线"
+      }
+      return onlienText
+    }
+
+    useEffect(()=>{
+      if(activeKey === '1') {
+        queryOnline().then((online:any)=>{
+          setOnlien(online)
+        })
+      }
+    },[activeKey])
 
     return (
         <ProDescriptions
+        actionRef={formRef}
         title={
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <div>设备基础信息</div>
@@ -55,6 +78,9 @@ const DeviceBaseTabPage: React.FC<{deviceInfo: API.protoDevice;}> = ({deviceInfo
           {
             title: '在线状态',
             dataIndex: 'online',
+            renderText(text, record, index, action) {
+                return <>{onlien}</> 
+            },
           },
           {
             title: '创建时间',

@@ -1,27 +1,13 @@
-import useTableAdd from '@/hooks/useTableAdd';
-import useTableUpdate from '@/hooks/useTableUpdate';
-import { permissionServiceAdd, permissionServiceUpdate } from '@/services/auth/permissionService';
-import { resourceServicePage } from '@/services/auth/resourceService';
 import { forwardingServiceSetProperties, forwardingServiceSetProperty } from '@/services/shadow/forwardingService';
-import { msgLogServicePage } from '@/services/shadow/msgLogService';
-import { deviceServiceGet } from '@/services/thing/deviceService';
-import { productModelServiceGet, productModelServicePage } from '@/services/thing/productModelService';
-import { productServiceGet } from '@/services/thing/productService';
-import { PAGE_SIZE_MAX, RESOURCE_TYPE_API, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, THING_MODEL_TYPE_PROPERTY, convert2ValueEnum } from '@/utils/const';
-import { dateStrToTimestamp, timestampToDateStr } from '@/utils/date';
-import { LeftOutlined } from '@ant-design/icons';
+import {  productModelServicePage } from '@/services/thing/productModelService';
+import { PAGE_SIZE_MAX, THING_MODEL_TYPE_PROPERTY } from '@/utils/const';
 
 import {
-  ProFormSelect,
   ProFormTextArea,
   ProFormSwitch,
   ProForm,
-  ProColumns,
-  ProTable,
-  ActionType,
-  ProDescriptions,
 } from '@ant-design/pro-components';
-import { Button, Card, Col, Tabs, Row, message, FormInstance } from 'antd';
+import {  Card, Col, Tabs, Row, message, FormInstance } from 'antd';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 const { TabPane } = Tabs;
@@ -56,9 +42,7 @@ const DeviceDebugPageProperty: React.FC<{
     queryModelDef()
   }, []);
 
-  
   const formSubmit = async (values: any) => {
-    console.log("values.params", values.params)
     let obj = {}
     try {
       obj = JSON.parse(values.params) as any

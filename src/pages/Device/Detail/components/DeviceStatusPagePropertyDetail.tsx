@@ -1,13 +1,6 @@
-import useTableAdd from '@/hooks/useTableAdd';
-import useTableUpdate from '@/hooks/useTableUpdate';
-import { permissionServiceAdd, permissionServiceUpdate } from '@/services/auth/permissionService';
-import { resourceServicePage } from '@/services/auth/resourceService';
 import { msgLogServicePage } from '@/services/shadow/msgLogService';
-import { deviceServiceGet } from '@/services/thing/deviceService';
-import { RESOURCE_TYPE_API } from '@/utils/const';
 import { dateStrToTimestamp, timestampToDateStr } from '@/utils/date';
 import {
-  ProFormSelect,
   ProFormInstance,
   ModalForm,
   ProColumns,
@@ -16,7 +9,7 @@ import {
   ProDescriptions,
 } from '@ant-design/pro-components';
 import { Button, message } from 'antd';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 
 const FORMITEM_LAYOUT = {
@@ -26,23 +19,12 @@ const FORMITEM_LAYOUT = {
 
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
 
-type AddFuncType = typeof permissionServiceAdd;
-type UpdateFuncType = typeof permissionServiceUpdate;
-
 const DeviceStatusPagePropertyDetail: React.FC<{
-  deviceId : string,
+  deviceInfo : API.protoDevice;
   record: API.protoDeviceProperty;
-}> = ({ deviceId, record}) => {
-  const [deviceInfo, setDeviceInfo] = useState<API.protoDevice>({});
-  const [megerInfo, setMegerInfo] = useState<any>({});
+}> = ({ deviceInfo, record}) => {
   const [visible, setVisible] = useState(false);
   const onOpen = () => {
-    queryDevice()
-
-    const m : any = {...record}
-    m.device_name = deviceInfo.name 
-    setMegerInfo(m)
-
     setVisible(true);
   };
   const onClose = () => setVisible(false);
@@ -50,7 +32,6 @@ const DeviceStatusPagePropertyDetail: React.FC<{
   const formRef = useRef<ProFormInstance>();
 
   const queryPage = async (params: any): Promise<{ data?: API.protoProductModel[]; total?: number }> => {
-   
     const param : API.protoMsgLogPageReq = {
         page_index: params.current,
         page_size: params.pageSize,
@@ -60,6 +41,7 @@ const DeviceStatusPagePropertyDetail: React.FC<{
         start_time: params.start_time,
         end_time: params.end_time,
         code: record.code,
+        sn:deviceInfo.sn,
     };
     const res = await msgLogServicePage(param);
     if (res.code !== 0) {
@@ -74,15 +56,6 @@ const DeviceStatusPagePropertyDetail: React.FC<{
     };
   };
 
-  const queryDevice = async () => {
-    const param : API.protoDeviceGetReq = {
-        id: deviceId,
-    };
-    const res = await deviceServiceGet(param);
-    if (res.code !== 0) {
-      setDeviceInfo(res.item!)
-    };
-  };
 
   const getMsgObject = (record: any) => {
     try {
@@ -92,7 +65,6 @@ const DeviceStatusPagePropertyDetail: React.FC<{
       message.error('JSON 解析错误');
     }
   };
-
 
   const columns: ProColumns<API.protoResource>[] = [
     {
@@ -158,11 +130,13 @@ const DeviceStatusPagePropertyDetail: React.FC<{
     >
 
   <ProDescriptions
-      dataSource={megerInfo}
+      dataSource={record}
       columns={[
         {
           title: '设备名称',
-          dataIndex: 'device_name',
+          renderText(text, record, index, action) {
+              return <>{deviceInfo.name}</>
+          },
         },
         {
           title: '属性名称',

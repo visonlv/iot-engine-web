@@ -16,6 +16,8 @@ declare namespace API {
     desc?: string;
     /** 创建时间 */
     create_time?: string;
+    /** 是否在线 */
+    online?: boolean;
   };
 
   type protoDeviceAddReq = {
@@ -110,7 +112,7 @@ declare namespace API {
 
   type protoDevicePropertiesReq = {
     id?: string;
-    property?: string;
+    codes?: string[];
   };
 
   type protoDevicePropertiesResp = {
@@ -260,7 +262,7 @@ declare namespace API {
     /** 创建时间 */
     create_time?: string;
     /** 是否系统模型 1 是 0 否 */
-    is_sys?: string;
+    is_sys?: number;
   };
 
   type protoProductModelAddReq = {

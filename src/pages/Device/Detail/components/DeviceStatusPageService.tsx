@@ -1,51 +1,46 @@
-import useTableAdd from '@/hooks/useTableAdd';
-import useTableUpdate from '@/hooks/useTableUpdate';
-import { permissionServiceAdd, permissionServiceUpdate } from '@/services/auth/permissionService';
-import { resourceServicePage } from '@/services/auth/resourceService';
 import { msgLogServicePage } from '@/services/shadow/msgLogService';
 import { deviceServiceGet } from '@/services/thing/deviceService';
-import { RESOURCE_TYPE_API } from '@/utils/const';
-import { dateStrToTimestamp, timestampToDateStr } from '@/utils/date';
+import { THING_SERVICE_DIR_TYPE_UP } from '@/utils/const';
+import { timestampToDateStr } from '@/utils/date';
 import {
-  ProFormSelect,
-  ProFormInstance,
-  ModalForm,
   ProColumns,
   ProTable,
   ActionType,
-  ProDescriptions,
+  ProForm,
+  ProFormText,
+  ProFormDateTimeRangePicker,
 } from '@ant-design/pro-components';
-import { Button, message } from 'antd';
-import { useEffect, useMemo, useRef, useState } from 'react';
-
-
-const FORMITEM_LAYOUT = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 14 },
-};
-
-const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
-
-type AddFuncType = typeof permissionServiceAdd;
-type UpdateFuncType = typeof permissionServiceUpdate;
+import {  Button, message } from 'antd';
+import { FormInstance } from 'antd/lib';
+import { useEffect, useRef } from 'react';
 
 const DeviceStatusPageService: React.FC<{
-  deviceId : string,
-}> = ({ deviceId}) => {
-  const [deviceInfo, setDeviceInfo] = useState<API.protoDevice>({});
+  activeKey:string;
+  deviceInfo : API.protoDevice,
+}> = ({ activeKey, deviceInfo}) => {
+  const formParams = useRef<any>({});
   const pageRef = useRef<ActionType>();
-
+  const formInstanceRef = useRef<FormInstance>();
+  
   const queryPage = async (params: any): Promise<{ data?: API.protoProductModel[]; total?: number }> => {
+    let start_time = "0"
+    let end_time = "0"
+    if (formParams.current.create_time !== null && formParams.current.create_time !== undefined) {
+      start_time = formParams.current.create_time[0].valueOf()
+      end_time = formParams.current.create_time[1].valueOf()
+    }
+    
     const param : API.protoMsgLogPageReq = {
         page_index: params.current,
         page_size: params.pageSize,
         log_types: ["service"],
-        dir: "up",
-        msg_id: params.msg_id,
-        context_id: params.context_id,
-        code: params.code,
-        start_time: params.start_time,
-        end_time: params.end_time,
+        dir:THING_SERVICE_DIR_TYPE_UP,
+        msg_id: formParams.current.msg_id,
+        context_id: formParams.current.context_id,
+        code: formParams.current.code,
+        start_time: start_time,
+        end_time: end_time,
+        sn:deviceInfo.sn,
     };
     const res = await msgLogServicePage(param);
     if (res.code !== 0) {
@@ -60,6 +55,12 @@ const DeviceStatusPageService: React.FC<{
     };
   };
 
+  useEffect(() => {
+    if (activeKey === '2') {
+      pageRef.current?.reload()
+    }
+  }, [activeKey]);
+
   const getMsgObject = (record: any) => {
     try {
       return JSON.parse(record.content!);
@@ -69,7 +70,21 @@ const DeviceStatusPageService: React.FC<{
     }
   };
 
-  const columns: ProColumns<API.protoResource>[] = [
+  const onSearch = ()=>{
+    const ok = formInstanceRef.current?.validateFields()
+    ok?.then(()=>{
+      const values = formInstanceRef.current?.getFieldsValue()
+      formParams.current = values
+      pageRef.current?.reload()
+    })
+  }
+
+  const onReset = ()=>{
+    formInstanceRef.current?.resetFields()
+    formInstanceRef.current?.setFieldValue("create_time", [new Date().getTime() - 1000*3600*12, new Date()])
+  }
+
+  const columns: ProColumns<API.protoMsgLog>[] = [
     {
       dataIndex: 'index',
       valueType: 'indexBorder',
@@ -78,17 +93,10 @@ const DeviceStatusPageService: React.FC<{
     {
       title: '时间',
       dataIndex: 'create_time',
-      valueType:'dateTimeRange',
       render: (_: any, entity: API.protoMsgLog) => {
         return timestampToDateStr(Number(entity.create_time), 'YYYY-MM-DD HH:mm:ss.SSS');
       },
       width: 180,
-      search: {
-        transform: (value) => ({ 
-          start_time: value[0] === undefined?undefined:dateStrToTimestamp(value[0]),
-          end_time: value[1] === undefined?undefined:dateStrToTimestamp(value[1]),
-        }),
-      },
     },
     {
       title: '消息id',
@@ -101,12 +109,12 @@ const DeviceStatusPageService: React.FC<{
       width: 260,
     },
     {
-      title: '服务代码',
+      title: '标识',
       dataIndex: 'code',
       width: 100,
     },
     {
-      title: '属性值',
+      title: '参数',
       dataIndex: 'content',
       search:false,
       ellipsis:true,
@@ -118,10 +126,65 @@ const DeviceStatusPageService: React.FC<{
   ];
 
   return (
-    
+    <>
+    <ProForm
+        style={{marginTop:"20px"}}
+        layout='horizontal'
+        formRef={formInstanceRef}
+        initialValues={{
+          create_time:[new Date().getTime() - 1000*3600*12, new Date()]
+        }}
+        submitter={false}
+      >
+        <ProForm.Group>
+        <ProFormDateTimeRangePicker
+            width='xl'
+            name="create_time"
+            label="时间范围"
+            placeholder={["请输入开始时间", "请输入结束时间"]}
+            dataFormat='YYYY-MM-DD HH:mm:ss'
+            rules={[
+                {
+                    required: true,
+                    message: '请输入时间范围',
+                },
+            ]}
+        />
+
+        <ProFormText 
+            width="sm"
+            name="msg_id"
+            label="消息id"
+            placeholder="请输入消息id"
+        />
+        </ProForm.Group>
+        <ProForm.Group>
+        <ProFormText 
+            width='md'
+            name="context_id"
+            label="上下文id"
+            placeholder="请输入上下文id"
+        />
+
+        <ProFormText 
+            width='sm'
+            name="code"
+            label="标识"
+            placeholder="请输入标识"
+        />
+        <div>
+        <Button type='dashed' onClick={onReset}>重置</Button>,
+        <Button type='primary' onClick={onSearch}>搜索</Button>
+        </div>
+        </ProForm.Group>
+    </ProForm>
+
+
     <ProTable
         options={false}
-        rowKey="msg_id"
+        rowKey={(record: API.protoMsgLog, index?: number)=>{
+          return ""+record.msg_id+record.create_time
+        }}
         columns={columns}
         actionRef={pageRef}
         bordered
@@ -130,12 +193,9 @@ const DeviceStatusPageService: React.FC<{
           pageSize: 10,
         }}
         rowSelection={false}
-        search={{
-          span: 10,
-          labelWidth: 'auto',
-        }}
+        search={false}
       />
-      
+      </>
   );
 };
 

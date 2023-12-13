@@ -1,30 +1,17 @@
 
-import type { ProFormInstance } from '@ant-design/pro-components';
 import {
   ProForm,
   PageContainer,
-  ProFormDatePicker,
-  ProFormDateRangePicker,
-  ProFormDigit,
-  ProFormList,
-  ProFormMoney,
   ProFormSelect,
   ProFormText,
   ProFormTextArea,
-  ProFormTreeSelect,
   ProFormSwitch
 } from '@ant-design/pro-components';
-import { TreeSelect, message } from 'antd';
-import moment from 'dayjs';
-import { CopyOutlined, DownloadOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import type { ActionType } from '@ant-design/pro-components';
-import styles from './style.less';
-import { productModelServiceAdd, productModelServiceDel, productModelServiceGet, productModelServicePage, productModelServiceUpdate } from '@/services/thing/productModelService';
-import { useEffect, useMemo, useRef,useState } from 'react';
+import {  message } from 'antd';
+import { productModelServiceAdd, productModelServiceGet, productModelServiceUpdate } from '@/services/thing/productModelService';
+import { useEffect, useRef,useState } from 'react';
 import { useParams } from '@umijs/max';
-
-import { THING_DATA_TYPE, THING_DATA_TYPE_ARRAY, THING_DATA_TYPE_BOOL, THING_DATA_TYPE_FLOAT, THING_DATA_TYPE_INT, THING_DATA_TYPE_OBJECT, THING_DATA_TYPE_STRING, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, THING_MODEL_TYPE_PROPERTY, THING_PROPERTY_MODE, convert2ValueEnum } from '@/utils/const';
-import { productServiceGet } from '@/services/thing/productService';
+import { THING_DATA_TYPE, THING_DATA_TYPE_BOOL,THING_MODEL_TYPE_PROPERTY, THING_PROPERTY_MODE } from '@/utils/const';
 import { FormInstance } from 'antd/lib';
 import ExtraProperty from './components/ExtraProperty';
 import { ModelProperty, decodePropertyData, encodePropertyData } from '@/utils/type';
@@ -33,12 +20,6 @@ const AddOrUpdateProperty: React.FC = () => {
   const [productModelPropertyDef, setProductModelPropertyDef] = useState<ModelProperty>({} as ModelProperty);
   const params = useParams() as { id: string, subid: string };
   const formRef = useRef<FormInstance>()
-  const dataTypeRef = useRef<{ [key: string]: { text: string } }>(
-    convert2ValueEnum(THING_DATA_TYPE),
-  );
-  const propertyModeRef = useRef<{ [key: string]: { text: string } }>(
-    convert2ValueEnum(THING_PROPERTY_MODE),
-  );
 
   const formSubmit = async (values: any) => {
     const modelDef = encodePropertyData(values, true)
@@ -76,8 +57,6 @@ const AddOrUpdateProperty: React.FC = () => {
         message.success("更新成功")
       }
       history.back()
-    } else {
-      message.error(msg)
     }
   };
 
@@ -109,7 +88,7 @@ const AddOrUpdateProperty: React.FC = () => {
         mode:"rw",
         is_use_shadow : false,
         is_no_record : false,
-        is_sys : false,
+        is_sys : 0,
       }
       setProductModelPropertyDef(p)
       console.log("p", p)
@@ -122,12 +101,9 @@ const AddOrUpdateProperty: React.FC = () => {
     const res = await productModelServiceGet(body);
     const m = getDefinition(res.item!)
 
-    console.log("source data=", m)
     const p : ModelProperty = decodePropertyData(m)
-    console.log("source data convertToCache=", p)
+    p.is_sys = res.item!.is_sys!
     setProductModelPropertyDef(p)
-
-    console.log("p", p)
     return p;
   };
 
@@ -135,11 +111,9 @@ const AddOrUpdateProperty: React.FC = () => {
     queryProductModel();
   }, []);
 
-  
-
   return (
     <PageContainer
-    title={params.subid === "0"?"新建属性":productModelPropertyDef.name}
+    title={params.subid === "0"?"新建属性":productModelPropertyDef.name + (productModelPropertyDef.is_sys === 1?"(系统属性)":"")}
     onBack={() => history.back()}
     >
     <ProForm
@@ -149,6 +123,7 @@ const AddOrUpdateProperty: React.FC = () => {
       }}
       grid={true}
       formRef={formRef}
+      disabled={productModelPropertyDef.is_sys === 1}
       request={queryProductModel}
       autoFocusFirstInput
     >

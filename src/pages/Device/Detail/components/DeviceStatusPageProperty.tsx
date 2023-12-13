@@ -1,26 +1,23 @@
-import { CopyOutlined, DownloadOutlined, ClockCircleOutlined } from '@ant-design/icons';
-import { ActionType, ProColumns,ProForm,ProFormList } from '@ant-design/pro-components';
+import { ClockCircleOutlined } from '@ant-design/icons';
+import { ActionType} from '@ant-design/pro-components';
 import { ProList } from '@ant-design/pro-components';
-import { Alert, Button, Input, message, Modal, Tag } from 'antd';
-import styles from './style.less';
-import { productModelServiceDel, productModelServicePage } from '@/services/thing/productModelService';
-import { useRef,useMemo, useState, useEffect } from 'react';
-import { THING_DATA_TYPE, THING_DATA_TYPE_BOOL, THING_DATA_TYPE_FLOAT, THING_DATA_TYPE_INT, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, THING_MODEL_TYPE_PROPERTY, THING_PROPERTY_MODE, convert2ValueEnum } from '@/utils/const';
-import useTableDelete from '@/hooks/useTableDelete';
-import { history } from '@@/core/history';
-import { ModelProperty } from '@/utils/type';
+import { Tag } from 'antd';
+import { useRef, useState, useEffect } from 'react';
 import { deviceServiceProperties } from '@/services/thing/deviceService';
 import { timestampToDateStr } from '@/utils/date';
 import DeviceStatusPagePropertyDetail from './DeviceStatusPagePropertyDetail';
 
 const DeviceStatusPageProperty: React.FC<{
-  deviceId: string;
-}> = ({deviceId}) => {
+  activeKey:string;
+  deviceInfo: API.protoDevice;
+}> = ({activeKey,deviceInfo}) => {
+  const actionRef = useRef<ActionType>();
   const [propertysData, setPropertysData] = useState<any[]>([] as any[]);
+  const [timerId, setTimerId] = useState<any>(null);
 
   const queryList = async (): Promise<any[]> => {
     const param : API.protoDevicePropertiesReq = {
-        id: deviceId,
+        id: deviceInfo.id,
     };
     const res = await deviceServiceProperties(param);
     if (res.code !== 0) {
@@ -37,13 +34,27 @@ const DeviceStatusPageProperty: React.FC<{
   };
 
   useEffect(() => {
-    queryList()
+    if (activeKey === '1') {
+      queryList()
+    }
+  }, [activeKey]);
+
+  useEffect(() => {
+    const id:any = setInterval(() => {
+      if (activeKey === '1') {
+        queryList()
+      }
+    }, 5000);
+    setTimerId(id);
+    return () => {
+      clearInterval(timerId); // 组件卸载时清除定时器
+    };
   }, []);
 
   return (
     <ProList<any>
+      actionRef={actionRef}
       pagination={false}
-      showActions="hover"
       rowSelection={false}
       grid={{ gutter: 16, column: 3,}}
       onItem={(record: any) => {
@@ -69,16 +80,16 @@ const DeviceStatusPageProperty: React.FC<{
                 <div style={{fontWeight:'bold'}}>{entity.value === ""?"-":entity.value}</div>
               </div>
               <div>
-                <ClockCircleOutlined/><text style={{marginLeft:'5px'}}>更新时间:
+                <ClockCircleOutlined/><span style={{marginLeft:'5px'}}>更新时间:
                 {timestampToDateStr(Number(entity.update_time), 'YYYY-MM-DD HH:mm:ss.SSS')} 
-                </text>
+                </span>
               </div>
               </div>
         },
         },
         actions: {
           render(dom, entity, index, action, schema) {
-            return <DeviceStatusPagePropertyDetail deviceId={deviceId} record={entity}></DeviceStatusPagePropertyDetail>
+            return <DeviceStatusPagePropertyDetail deviceInfo={deviceInfo} record={entity}></DeviceStatusPagePropertyDetail>
           },
         },
       }}

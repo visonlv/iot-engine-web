@@ -86,7 +86,6 @@ const Page: React.FC = () => {
     },
     {
       title: '创建时间',
-      sorter: true,
       dataIndex: 'create_time',
       valueType: 'dateTime',
       render: (_, entity: API.protoResource) =>

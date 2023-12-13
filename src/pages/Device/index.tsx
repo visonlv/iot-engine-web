@@ -6,11 +6,9 @@ import { deviceServiceDel, deviceServicePage } from '@/services/thing/deviceServ
 import useTableDelete from '@/hooks/useTableDelete';
 import { timestampToDateStr } from '@/utils/date';
 import AddOrUpdateDevice from './components/AddOrUpdateDevice';
-import useGetSelectRoles from '@/hooks/useGetSelectRoleOption';
 import useGetSelectProducts from '@/hooks/useGetSelectProductOption';
 import { convert2ValueEnum } from '@/utils/const';
 import { history } from '@@/core/history';
-
 
 const DevicePage: React.FC = () => {
   const { deleteHandler } = useTableDelete();
@@ -75,10 +73,13 @@ const DevicePage: React.FC = () => {
     {
       title: '在线状态',
       dataIndex: 'online',
+      search:false,
+      renderText(text, record, index, action) {
+        return <>{record.online?"在线":"离线"}</>
+      },
     },
     {
       title: '创建时间',
-      sorter: true,
       search: false,
       dataIndex: 'create_time',
       valueType: 'dateTime',
@@ -97,10 +98,9 @@ const DevicePage: React.FC = () => {
               history.push('/device/detail/' + record.id);
             }}
           >
-            查看
+          查看
           </a>
-
-          <AddOrUpdateDevice flag="update" record={record} pageRef={pageRef} selectOptions={selectProducts.list} key="updateDevice" />,
+          <AddOrUpdateDevice flag="update" record={record} pageRef={pageRef} selectOptions={selectProducts.list} key="updateDevice" />
           <Button
             type="link"
             danger
@@ -109,7 +109,7 @@ const DevicePage: React.FC = () => {
             }}
             style={{ paddingRight: 10 }}
           >
-            删除
+          删除
           </Button>
         </>
       ),

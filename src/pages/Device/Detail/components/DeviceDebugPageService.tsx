@@ -1,31 +1,16 @@
-import useTableAdd from '@/hooks/useTableAdd';
-import useTableUpdate from '@/hooks/useTableUpdate';
-import { permissionServiceAdd, permissionServiceUpdate } from '@/services/auth/permissionService';
-import { resourceServicePage } from '@/services/auth/resourceService';
-import { forwardingServiceService, forwardingServiceSetProperties } from '@/services/shadow/forwardingService';
-import { msgLogServicePage } from '@/services/shadow/msgLogService';
-import { deviceServiceGet } from '@/services/thing/deviceService';
-import { productModelServiceGet, productModelServicePage } from '@/services/thing/productModelService';
-import { productServiceGet } from '@/services/thing/productService';
-import { PAGE_SIZE_MAX, RESOURCE_TYPE_API, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, THING_MODEL_TYPE_SERVICE, THING_SERVICE_DIR_TYPE, THING_SERVICE_DIR_TYPE_DOWN, convert2ValueEnum } from '@/utils/const';
-import { dateStrToTimestamp, timestampToDateStr } from '@/utils/date';
-import { LeftOutlined } from '@ant-design/icons';
+import { forwardingServiceService } from '@/services/shadow/forwardingService';
+import {  productModelServicePage } from '@/services/thing/productModelService';
+import { PAGE_SIZE_MAX, THING_MODEL_TYPE_SERVICE, THING_SERVICE_DIR_TYPE_DOWN } from '@/utils/const';
 
 import {
-  ProFormSelect,
   ProFormTextArea,
   ProFormSwitch,
   ProForm,
-  ProColumns,
-  ProTable,
-  ActionType,
-  ProDescriptions,
 } from '@ant-design/pro-components';
-import { Button, Card, Col, Tabs, Row, message, FormInstance } from 'antd';
+import { Card, Col, Tabs, Row, message, FormInstance } from 'antd';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 const { TabPane } = Tabs;
-
 const DeviceDebugPageService: React.FC<{
     productInfo: API.protoProduct;deviceInfo: API.protoDevice;
 }> = ({ productInfo, deviceInfo}) => {

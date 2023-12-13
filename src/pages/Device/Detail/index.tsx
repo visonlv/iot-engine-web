@@ -28,9 +28,21 @@ const IndexPage: React.FC = () => {
   const [productInfo, setProductInfo] = useState<API.protoProduct>({});
   const [deviceInfo, setDeviceInfo] = useState<API.protoDevice>({ name: '', id:params.id });
   const [mergeInfo, setMergeInfo] = useState<any>({} as any);
-  const pagePropertyRef = useRef<ActionType>();
-  const pageEventRef = useRef<ActionType>();
-  const pageServiceRef = useRef<ActionType>();
+  const transformRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_TRANSFORM),
+  );
+  const protocolRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_PROTOCOL),
+  );
+  const productTypeRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_TYPE),
+  );
+
+  const [activeKey, setActiveKey] = useState<string>('1');
+  const onChange = (key: string) => {
+    console.log("onChange key", key)
+    setActiveKey(key)
+  };
 
   const queryDeviceAndProduct = async () => {
     const body: API.protoDeviceGetReq = {
@@ -53,8 +65,12 @@ const IndexPage: React.FC = () => {
 
     const info = {...res.item!}  as any
     info.product_name = res1.item!.name
+    info.product_model = res1.item!.model
+    info.product_pk = res1.item!.pk
+    info.product_transform = res1.item!.transform
+    info.product_protocol = res1.item!.protocol
+    info.product_type = res1.item!.type
 
-    console.log("info", info)
     setMergeInfo(info)
   };
 
@@ -70,6 +86,7 @@ const IndexPage: React.FC = () => {
       onBack={() => history.back()}
     >
     <ProDescriptions
+      column={5}
       dataSource={mergeInfo}
       columns={[
         {
@@ -83,7 +100,7 @@ const IndexPage: React.FC = () => {
           copyable: true,
         },
         {
-          title: '接入标识',
+          title: '客户端id',
           dataIndex: 'pk',
           ellipsis: true,
           copyable: true,
@@ -91,20 +108,41 @@ const IndexPage: React.FC = () => {
               return record.pk + "|" + record.sn
           },
         },
+        {
+          title: '产品型号',
+          dataIndex: 'product_model',
+        },
+        {
+          title: '产品类型',
+          dataIndex: 'product_type',
+          valueType: 'select',
+          valueEnum: productTypeRef.current,
+        },
+        {
+          title: '传输类型',
+          dataIndex: 'product_transform',
+          valueType: 'select',
+          valueEnum: transformRef.current,
+        },
+        {
+          title: '协议',
+          dataIndex: 'product_protocol',
+          valueType: 'select',
+          valueEnum: protocolRef.current,
+        },
       ]}
     >
     </ProDescriptions>
       <Card>
         <Tabs  
           defaultActiveKey='1'
-          onChange={(index)=>{
-          }}
+          onChange={onChange}
         >
         <TabPane tab="基础信息" key="1">
-            <DeviceBaseTabPage deviceInfo={deviceInfo} />,
+            <DeviceBaseTabPage activeKey={activeKey} deviceInfo={deviceInfo} />,
         </TabPane>
         <TabPane tab="设备状态" key="2">
-            <DeviceStatusPage deviceId={deviceInfo.id!} />,
+            <DeviceStatusPage parentActiveKey={activeKey} deviceInfo={deviceInfo} />,
         </TabPane>
         <TabPane tab="物模型" key="3">
             <ModelTabPage productInfo={productInfo} />,
@@ -114,10 +152,10 @@ const IndexPage: React.FC = () => {
           <DeviceDebugPage productInfo={productInfo} deviceInfo={deviceInfo}></DeviceDebugPage>
         </TabPane>
         <TabPane tab="真机模拟" key="5">
-        <DeviceSimulationPage productInfo={productInfo} deviceInfo={deviceInfo}></DeviceSimulationPage>
+        <DeviceSimulationPage activeKey={activeKey} productInfo={productInfo} deviceInfo={deviceInfo}></DeviceSimulationPage>
         </TabPane>
         <TabPane tab="交互日志" key="6">
-          <DeviceLogPage deviceId={deviceInfo.id!}></DeviceLogPage>
+          <DeviceLogPage activeKey={activeKey} productInfo={productInfo} deviceInfo={deviceInfo}></DeviceLogPage>
         </TabPane>
         </Tabs>
       </Card>

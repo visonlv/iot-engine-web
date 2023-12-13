@@ -1,15 +1,6 @@
-import useTableAdd from '@/hooks/useTableAdd';
-import useTableUpdate from '@/hooks/useTableUpdate';
-import { permissionServiceAdd, permissionServiceUpdate } from '@/services/auth/permissionService';
-import { resourceServicePage } from '@/services/auth/resourceService';
-import { forwardingServicePublishMsg, forwardingServiceSetProperties } from '@/services/shadow/forwardingService';
-import { msgLogServicePage } from '@/services/shadow/msgLogService';
-import { deviceServiceGet } from '@/services/thing/deviceService';
-import { productModelServiceGet, productModelServicePage } from '@/services/thing/productModelService';
-import { productServiceGet } from '@/services/thing/productService';
-import { PAGE_SIZE_MAX, RESOURCE_TYPE_API, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, convert2ValueEnum, THING_MODEL_TYPE, THING_SERVICE_DIR_TYPE_DOWN } from '@/utils/const';
-import { dateStrToTimestamp, timestampToDateStr } from '@/utils/date';
-import { LeftOutlined } from '@ant-design/icons';
+import { forwardingServicePublishMsg } from '@/services/shadow/forwardingService';
+import {  productModelServicePage } from '@/services/thing/productModelService';
+import { PAGE_SIZE_MAX, convert2ValueEnum, THING_MODEL_TYPE, THING_SERVICE_DIR_TYPE_DOWN } from '@/utils/const';
 
 import {
   ProFormSelect,
@@ -17,15 +8,11 @@ import {
   ProFormText,
   ProForm,
   ProFormSwitch,
-  ProTable,
-  ActionType,
-  ProDescriptions,
 } from '@ant-design/pro-components';
-import { Button, Card, Col, Tabs, Row, message, FormInstance } from 'antd';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Card, Col, Tabs, Row, message, FormInstance } from 'antd';
+import { useEffect, useRef, useState } from 'react';
 
 const { TabPane } = Tabs;
-
 const DeviceDebugPageCommon: React.FC<{
     productInfo: API.protoProduct;deviceInfo: API.protoDevice;
 }> = ({ productInfo, deviceInfo}) => {
@@ -204,8 +191,6 @@ const DeviceDebugPageCommon: React.FC<{
                         rows:18,
                     }}
                 />
-
-            
             </ProForm>
             </Col>
             <Col span={12}>

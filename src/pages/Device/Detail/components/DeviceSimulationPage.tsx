@@ -1,34 +1,20 @@
-import useTableAdd from '@/hooks/useTableAdd';
-import useTableUpdate from '@/hooks/useTableUpdate';
-import { permissionServiceAdd, permissionServiceUpdate } from '@/services/auth/permissionService';
-import { resourceServicePage } from '@/services/auth/resourceService';
-import { forwardingServiceSetProperties, forwardingServiceSetProperty } from '@/services/shadow/forwardingService';
-import { msgLogServicePage } from '@/services/shadow/msgLogService';
-import { deviceServiceGet } from '@/services/thing/deviceService';
-import { productModelServiceGet, productModelServicePage } from '@/services/thing/productModelService';
-import { productServiceGet } from '@/services/thing/productService';
-import { PAGE_SIZE_MAX, RESOURCE_TYPE_API, THING_EVENT_TYPE, THING_MODEL_TYPE_EVENT, THING_MODEL_TYPE_PROPERTY, convert2ValueEnum } from '@/utils/const';
-import { dateStrToTimestamp, timestampToDateStr } from '@/utils/date';
-import { LeftOutlined } from '@ant-design/icons';
+import {  timestampToDateStr } from '@/utils/date';
 
 import {
   ProFormSelect,
   ProFormText,
-  ProFormSwitch,
   ProForm,
-  ProColumns,
   ProTable,
   ActionType,
-  ProDescriptions,
 } from '@ant-design/pro-components';
-import { Button, Card, Col, Tabs, Row, message, FormInstance } from 'antd';
-import { useEffect, useMemo, useRef, useState } from 'react';
-
-const { TabPane } = Tabs;
+import { Button, Col,  Row, message, FormInstance } from 'antd';
+import { useEffect, useRef, useState } from 'react';
 
 const DeviceSimulationPage: React.FC<{
-    productInfo: API.protoProduct;deviceInfo: API.protoDevice;
-}> = ({ productInfo, deviceInfo}) => {
+    activeKey:string;
+    productInfo: API.protoProduct;
+    deviceInfo: API.protoDevice;
+}> = ({ activeKey,productInfo, deviceInfo}) => {
     const connectFormRef = useRef<FormInstance>();
     const subFormRef = useRef<FormInstance>();
     const pubFormRef = useRef<FormInstance>();
@@ -38,8 +24,14 @@ const DeviceSimulationPage: React.FC<{
     const [subMsgList, setSubMsgList] = useState<any[]>([])
     const [pubMsgList, setPubMsgList] = useState<any[]>([])
     const subMsgListRef = useRef<any[]>([])
-    const pubMsgListRef = useRef<any[]>([])
     const [connectStatus, setConnectStatus] = useState('DisConnect')
+
+    useEffect(() => {
+        if (connectStatus === 'Connected') {
+            console.log("disconnect")
+            OnDisConnect()
+        }
+    }, [activeKey]);
 
     const OnConnect = () => {
         const ok = connectFormRef.current?.validateFields()
@@ -49,7 +41,7 @@ const DeviceSimulationPage: React.FC<{
             const { path, host, client_id, port, username, password } = values
             const url = `ws://${host}:${port}${path}`
             const options = {
-                client_id,
+                clientId:client_id,
                 username,
                 password,
                 clean: true,
@@ -65,6 +57,9 @@ const DeviceSimulationPage: React.FC<{
 
     const OnDisConnect = () => {
         setSubList([])
+        setSubMsgList([])
+        setPubMsgList([])
+        subMsgListRef.current=  []
         mqttDisconnect()
     }
 
