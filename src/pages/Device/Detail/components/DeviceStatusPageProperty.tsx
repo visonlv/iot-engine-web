@@ -8,9 +8,10 @@ import { timestampToDateStr } from '@/utils/date';
 import DeviceStatusPagePropertyDetail from './DeviceStatusPagePropertyDetail';
 
 const DeviceStatusPageProperty: React.FC<{
+  parentActiveKey:string;
   activeKey:string;
   deviceInfo: API.protoDevice;
-}> = ({activeKey,deviceInfo}) => {
+}> = ({parentActiveKey, activeKey, deviceInfo}) => {
   const actionRef = useRef<ActionType>();
   const [propertysData, setPropertysData] = useState<any[]>([] as any[]);
   const [timerId, setTimerId] = useState<any>(null);
@@ -34,22 +35,26 @@ const DeviceStatusPageProperty: React.FC<{
   };
 
   useEffect(() => {
-    if (activeKey === '1') {
+    if (parentActiveKey === '2' && activeKey === '1') {
       queryList()
-    }
-  }, [activeKey]);
+    } 
+  }, []);
 
   useEffect(() => {
-    const id:any = setInterval(() => {
-      if (activeKey === '1') {
-        queryList()
+    console.log("parentActiveKey", parentActiveKey, "activeKey", activeKey)
+    if (parentActiveKey === '2' && activeKey === '1') {
+      const id:any = setInterval(() => {
+          queryList()
+      }, 5000);
+      setTimerId(id);
+    } else {
+      if (timerId !== null) {
+        console.log("clearInterval")
+        clearInterval(timerId);
+        setTimerId(null)
       }
-    }, 5000);
-    setTimerId(id);
-    return () => {
-      clearInterval(timerId); // 组件卸载时清除定时器
-    };
-  }, []);
+    }
+  }, [parentActiveKey, activeKey]);
 
   return (
     <ProList<any>

@@ -14,10 +14,11 @@ import {
 import { Button, FormInstance, message } from 'antd';
 import { useEffect, useRef } from 'react';
 
-const DeviceStatusPageEvent: React.FC<{
+const DeviceStatusPageEvent:  React.FC<{
+  parentActiveKey:string;
   activeKey:string;
-  deviceInfo : API.protoDevice,
-}> = ({activeKey,deviceInfo}) => {
+  deviceInfo: API.protoDevice;
+}> = ({parentActiveKey, activeKey,deviceInfo}) => {
   const formParams = useRef<any>({});
   const pageRef = useRef<ActionType>();
   const formInstanceRef = useRef<FormInstance>();

@@ -67,7 +67,7 @@ const IndexPage: React.FC = () => {
 
     setMergeInfo(info)
 
-    setActiveKey(getDeviceDetailTabId)
+    setActiveKey(getDeviceDetailTabId())
   };
 
   useEffect(() => {
