@@ -18,6 +18,14 @@ declare namespace API {
     create_time?: string;
     /** 是否在线 */
     online?: boolean;
+    /** 父设备id */
+    p_id?: string;
+    /** 父设备名称 */
+    p_name?: string;
+    /** 产品类型 */
+    product_type?: string;
+    /** 产品类型 */
+    product_name?: string;
   };
 
   type protoDeviceAddReq = {
@@ -29,6 +37,8 @@ declare namespace API {
     sn?: string;
     /** 设备秘钥 */
     secret?: string;
+    /** 父设备id */
+    p_id?: string;
     /** 描述 */
     desc?: string;
   };
@@ -75,6 +85,14 @@ declare namespace API {
     item?: protoDevice;
   };
 
+  type protoDeviceListGatewayReq = {};
+
+  type protoDeviceListGatewayResp = {
+    code?: number;
+    msg?: string;
+    items?: protoDevice[];
+  };
+
   type protoDeviceListReq = {
     /** 产品pk */
     pk?: string;
@@ -82,6 +100,8 @@ declare namespace API {
     name?: string;
     /** 设备sn */
     sn?: string;
+    /** 父设备id */
+    p_id?: string;
   };
 
   type protoDeviceListResp = {
@@ -101,6 +121,8 @@ declare namespace API {
     name?: string;
     /** 设备sn */
     sn?: string;
+    /** 父设备id */
+    p_id?: string;
   };
 
   type protoDevicePageResp = {
@@ -140,6 +162,8 @@ declare namespace API {
     secret?: string;
     /** 描述 */
     desc?: string;
+    /** 父设备id */
+    p_id?: string;
   };
 
   type protoDeviceUpdateResp = {

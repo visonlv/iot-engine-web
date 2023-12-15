@@ -13,6 +13,7 @@ import { getModelTabId, setModelTabId } from '@/utils/store';
 import { downloadFunction } from '@/utils/utils';
 import { DownloadOutlined, EyeOutlined, ImportOutlined } from '@ant-design/icons';
 import ReactJson from 'react-json-view';
+import DevicePage from '@/pages/Device';
 
 const ShowModelJson: React.FC<{
   info: any;
@@ -206,6 +207,8 @@ const IndexPage: React.FC = () => {
           <TabPane tab="事件" key="3">
             <ModelEventPage changeIndex={changeIndex} productInfo={productInfo} key="ModelEventPage" />
           </TabPane>
+        
+          
         </Tabs>
       </Card>
     </PageContainer>

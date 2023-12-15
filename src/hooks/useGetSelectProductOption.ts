@@ -1,12 +1,11 @@
 import message from 'antd/lib/message';
-import { roleServicePage } from '@/services/auth/roleService';
 import { useState } from 'react';
 import { PAGE_SIZE_MAX } from '@/utils/const';
 import { productServicePage } from '@/services/thing/productService';
 
 type selectResult = {
-  list: { label: string; value: string }[];
-  map: { [key: string]: { label: string; value: string } };
+  list: { label: string; value: string, info: API.protoProduct }[];
+  map: { [key: string]: { label: string; value: string, info: API.protoProduct } };
 };
 
 const useGetSelectProducts = () => {
@@ -21,10 +20,11 @@ const useGetSelectProducts = () => {
         return {
           label: item.name,
           value: item.pk,
-        } as { label: string; value: string };
+          info:item,
+        } as { label: string; value: string, info: API.protoProduct };
       });
 
-      const m: { [key: string]: { label: string; value: string } } = {};
+      const m: { [key: string]: { label: string; value: string, info: API.protoProduct } } = {};
       for (let v of list) {
         m[v.value] = v;
       }

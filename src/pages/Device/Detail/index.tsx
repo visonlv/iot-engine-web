@@ -1,26 +1,19 @@
-import { Button, Card,  Tabs, Upload, message } from 'antd';
-import { PageContainer,ProDescriptions,ActionType,ModalForm } from '@ant-design/pro-components';
+import {  Card,  Tabs,  } from 'antd';
+import { PageContainer,ProDescriptions } from '@ant-design/pro-components';
 import { history } from '@@/core/history';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect,  useRef, useState } from 'react';
 import { useParams } from '@umijs/max';
-import { productServiceGet, productServiceGetModel, productServiceUpdateModel } from '@/services/thing/productService';
-import { THING_PRODUCT_PROTOCOL, THING_PRODUCT_TRANSFORM, THING_PRODUCT_TYPE, convert2ValueEnum } from '@/utils/const';
-import { timestampToDateStr } from '@/utils/date';
-import { getModelTabId, setModelTabId } from '@/utils/store';
-import { downloadFunction } from '@/utils/utils';
-import { DownloadOutlined, EyeOutlined, ImportOutlined } from '@ant-design/icons';
-import ReactJson from 'react-json-view';
+import { productServiceGet } from '@/services/thing/productService';
+import { THING_PRODUCT_PROTOCOL, THING_PRODUCT_TRANSFORM, THING_PRODUCT_TYPE, THING_PRODUCT_TYPE_GATEWAY, convert2ValueEnum } from '@/utils/const';
 import { deviceServiceGet } from '@/services/thing/deviceService';
-import ModelPropertyPage from '@/pages/Product/detail/components/ModelPropertyPage';
-import ModelServicePage from '@/pages/Product/detail/components/ModelServicePage';
-import ModelEventPage from '@/pages/Product/detail/components/ModelEventPage';
 import ModelTabPage from './components/ModelTabPage';
 import DeviceBaseTabPage from './components/DeviceBaseTabPage';
 import DeviceStatusPage from './components/DeviceStatusPage';
 import DeviceLogPage from './components/DeviceLogPage';
 import DeviceDebugPage from './components/DeviceDebugPage';
 import DeviceSimulationPage from './components/DeviceSimulationPage';
-
+import DeviceChilePage from './components/DeviceChilePage';
+import { getDeviceDetailTabId, setDeviceDetailTabId } from '@/utils/store';
 
 const { TabPane } = Tabs;
 const IndexPage: React.FC = () => {
@@ -41,6 +34,7 @@ const IndexPage: React.FC = () => {
   const [activeKey, setActiveKey] = useState<string>('1');
   const onChange = (key: string) => {
     console.log("onChange key", key)
+    setDeviceDetailTabId(key)
     setActiveKey(key)
   };
 
@@ -72,13 +66,13 @@ const IndexPage: React.FC = () => {
     info.product_type = res1.item!.type
 
     setMergeInfo(info)
+
+    setActiveKey(getDeviceDetailTabId)
   };
 
   useEffect(() => {
     queryDeviceAndProduct();
   }, []);
-
-  
 
   return (
     <PageContainer
@@ -132,10 +126,11 @@ const IndexPage: React.FC = () => {
         },
       ]}
     >
+
     </ProDescriptions>
       <Card>
         <Tabs  
-          defaultActiveKey='1'
+          activeKey={activeKey}
           onChange={onChange}
         >
         <TabPane tab="基础信息" key="1">
@@ -157,7 +152,12 @@ const IndexPage: React.FC = () => {
         <TabPane tab="交互日志" key="6">
           <DeviceLogPage activeKey={activeKey} productInfo={productInfo} deviceInfo={deviceInfo}></DeviceLogPage>
         </TabPane>
+        {(productInfo.type === THING_PRODUCT_TYPE_GATEWAY) && (<TabPane tab="子设备" key="7">
+          <DeviceChilePage activeKey={activeKey} deviceId={params.id}></DeviceChilePage>
+        </TabPane>
+        )}
         </Tabs>
+        
       </Card>
     </PageContainer>
   );

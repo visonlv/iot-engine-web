@@ -77,6 +77,21 @@ export async function deviceServiceList(
   });
 }
 
+/** 网关设备列表 POST /rpc/thing/DeviceService.ListGateway */
+export async function deviceServiceListGateway(
+  body: API.protoDeviceListGatewayReq,
+  options?: { [key: string]: any },
+) {
+  return request<API.protoDeviceListGatewayResp>('/rpc/thing/DeviceService.ListGateway', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** 设备分页 POST /rpc/thing/DeviceService.Page */
 export async function deviceServicePage(
   body: API.protoDevicePageReq,

@@ -82,10 +82,14 @@ export const THING_PRODUCT_PROTOCOL = [
   { value: 'mqtt5', label: 'mqtt5' },
 ];
 
+
+export const THING_PRODUCT_TYPE_DIRECT = 'direct'
+export const THING_PRODUCT_TYPE_GATEWAY = 'gateway'
+export const THING_PRODUCT_TYPE_CHILE = 'child'
 export const THING_PRODUCT_TYPE = [
-  { value: 'direct', label: '直连设备' },
-  { value: 'gateway', label: '网关' },
-  { value: 'child', label: '子设备' },
+  { value: THING_PRODUCT_TYPE_DIRECT, label: '直连设备' },
+  { value: THING_PRODUCT_TYPE_GATEWAY, label: '网关' },
+  { value: THING_PRODUCT_TYPE_CHILE, label: '子设备' },
 ];
 
 export const THING_PRODUCT_TRANSFORM = [

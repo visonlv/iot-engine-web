@@ -30,5 +30,13 @@ export const setModelTabId = (tabId: string) => {
 };
 
 export const getModelTabId = () => {
-  return localStorage.getItem(`${PREFIX}-modelTabId`) ?? '';
+  return localStorage.getItem(`${PREFIX}-modelTabId`) ?? "1";
+};
+
+export const setDeviceDetailTabId = (tabId: string) => {
+  return localStorage.setItem(`${PREFIX}-deviceDetailTabId`, tabId);
+};
+
+export const getDeviceDetailTabId = () => {
+  return localStorage.getItem(`${PREFIX}-deviceDetailTabId`) ?? "1";
 };

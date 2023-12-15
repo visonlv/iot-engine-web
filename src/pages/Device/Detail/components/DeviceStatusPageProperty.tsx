@@ -68,7 +68,10 @@ const DeviceStatusPageProperty: React.FC<{
         title: {dataIndex:"name"},
         subTitle: {
           render(dom, entity, index, action, schema) {
-              return <Tag color="#5BD8A6">{entity.type}</Tag>
+              return <>
+              <Tag color="#00BFFF">{entity.code}</Tag>
+              <Tag color="#5BD8A6">{entity.type}</Tag>
+              </>
           },
         },
         type: {},

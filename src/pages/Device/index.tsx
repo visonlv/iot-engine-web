@@ -7,14 +7,17 @@ import useTableDelete from '@/hooks/useTableDelete';
 import { timestampToDateStr } from '@/utils/date';
 import AddOrUpdateDevice from './components/AddOrUpdateDevice';
 import useGetSelectProducts from '@/hooks/useGetSelectProductOption';
-import { convert2ValueEnum } from '@/utils/const';
+import { THING_PRODUCT_TYPE, THING_PRODUCT_TYPE_GATEWAY, convert2ValueEnum } from '@/utils/const';
 import { history } from '@@/core/history';
+import { setDeviceDetailTabId } from '@/utils/store';
 
 const DevicePage: React.FC = () => {
   const { deleteHandler } = useTableDelete();
   const pageRef = useRef<ActionType>();
   const { selectProducts, querySelectProducts } = useGetSelectProducts();
-
+  const productTypeRef = useRef<{ [key: string]: { text: string } }>(
+    convert2ValueEnum(THING_PRODUCT_TYPE),
+  );
   // 删除操作
   const showDeleteConfirm = (record: API.protoDevice) => {
     const body: API.protoDeviceDelReq = {
@@ -60,6 +63,11 @@ const DevicePage: React.FC = () => {
       dataIndex: 'sn',
     },
     {
+      title: '设备类型',
+      dataIndex: 'product_type',
+      valueEnum: productTypeRef.current,
+    },
+    {
       title: '密钥',
       dataIndex: 'secret',
       search: false,
@@ -92,14 +100,28 @@ const DevicePage: React.FC = () => {
       key: 'option',
       render: (text, record: API.protoDevice) => (
         <>
-        <a
-            key="show"
+          {record.product_type === THING_PRODUCT_TYPE_GATEWAY && (<Button
+            type="link"
             onClick={() => {
+              setDeviceDetailTabId("7")
               history.push('/device/detail/' + record.id);
             }}
+            style={{ paddingRight: 10 }}
+          >
+          子设备
+          </Button>)}
+          
+          <Button
+            type="link"
+            onClick={() => {
+              setDeviceDetailTabId("1")
+              history.push('/device/detail/' + record.id);
+            }}
+            style={{ paddingRight: 10 }}
           >
           查看
-          </a>
+          </Button>
+
           <AddOrUpdateDevice flag="update" record={record} pageRef={pageRef} selectOptions={selectProducts.list} key="updateDevice" />
           <Button
             type="link"
