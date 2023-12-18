@@ -29,7 +29,7 @@ export default {
   dev: {
     // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
     '/rpc/': {
-      target: 'http://127.0.0.1:8080',
+      target: 'http://10.55.134.213:8080',
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },

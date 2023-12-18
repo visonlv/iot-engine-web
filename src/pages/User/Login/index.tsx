@@ -151,6 +151,9 @@ const Login: React.FC = () => {
               fieldProps={{
                 size: 'large',
                 prefix: <UserOutlined />,
+                style: {
+                  marginTop: loginCode !== 0 ? '0px' : '20px',
+                },
               }}
               placeholder={'用户名'}
               rules={[
