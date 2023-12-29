@@ -97,6 +97,12 @@ export const THING_PRODUCT_TRANSFORM = [
   { value: 'raw', label: '透传' },
 ];
 
+export const NOTIFY_TYPE_EMAIL = "email"
+export const NOTIFY_TYPE_WEBHOOK = "webhook"
+export const NOTIFY_TYPE = [
+  { value: NOTIFY_TYPE_EMAIL, label: '邮箱' },
+  { value: NOTIFY_TYPE_WEBHOOK, label: 'Webhook' },
+];
 
 
 export function convert2ValueEnum(list: { value: string; label: string }[]): {

@@ -93,6 +93,21 @@ export default [
     component: './Device',
   },
   {
+    name: 'notifyConfigIndex',
+    path: '/notify_config',
+    component: './NotifyConfig',
+  },
+  {
+    name: 'notifyTemplateIndex',
+    path: '/notify_tlp',
+    component: './NotifyTemplate',
+  },
+  {
+    name: 'notifyLogIndex',
+    path: '/notify_log',
+    component: './NotifyLog',
+  },
+  {
     path: '/welcome',
     name: 'welcome',
     icon: 'smile',

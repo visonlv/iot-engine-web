@@ -1,4 +1,6 @@
-import { THING_DATA_TYPE_ARRAY, THING_DATA_TYPE_BOOL, THING_DATA_TYPE_FLOAT, THING_DATA_TYPE_INT, THING_DATA_TYPE_OBJECT, THING_DATA_TYPE_STRING } from "./const";
+import { json } from "express";
+import { NOTIFY_TYPE_EMAIL, THING_DATA_TYPE_ARRAY, THING_DATA_TYPE_BOOL, THING_DATA_TYPE_FLOAT, THING_DATA_TYPE_INT, THING_DATA_TYPE_OBJECT, THING_DATA_TYPE_STRING } from "./const";
+import { toNumber } from "lodash";
 
 // 属性定义
 export type ModelProperty = {
@@ -216,4 +218,115 @@ export const decodeServiceData = (data: any) => {
     }
 
     return p
+}
+
+export type NotifyConfig = {
+  id: string;
+  name: string;
+  notify_type: string;
+  notify_config: string;
+  desc: string;
+
+  email_addr : string;
+  email_port : number;
+  email_ssl : boolean;
+  email_sender : string;
+  email_password : string;
+
+  webhook_url : string;
+  webhook_headers : any[];
+}
+
+export const encodeNotifyConfig = (values: any) => {
+  let configDef = {
+    id:values.id,
+    name:values.name,
+    notify_type:values.notify_type,
+    notify_config:values.notify_config,
+    desc:values.desc,
+  }
+
+  let notify_config_obj :any = {}
+  if (configDef.notify_type === NOTIFY_TYPE_EMAIL) {
+    notify_config_obj.addr = values.email_addr
+    notify_config_obj.port = toNumber(values.email_port)
+    notify_config_obj.ssl = values.email_ssl
+    notify_config_obj.sender = values.email_sender
+    notify_config_obj.password = values.email_password
+  } else {
+    notify_config_obj.url = values.webhook_url
+    notify_config_obj.headers = values.webhook_headers
+  }
+  configDef.notify_config = JSON.stringify(notify_config_obj)
+  return configDef
+}
+
+export const decodeNotifyConfig = (data: any) => {
+  const notify_config_obj = JSON.parse(data.notify_config)
+  if (data.notify_type === NOTIFY_TYPE_EMAIL) {
+    data.email_addr = notify_config_obj.addr
+    data.email_port = toNumber(notify_config_obj.port)
+    data.email_ssl = notify_config_obj.ssl
+    data.email_sender = notify_config_obj.sender
+    data.email_password = notify_config_obj.password
+  } else {
+    data.webhook_url = notify_config_obj.url
+    data.webhook_headers = notify_config_obj.headers
+  }
+
+  return data
+}
+
+export type NotifyTemplate = {
+  id: string;
+  name: string;
+  notify_type: string;
+  notify_config_id: string;
+  notify_template: string;
+  desc: string;
+
+  email_title : string;
+  email_receivers : number;
+  email_content : boolean;
+
+  webhook_content : string;
+  webhook_is_custom : boolean;
+}
+
+export const encodeNotifyTemplate = (values: any) => {
+  let configDef = {
+    id:values.id,
+    name:values.name,
+    notify_type:values.notify_type,
+    notify_config_id:values.notify_config_id,
+    notify_template:values.notify_template,
+    desc:values.desc,
+  }
+
+  let notify_template_obj :any = {}
+  if (configDef.notify_type === NOTIFY_TYPE_EMAIL) {
+    notify_template_obj.title = values.email_title
+    notify_template_obj.receivers = values.email_receivers
+    notify_template_obj.content = values.email_content
+  } else {
+    notify_template_obj.content = values.webhook_content
+    notify_template_obj.is_custom = values.webhook_is_custom
+  }
+  configDef.notify_template = JSON.stringify(notify_template_obj)
+  return configDef
+}
+
+export const decodeNotifyTemplate = (data: any) => {
+  const notify_template_obj = JSON.parse(data.notify_template)
+  if (data.notify_type === NOTIFY_TYPE_EMAIL) {
+    data.email_title = notify_template_obj.title
+    data.email_receivers = notify_template_obj.receivers
+    data.email_content = notify_template_obj.content
+
+  } else {
+    data.webhook_content = notify_template_obj.content
+    data.webhook_is_custom = notify_template_obj.is_custom
+  }
+
+  return data
 }

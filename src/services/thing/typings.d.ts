@@ -172,6 +172,283 @@ declare namespace API {
     id?: string;
   };
 
+  type protoNotifyConfig = {
+    /** 通知配置id */
+    id?: string;
+    /** 通知配置名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知数据 */
+    notify_config?: string;
+    /** 描述 */
+    desc?: string;
+    /** 创建时间 */
+    create_time?: string;
+  };
+
+  type protoNotifyConfigAddReq = {
+    /** 通知配置名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知数据 */
+    notify_config?: string;
+    /** 描述 */
+    desc?: string;
+    /** 创建时间 */
+    create_time?: string;
+  };
+
+  type protoNotifyConfigAddResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoNotifyConfigDelReq = {
+    /** 通知配置id */
+    id?: string;
+  };
+
+  type protoNotifyConfigDelResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoNotifyConfigGetReq = {
+    /** 通知配置id */
+    id?: string;
+  };
+
+  type protoNotifyConfigGetResp = {
+    code?: number;
+    msg?: string;
+    item?: protoNotifyConfig;
+  };
+
+  type protoNotifyConfigListReq = {
+    /** 通知配置名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 结果过滤 */
+    only_id_and_name?: boolean;
+  };
+
+  type protoNotifyConfigListResp = {
+    code?: number;
+    msg?: string;
+    items?: protoNotifyConfig[];
+  };
+
+  type protoNotifyConfigPageReq = {
+    /** 第几页，从1开始 */
+    page_index?: number;
+    /** 每页多少条 */
+    page_size?: number;
+    /** 通知配置名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+  };
+
+  type protoNotifyConfigPageResp = {
+    code?: number;
+    msg?: string;
+    total?: number;
+    items?: protoNotifyConfig[];
+  };
+
+  type protoNotifyConfigUpdateReq = {
+    /** 通知配置id */
+    id?: string;
+    /** 通知配置名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知数据 */
+    notify_config?: string;
+    /** 描述 */
+    desc?: string;
+  };
+
+  type protoNotifyConfigUpdateResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoNotifyLog = {
+    /** 通知日志id */
+    id?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+    notify_config?: protoNotifyConfig;
+    /** 通知模板id */
+    notify_template_id?: string;
+    notify_template?: protoNotifyTemplate;
+    /** 消息内容 */
+    content?: string;
+    /** 执行状态 */
+    result_status?: number;
+    /** 执行结果 */
+    result?: string;
+    /** 创建时间 */
+    create_time?: string;
+  };
+
+  type protoNotifyLogDelReq = {
+    /** 通知日志id */
+    id?: string;
+  };
+
+  type protoNotifyLogDelResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoNotifyLogPageReq = {
+    /** 第几页，从1开始 */
+    page_index?: number;
+    /** 每页多少条 */
+    page_size?: number;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+    /** 通知模板id */
+    notify_template_id?: string;
+  };
+
+  type protoNotifyLogPageResp = {
+    code?: number;
+    msg?: string;
+    total?: number;
+    items?: protoNotifyLog[];
+  };
+
+  type protoNotifyTemplate = {
+    /** 通知模板id */
+    id?: string;
+    /** 通知模板名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知模板数据 */
+    notify_template?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+    notify_config?: protoNotifyConfig;
+    /** 描述 */
+    desc?: string;
+    /** 创建时间 */
+    create_time?: string;
+  };
+
+  type protoNotifyTemplateAddReq = {
+    /** 通知模板名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知模板数据 */
+    notify_template?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+    /** 描述 */
+    desc?: string;
+  };
+
+  type protoNotifyTemplateAddResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoNotifyTemplateDelReq = {
+    /** 通知模板id */
+    id?: string;
+  };
+
+  type protoNotifyTemplateDelResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoNotifyTemplateGetReq = {
+    /** 通知模板id */
+    id?: string;
+  };
+
+  type protoNotifyTemplateGetResp = {
+    code?: number;
+    msg?: string;
+    item?: protoNotifyTemplate;
+  };
+
+  type protoNotifyTemplateListReq = {
+    /** 通知模板名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+    /** 结果过滤 */
+    only_id_and_name?: boolean;
+  };
+
+  type protoNotifyTemplateListResp = {
+    code?: number;
+    msg?: string;
+    items?: protoNotifyTemplate[];
+  };
+
+  type protoNotifyTemplatePageReq = {
+    /** 第几页，从1开始 */
+    page_index?: number;
+    /** 每页多少条 */
+    page_size?: number;
+    /** 通知模板名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+  };
+
+  type protoNotifyTemplatePageResp = {
+    code?: number;
+    msg?: string;
+    total?: number;
+    items?: protoNotifyTemplate[];
+  };
+
+  type protoNotifyTemplateUpdateReq = {
+    /** 通知模板id */
+    id?: string;
+    /** 通知模板名称 */
+    name?: string;
+    /** 通知类型 */
+    notify_type?: string;
+    /** 通知模板数据 */
+    notify_template?: string;
+    /** 通知配置id */
+    notify_config_id?: string;
+    /** 描述 */
+    desc?: string;
+  };
+
+  type protoNotifyTemplateUpdateResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
   type protoProduct = {
     /** 产品id 创建为空 */
     id?: string;
@@ -438,6 +715,116 @@ declare namespace API {
   };
 
   type protoProductUpdateResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoRule = {
+    /** 规则id */
+    id?: string;
+    /** 规则名称 */
+    name?: string;
+    /** 触发类型 */
+    trigger_type?: string;
+    /** 触发元数据 */
+    trigger?: string;
+    /** 动作元数据 */
+    action?: string;
+    /** 描述 */
+    desc?: string;
+    /** 创建时间 */
+    create_time?: string;
+  };
+
+  type protoRuleAddReq = {
+    /** 规则名称 */
+    name?: string;
+    /** 触发类型 */
+    trigger_type?: string;
+    /** 触发元数据 */
+    trigger?: string;
+    /** 动作元数据 */
+    action?: string;
+    /** 描述 */
+    desc?: string;
+  };
+
+  type protoRuleAddResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoRuleDelReq = {
+    /** 规则id */
+    id?: string;
+  };
+
+  type protoRuleDelResp = {
+    code?: number;
+    msg?: string;
+    id?: string;
+  };
+
+  type protoRuleGetReq = {
+    /** 规则id */
+    id?: string;
+  };
+
+  type protoRuleGetResp = {
+    code?: number;
+    msg?: string;
+    item?: protoRule;
+  };
+
+  type protoRuleListReq = {
+    /** 规则名称 */
+    name?: string;
+    /** 触发类型 */
+    trigger_type?: string;
+  };
+
+  type protoRuleListResp = {
+    code?: number;
+    msg?: string;
+    items?: protoRule[];
+  };
+
+  type protoRulePageReq = {
+    /** 第几页，从1开始 */
+    page_index?: number;
+    /** 每页多少条 */
+    page_size?: number;
+    /** 规则名称 */
+    name?: string;
+    /** 触发类型 */
+    trigger_type?: string;
+  };
+
+  type protoRulePageResp = {
+    code?: number;
+    msg?: string;
+    total?: number;
+    items?: protoRule[];
+  };
+
+  type protoRuleUpdateReq = {
+    /** 规则id */
+    id?: string;
+    /** 规则名称 */
+    name?: string;
+    /** 触发类型 */
+    trigger_type?: string;
+    /** 触发元数据 */
+    trigger?: string;
+    /** 动作元数据 */
+    action?: string;
+    /** 描述 */
+    desc?: string;
+  };
+
+  type protoRuleUpdateResp = {
     code?: number;
     msg?: string;
     id?: string;
